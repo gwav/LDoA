@@ -1,9 +1,9 @@
-import {BSHActor} from './modules/documents/bsh_actor.js';
-import BSHCombat from './modules/combat.js';
-import {BSHConfiguration} from './modules/configuration.js';
+import {ldoaActor} from './modules/documents/ldoa_actor.js';
+import ldoaCombat from './modules/combat.js';
+import {ldoaConfiguration} from './modules/configuration.js';
 import {CLASSIC_ORIGINS} from './modules/constants.js';
 import {runMigrations} from './modules/migrations.js';
-import {BSHItem} from './modules/documents/bsh_item.js';
+import {ldoaItem} from './modules/documents/ldoa_item.js';
 import CharacterSheet from './modules/sheets/character-sheet.js';
 import ConsumableSheet from './modules/sheets/consumable-sheet.js';
 import CreatureActionSheet from './modules/sheets/creature-action-sheet.js';
@@ -20,71 +20,71 @@ import {getBackgrounds, getOrigins} from './modules/origins.js';
 import {capitalize, stringToKey} from './modules/shared.js';
 
 async function preloadHandlebarsTemplates() {
-    const paths = ["systems/black-sword-hack/templates/messages/attack-roll.hbs",
-                   "systems/black-sword-hack/templates/messages/damage.hbs",
-                   "systems/black-sword-hack/templates/messages/damage-roll.hbs",
-                   "systems/black-sword-hack/templates/messages/demon-failure.hbs",
-                   "systems/black-sword-hack/templates/messages/demon-success.hbs",
-                   "systems/black-sword-hack/templates/messages/die-roll.hbs",
-                   "systems/black-sword-hack/templates/messages/doomed.hbs",
-                   "systems/black-sword-hack/templates/messages/doom-roll.hbs",
-                   "systems/black-sword-hack/templates/messages/roll.hbs",
-                   "systems/black-sword-hack/templates/messages/spirit-failure.hbs",
-                   "systems/black-sword-hack/templates/messages/spirit-success.hbs",
-                   "systems/black-sword-hack/templates/messages/usage-die-roll.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-attribute-list.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-background-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-background-tab-body.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-backgrounds-classic.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-base-attributes-list.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-consumable-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-demon-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-equipment-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-equipment-tab-body.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-fp-background-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-front-page-tab-body.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-gift-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-magic-tab-body.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-saga-tab-body.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-spell-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-spirit-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-story-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-tab-bodies.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-tab-labels.hbs",
-                   "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs",
-                   "systems/black-sword-hack/templates/partials/cr-action-entry.hbs"];
+    const paths = ["systems/lastdays/templates/messages/attack-roll.hbs",
+                   "systems/lastdays/templates/messages/damage.hbs",
+                   "systems/lastdays/templates/messages/damage-roll.hbs",
+                   "systems/lastdays/templates/messages/demon-failure.hbs",
+                   "systems/lastdays/templates/messages/demon-success.hbs",
+                   "systems/lastdays/templates/messages/die-roll.hbs",
+                   "systems/lastdays/templates/messages/doomed.hbs",
+                   "systems/lastdays/templates/messages/doom-roll.hbs",
+                   "systems/lastdays/templates/messages/roll.hbs",
+                   "systems/lastdays/templates/messages/spirit-failure.hbs",
+                   "systems/lastdays/templates/messages/spirit-success.hbs",
+                   "systems/lastdays/templates/messages/usage-die-roll.hbs",
+                   "systems/lastdays/templates/partials/cs-attribute-list.hbs",
+                   "systems/lastdays/templates/partials/cs-background-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-background-tab-body.hbs",
+                   "systems/lastdays/templates/partials/cs-backgrounds-classic.hbs",
+                   "systems/lastdays/templates/partials/cs-base-attributes-list.hbs",
+                   "systems/lastdays/templates/partials/cs-consumable-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-demon-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-equipment-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-equipment-tab-body.hbs",
+                   "systems/lastdays/templates/partials/cs-fp-background-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-front-page-tab-body.hbs",
+                   "systems/lastdays/templates/partials/cs-gift-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-magic-tab-body.hbs",
+                   "systems/lastdays/templates/partials/cs-saga-tab-body.hbs",
+                   "systems/lastdays/templates/partials/cs-spell-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-spirit-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-story-entry.hbs",
+                   "systems/lastdays/templates/partials/cs-tab-bodies.hbs",
+                   "systems/lastdays/templates/partials/cs-tab-labels.hbs",
+                   "systems/lastdays/templates/partials/cs-weapon-entry.hbs",
+                   "systems/lastdays/templates/partials/cr-action-entry.hbs"];
     return(loadTemplates(paths))
 }
 
 Hooks.once("init", function() {
-    console.log("Initializing the Black Sword Hack System.");
+    console.log("Initializing the Last Days of Atlantis System.");
 
-    CONFIG.Actor.documentClass  = BSHActor;
-    CONFIG.Combat.documentClass = BSHCombat;
-    CONFIG.configuration        = BSHConfiguration;
-    CONFIG.Item.documentClass   = BSHItem;
+    CONFIG.Actor.documentClass  = ldoaActor;
+    CONFIG.Combat.documentClass = ldoaCombat;
+    CONFIG.configuration        = ldoaConfiguration;
+    CONFIG.Item.documentClass   = ldoaItem;
 
-    game.settings.register("black-sword-hack", "customOrigins", {config:  true,
+    game.settings.register("lastdays", "customOrigins", {config:  true,
                                                                  default: false,
-                                                                 hint:    game.i18n.localize("bsh.settings.options.customOrigins.blurb"),
-                                                                 name:    game.i18n.localize("bsh.settings.options.customOrigins.title"),
+                                                                 hint:    game.i18n.localize("ldoa.settings.options.customOrigins.blurb"),
+                                                                 name:    game.i18n.localize("ldoa.settings.options.customOrigins.title"),
                                                                  scope:   "world",
                                                                  type:    Boolean});
 
     Items.unregisterSheet("core", ItemSheet);
-    Items.registerSheet("black-sword-hack", ConsumableSheet, {types: ["consumable"]});
-    Items.registerSheet("black-sword-hack", CreatureActionSheet, {types: ["creature_action"]});
-    Items.registerSheet("black-sword-hack", DemonSheet, {types: ["demon"]});
-    Items.registerSheet("black-sword-hack", EquipmentSheet, {types: ["equipment"]});
-    Items.registerSheet("black-sword-hack", GiftSheet, {types: ["gift"]});
-    Items.registerSheet("black-sword-hack", OriginSheet, {types: ["origin"]});
-    Items.registerSheet("black-sword-hack", SpellSheet, {types: ["spell"]});
-    Items.registerSheet("black-sword-hack", SpiritSheet, {types: ["spirit"]});
-    Items.registerSheet("black-sword-hack", WeaponSheet, {types: ["weapon"]});
+    Items.registerSheet("lastdays", ConsumableSheet, {types: ["consumable"]});
+    Items.registerSheet("lastdays", CreatureActionSheet, {types: ["creature_action"]});
+    Items.registerSheet("lastdays", DemonSheet, {types: ["demon"]});
+    Items.registerSheet("lastdays", EquipmentSheet, {types: ["equipment"]});
+    Items.registerSheet("lastdays", GiftSheet, {types: ["gift"]});
+    Items.registerSheet("lastdays", OriginSheet, {types: ["origin"]});
+    Items.registerSheet("lastdays", SpellSheet, {types: ["spell"]});
+    Items.registerSheet("lastdays", SpiritSheet, {types: ["spirit"]});
+    Items.registerSheet("lastdays", WeaponSheet, {types: ["weapon"]});
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("black-sword-hack", CharacterSheet, {makeDefault: true, types: ["character"]});
-    Actors.registerSheet("black-sword-hack", CreatureSheet, {makeDefault: true, types: ["creature"]});
+    Actors.registerSheet("lastdays", CharacterSheet, {makeDefault: true, types: ["character"]});
+    Actors.registerSheet("lastdays", CreatureSheet, {makeDefault: true, types: ["creature"]});
     // Actors.registerSheet("bh2e", BH2eCreatureSheet, {makeDefault: true, types: ["creature"]});
 
     // Load templates.
@@ -96,18 +96,18 @@ Hooks.once("init", function() {
 
     Handlebars.registerHelper("backgroundSelect", function(offset, options) {
     	let backgrounds = {"": ""};
-    	let labelKey    = `bsh.fields.labels.${offset}Background`;
+    	let labelKey    = `ldoa.fields.labels.${offset}Background`;
     	let context     = {field:    `../data.backgrounds.${offset}`,
                            labelKey: labelKey,
                            options:  backgrounds};
 
-        for(var key in BSHConfiguration.backgroundList) {
+        for(var key in ldoaConfiguration.backgroundList) {
             if(options.hash.fromOrigin) {
-            	if(BSHConfiguration.backgroundList[key].origin === this.actor.system.origin) {
-            		backgrounds[key] = BSHConfiguration.backgroundList[key].name;
+            	if(ldoaConfiguration.backgroundList[key].origin === this.actor.system.origin) {
+            		backgrounds[key] = ldoaConfiguration.backgroundList[key].name;
             	}
             } else {
-                backgrounds[key] = BSHConfiguration.backgroundList[key].name;
+                backgrounds[key] = ldoaConfiguration.backgroundList[key].name;
             }
         }        
 
@@ -123,7 +123,7 @@ Hooks.once("init", function() {
     });
 
     Handlebars.registerHelper("backgroundColourClassChooser", (value) => {
-        return(value % 2 === 0 ? "bsh-background-grey" : "bsh-background-white");
+        return(value % 2 === 0 ? "ldoa-background-grey" : "ldoa-background-white");
     });
 
     Handlebars.registerHelper("originBackgroundSelect", (originId, originField, selectedKey) => {
@@ -135,16 +135,16 @@ Hooks.once("init", function() {
             let options     =  [`<option value=""></option>`];
             options = options.concat(getBackgrounds(originId).map((background) => {
                 let selected = (background.key === selectedKey ? 'selected="selected"' : "");
-                let suffix   = [game.i18n.localize(`bsh.origins.${origin.id}.name`)];
+                let suffix   = [game.i18n.localize(`ldoa.origins.${origin.id}.name`)];
 
                 if(background.unique) {
-                    suffix.push(game.i18n.localize("bsh.fields.labels.unique"));
+                    suffix.push(game.i18n.localize("ldoa.fields.labels.unique"));
                 }
 
                 return(`<option ${selected}value="${background.key}">${game.i18n.localize(background.localeKeys.label)} (${suffix.join(', ')})</option>`);
             }));
 
-            return(`<select class="bsh-input bsh-select bsh-background-select" name="system.backgrounds.${originField}">${options.join("")}</select>`);
+            return(`<select class="ldoa-input ldoa-select ldoa-background-select" name="system.backgrounds.${originField}">${options.join("")}</select>`);
         } else {
             console.error(`Unable to locate an origin with the id '${originId}'.`);
         }
@@ -164,15 +164,15 @@ Hooks.once("init", function() {
             backgrounds.sort((lhs, rhs) => lhs.name.localeCompare(rhs.name)).map((background) => {
                 let origin   = origins.find((o) => background.origin === o.id);
                 let selected = (background.key === selectedKey ? 'selected="selected"' : '');
-                let suffix   = [game.i18n.localize(`bsh.origins.${origin.id}.name`)];
+                let suffix   = [game.i18n.localize(`ldoa.origins.${origin.id}.name`)];
 
                 if(background.unique) {
-                    suffix.push(game.i18n.localize("bsh.fields.labels.unique"));
+                    suffix.push(game.i18n.localize("ldoa.fields.labels.unique"));
                 }
                 options.push(`<option ${selected}value="${background.key}">${game.i18n.localize(background.localeKeys.label)} (${suffix.join(', ')})</option>`);
             });
 
-            template = `<select class="bsh-input bsh-select" name="system.backgrounds.${originField}">${options.join("")}</select>`;
+            template = `<select class="ldoa-input ldoa-select" name="system.backgrounds.${originField}">${options.join("")}</select>`;
         } else {
             console.error(`Unable to locate an origin with the id '${originId}'.`);
         }
@@ -186,18 +186,18 @@ Hooks.once("init", function() {
         }).sort((lhs, rhs) => lhs.name.localeCompare(rhs.name));
         let options = entries.map((entry) => {
             let selected = (entry.selected ? 'selected="selected"' : '');
-            return(`<option ${selected} value="${stringToKey(entry.name)}">${game.i18n.localize(`bsh.origins.${entry.id}.name`)}</option>`);
+            return(`<option ${selected} value="${stringToKey(entry.name)}">${game.i18n.localize(`ldoa.origins.${entry.id}.name`)}</option>`);
         });
 
-        return(`<select class="bsh-input bsh-select" name="${fieldName}">${options.join("")}</select>`);
+        return(`<select class="ldoa-input ldoa-select" name="${fieldName}">${options.join("")}</select>`);
     });
 
     Handlebars.registerHelper("spellStateClass", function(state) {
-        return(state === "unavailable" ? "bsh-disabled" : "");
+        return(state === "unavailable" ? "ldoa-disabled" : "");
     });
 
     Handlebars.registerHelper("spellState", function(state) {
-        return(game.i18n.localize(`bsh.spells.states.${state}`));
+        return(game.i18n.localize(`ldoa.spells.states.${state}`));
     });
 
     Handlebars.registerHelper("selectAttributeOption", function(chosen) {
@@ -211,33 +211,33 @@ Hooks.once("init", function() {
     });
 
     Handlebars.registerHelper("summoningState", function(state) {
-        return(game.i18n.localize(`bsh.summoning.states.${state}`));
+        return(game.i18n.localize(`ldoa.summoning.states.${state}`));
     });
 
     Handlebars.registerHelper("tabLabelSelectionClass", function(name) {
-        return(this.actor.system.tabSelected === name ? "bsh-tab-selected" : "");
+        return(this.actor.system.tabSelected === name ? "ldoa-tab-selected" : "");
     });
 
     Handlebars.registerHelper("tabBodySelectionClass", function(name) {
-        return(this.actor.system.tabSelected === name ? "": "bsh-tab-hidden");
+        return(this.actor.system.tabSelected === name ? "": "ldoa-tab-hidden");
     });
 
     Handlebars.registerHelper("usageDie", function(die) {
         let text = (die.current !== "" && die.current !== "^" ? die.current : die.maximum);
 
         if(text === "exhausted") {
-            text = game.i18n.localize("bsh.dice.exhausted");
+            text = game.i18n.localize("ldoa.dice.exhausted");
         }
         return(text);
     });
 
     Handlebars.registerHelper("weaponType", function(type) {
         if(type === "ranged") {
-            return(game.i18n.localize("bsh.weapons.types.ranged"));
+            return(game.i18n.localize("ldoa.weapons.types.ranged"));
         } else if(type === "unarmed") {
-            return(game.i18n.localize("bsh.weapons.types.unarmed"));
+            return(game.i18n.localize("ldoa.weapons.types.unarmed"));
         } else {
-            return(game.i18n.localize("bsh.weapons.types.melee"));
+            return(game.i18n.localize("ldoa.weapons.types.melee"));
         };
     });
 
@@ -245,13 +245,13 @@ Hooks.once("init", function() {
     Hooks.on("renderChatMessage", (message, speaker) => {
         setTimeout(() => {
             let element = document.querySelector(`[data-message-id="${message.id}"]`);
-            let node    = element.querySelector(".bsh-roll-title");
+            let node    = element.querySelector(".ldoa-roll-title");
 
             if(node) {
                 node.addEventListener("click", toggleAttributeTestDisplay);
             }
 
-            node = element.querySelector(".bsh-damage-button");
+            node = element.querySelector(".ldoa-damage-button");
             if(node) {
                 node.addEventListener("click", logDamageRoll);
             }

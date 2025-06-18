@@ -8,7 +8,7 @@ async function updateCharacterBirthPlaces() {
     game.actors.forEach((actor) => {
         if(actor.type === "character") {
             console.log(`Attempting birthplace migration for '${actor.name}' (id: ${actor.id}).`);
-            if(actor.system.birth.startsWith("bsh.births")) {
+            if(actor.system.birth.startsWith("ldoa.births")) {
                 actor.update({system: {birth: game.i18n.localize(actor.system.birth)}}, {diff: true});
             }
         }
@@ -20,7 +20,7 @@ async function updateCharacterBirthPlaces() {
  * one based on an origin id and background index.
  */
 async function updateClassicCharacterBackgrounds() {
-    if(!game.settings.get("black-sword-hack", "customOrigins")) {
+    if(!game.settings.get("lastdays", "customOrigins")) {
     	game.actors.forEach((actor) => {
     		if(actor.type === "character") {
     			let first  = `${actor.system.backgrounds.first}`.trim();
@@ -107,7 +107,7 @@ async function updateOriginBackgrounds() {
  * the correct background keys.
  */
 async function updateNewCharacterBackgrounds() {
-    if(game.settings.get("black-sword-hack", "customOrigins")) {
+    if(game.settings.get("lastdays", "customOrigins")) {
         game.actors.forEach((actor) => {
             if(actor.type === "character") {
                 let backgrounds = actor.system.backgrounds;

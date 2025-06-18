@@ -1,29 +1,29 @@
-<div class="bsh-tab-body bsh-magic-tab {{tabBodySelectionClass "magic"}}">
+<div class="ldoa-tab-body ldoa-magic-tab {{tabBodySelectionClass "magic"}}">
 	<br>
 
 {{#if hasDemons}}
     <div class="collapsible-widget" data-expanded="true">
 		<h2>
-            <div class="bsh-float-left collapsible-widget-toggle">
+            <div class="ldoa-float-left collapsible-widget-toggle">
                 <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
                 <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
             </div>
             &nbsp;
-		    {{localize "bsh.headers.demons"}}
-		    <div class="bsh-float-right">
-		    	<span class="bsh-summoning-state">{{summoningState actor.system.summoning.demon}}</span>
-		    	<i class="fas fa-undo-alt bsh-reset-dark-pact-icon bsh-action-icon" title="{{localize "bsh.fields.titles.resetAllDemons"}}" data-actor="{{actor.id}}" data-type="demon"></i>
+		    {{localize "ldoa.headers.demons"}}
+		    <div class="ldoa-float-right">
+		    	<span class="ldoa-summoning-state">{{summoningState actor.system.summoning.demon}}</span>
+		    	<i class="fas fa-undo-alt ldoa-reset-dark-pact-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.resetAllDemons"}}" data-actor="{{actor.id}}" data-type="demon"></i>
 		    </div>
 		</h2>
 		<div class="collapsible-widget-target">
-			<div class="bsh-demon-entries">
+			<div class="ldoa-demon-entries">
 				<div>
-					<span class="bsh-column-header">{{localize "bsh.headers.demonName"}}</span>
+					<span class="ldoa-column-header">{{localize "ldoa.headers.demonName"}}</span>
 				</div>
 				<div></div>
 
 			{{#each demons as |demon id|}}
-			    {{> "systems/black-sword-hack/templates/partials/cs-demon-entry.hbs" demon}}
+			    {{> "systems/lastdays/templates/partials/cs-demon-entry.hbs" demon}}
 			{{/each}}
 			</div>
 		</div>
@@ -34,26 +34,26 @@
 {{#if hasSpirits}}
     <div class="collapsible-widget" data-expanded="true">
 		<h2>
-            <div class="bsh-float-left collapsible-widget-toggle">
+            <div class="ldoa-float-left collapsible-widget-toggle">
                 <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
                 <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
             </div>
             &nbsp;
-		    {{localize "bsh.headers.spirits"}}
-		    <div class="bsh-float-right">
-		    	<span class="bsh-summoning-state">{{summoningState actor.system.summoning.spirit}}</span>
-		    	<i class="fas fa-undo-alt bsh-reset-dark-pact-icon bsh-action-icon" title="{{localize "bsh.fields.titles.resetAllSpirits"}}" data-actor="{{actor.id}}" data-type="spirit"></i>
+		    {{localize "ldoa.headers.spirits"}}
+		    <div class="ldoa-float-right">
+		    	<span class="ldoa-summoning-state">{{summoningState actor.system.summoning.spirit}}</span>
+		    	<i class="fas fa-undo-alt ldoa-reset-dark-pact-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.resetAllSpirits"}}" data-actor="{{actor.id}}" data-type="spirit"></i>
 		    </div>
 		</h2>
 		<div class="collapsible-widget-target">
-			<div class="bsh-spirit-entries">
+			<div class="ldoa-spirit-entries">
 				<div>
-					<span class="bsh-column-header">{{localize "bsh.headers.spiritName"}}</span>
+					<span class="ldoa-column-header">{{localize "ldoa.headers.spiritName"}}</span>
 				</div>
 				<div></div>
 
 			{{#each spirits as |spirit id|}}
-			    {{> "systems/black-sword-hack/templates/partials/cs-spirit-entry.hbs" spirit}}
+			    {{> "systems/lastdays/templates/partials/cs-spirit-entry.hbs" spirit}}
 			{{/each}}
 			</div>
 		</div>
@@ -64,28 +64,28 @@
 {{#if hasSpells}}
     <div class="collapsible-widget" data-expanded="true">
 		<h2>
-            <div class="bsh-float-left collapsible-widget-toggle">
+            <div class="ldoa-float-left collapsible-widget-toggle">
                 <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
                 <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
             </div>
             &nbsp;
-		    {{localize "bsh.headers.spells"}}
-		    <div class="bsh-float-right">
-		    	<i class="fas fa-undo-alt bsh-reset-all-spells-icon bsh-action-icon" title="{{localize "bsh.fields.titles.resetAllSpells"}}" data-actor="{{actor.id}}"></i>
+		    {{localize "ldoa.headers.spells"}}
+		    <div class="ldoa-float-right">
+		    	<i class="fas fa-undo-alt ldoa-reset-all-spells-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.resetAllSpells"}}" data-actor="{{actor.id}}"></i>
 		    </div>
 		</h2>
 		<div class="collapsible-widget-target">
-			<div class="bsh-spell-entries">
+			<div class="ldoa-spell-entries">
 				<div>
-					<span class="bsh-column-header">{{localize "bsh.headers.spellName"}}</span>
+					<span class="ldoa-column-header">{{localize "ldoa.headers.spellName"}}</span>
 				</div>
 				<div>
-					<span class="bsh-column-header">{{localize "bsh.headers.spellState"}}</span>
+					<span class="ldoa-column-header">{{localize "ldoa.headers.spellState"}}</span>
 				</div>
 				<div></div>
 
 			{{#each spells as |spell id|}}
-			    {{> "systems/black-sword-hack/templates/partials/cs-spell-entry.hbs" spell}}
+			    {{> "systems/lastdays/templates/partials/cs-spell-entry.hbs" spell}}
 			{{/each}}
 		    </div>
 		</div>

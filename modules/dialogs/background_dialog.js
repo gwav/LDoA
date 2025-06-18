@@ -18,14 +18,14 @@ export default class BackgroundDialog extends FormApplication {
         return(foundry.utils.mergeObject(super.defaultOptions,
                                          {closeOnSubmit: false,
                                           height:        550,
-                                          template:      "systems/black-sword-hack/templates/dialogs/background.html",
+                                          template:      "systems/lastdays/templates/dialogs/background.html",
                                           title:         "Background",
                                           width:         575}));
     }
 
 	constructor(settings) {
         let buttons = {save: {callback: () => this._saveBackground(),
-                              label: game.i18n.localize("bsh.buttons.save")}};
+                              label: game.i18n.localize("ldoa.buttons.save")}};
 
         super(Object.assign(foundry.utils.mergeObject({},
                                                       (settings.data.background || STARTING_OBJECT)),
@@ -165,8 +165,8 @@ export default class BackgroundDialog extends FormApplication {
             settings.data      = data;
             settings.newOrigin = false;
             settings.originId  = origin.id;
-            settings.title     = game.i18n.localize(`bsh.dialogs.titles.background`);
-            return(renderTemplate("systems/black-sword-hack/templates/dialogs/background.html", data)
+            settings.title     = game.i18n.localize(`ldoa.dialogs.titles.background`);
+            return(renderTemplate("systems/lastdays/templates/dialogs/background.html", data)
                        .then((content) => {
                                  settings.content = content;
                                  return(new BackgroundDialog(settings));
@@ -187,8 +187,8 @@ export default class BackgroundDialog extends FormApplication {
             settings.data      = data;
             settings.newOrigin = true;
             settings.originId  = origin.id;
-            settings.title     = game.i18n.localize(`bsh.dialogs.titles.background`);
-            return(renderTemplate("systems/black-sword-hack/templates/dialogs/background.html", data)
+            settings.title     = game.i18n.localize(`ldoa.dialogs.titles.background`);
+            return(renderTemplate("systems/lastdays/templates/dialogs/background.html", data)
                        .then((content) => {
                                  settings.content = content;
                                  return(new BackgroundDialog(settings));

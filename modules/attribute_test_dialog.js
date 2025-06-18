@@ -4,7 +4,7 @@ import {calculateCharacterData, rollEm} from './shared.js';
 export default class AttributeTestDialog extends Dialog {
     constructor(actor, attribute, settings, options={}) {
         let buttons = {rollIt: {callback: () => this._onRollIt(),
-                                label: game.i18n.localize("bsh.buttons.rollIt")}};
+                                label: game.i18n.localize("ldoa.buttons.rollIt")}};
 
         super(Object.assign({}, settings, {buttons: buttons}));
         this._actor     = actor;
@@ -94,7 +94,7 @@ export default class AttributeTestDialog extends Dialog {
     static build(actor, attribute, options={}) {
         let settings = Object.assign({}, options);
         let data     = {adjustment:    (settings.adjustment || 0),
-                        attribute:     game.i18n.localize(`bsh.attributes.${attribute}.long`),
+                        attribute:     game.i18n.localize(`ldoa.attributes.${attribute}.long`),
                         configuration: CONFIG.configuration,
                         score:         0,
                         threat:        (settings.threat || 0),
@@ -102,9 +102,9 @@ export default class AttributeTestDialog extends Dialog {
 
         calculateCharacterData(actor, CONFIG.configuration);
         data.score     = (actor.system.calculated || actor.system.calculated)[attribute];
-        settings.title = game.i18n.localize(`bsh.rolls.tests.${attribute}.title`);
+        settings.title = game.i18n.localize(`ldoa.rolls.tests.${attribute}.title`);
 
-        return(renderTemplate("systems/black-sword-hack/templates/roll-modal.html", data)
+        return(renderTemplate("systems/lastdays/templates/roll-modal.html", data)
                    .then((content) => {
                              settings.content = content;
                              return(new AttributeTestDialog(actor, attribute, settings, options));

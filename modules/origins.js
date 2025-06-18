@@ -1,14 +1,14 @@
-import {BSHConfiguration} from './configuration.js';
+import {ldoaConfiguration} from './configuration.js';
 import {CLASSIC_ORIGINS} from './constants.js';
 import {stringToKey} from './shared.js';
 
 async function generateBirthPlace(origin) {
-    if(origin && BSHConfiguration.birthList[origin]) {
+    if(origin && ldoaConfiguration.birthList[origin]) {
         return((new Roll("1d20")).evaluate({async: true})
-               .then((roll) => game.i18n.localize(BSHConfiguration.birthList[origin][roll.total])));
+               .then((roll) => game.i18n.localize(ldoaConfiguration.birthList[origin][roll.total])));
     } else {
         return((new Roll("2d6")).evaluate({async: true})
-               .then((roll) => game.i18n.localize(BSHConfiguration.classicBirthList[roll.total])));
+               .then((roll) => game.i18n.localize(ldoaConfiguration.classicBirthList[roll.total])));
     }
 }
 
@@ -51,7 +51,7 @@ function getOriginKeys() {
 }
 
 function getOrigins() {
-    let customOrigins = game.settings.get("black-sword-hack", "customOrigins");
+    let customOrigins = game.settings.get("lastdays", "customOrigins");
 
     if(customOrigins) {
         return(game.items.filter((item) => item.type === "origin"));

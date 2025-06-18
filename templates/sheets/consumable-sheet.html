@@ -1,17 +1,17 @@
 <form class="{{cssClass}}" autocomplete="off">
-	<div class="bsh-equipment-body">
+	<div class="ldoa-equipment-body">
 		<div>
 			<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
 			<hr>
 
-			<div class="bsh-field">
-				<label class="bsh-label">{{localize "bsh.fields.labels.quantity"}}</label>
-				<input type="number" name="system.quantity" value="{{item.system.quantity}}" class="bsh-input" />
+			<div class="ldoa-field">
+				<label class="ldoa-label">{{localize "ldoa.fields.labels.quantity"}}</label>
+				<input type="number" name="system.quantity" value="{{item.system.quantity}}" class="ldoa-input" />
 			</div>
 
-			<div class="bsh-field">
-				<label class="bsh-label">{{localize "bsh.fields.labels.usageDie"}}</label>
-		    	<select name="system.usageDie.maximum" class="bsh-input bsh-select">
+			<div class="ldoa-field">
+				<label class="ldoa-label">{{localize "ldoa.fields.labels.usageDie"}}</label>
+		    	<select name="system.usageDie.maximum" class="ldoa-input ldoa-select">
 				{{#select item.system.usageDie.maximum}}
 				{{#each configuration.usageDieOptionList as |key value|}}
 		    		<option value="{{value}}">{{localize key}}</option>
@@ -20,9 +20,9 @@
 		    	</select>
 			</div>
 
-			<div class="bsh-field">
-				<label class="bsh-label">{{localize "bsh.fields.labels.rarity"}}</label>
-		    	<select name="system.rarity" class="bsh-input bsh-select">
+			<div class="ldoa-field">
+				<label class="ldoa-label">{{localize "ldoa.fields.labels.rarity"}}</label>
+		    	<select name="system.rarity" class="ldoa-input ldoa-select">
 				{{#select item.system.rarity}}
 				{{#each configuration.itemRarityList as |key value|}}
 		    		<option value="{{value}}">{{localize key}}</option>
@@ -33,12 +33,12 @@
 		</div>
 
 		<div>
-			<div class="bsh-field">
-				<input class="bsh-enlarged-input" name="name" type="text" value="{{item.name}}" />
+			<div class="ldoa-field">
+				<input class="ldoa-enlarged-input" name="name" type="text" value="{{item.name}}" />
 			</div>
 
-			<div class="bsh-field">
-				<label for="system.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+			<div class="ldoa-field">
+				<label for="system.description" class="ldoa-label">{{localize "ldoa.fields.labels.description"}}</label>
 				{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
 			</div>
 		</div>

@@ -1,39 +1,39 @@
-export const BSHConfiguration = {};
+export const ldoaConfiguration = {};
 
-BSHConfiguration.armourNames = {
-	"none": "bsh.armour.none",
-	"light": "bsh.armour.light",
-	"medium": "bsh.armour.medium",
-	"heavy": "bsh.armour.heavy"
+ldoaConfiguration.armourNames = {
+	"none": "ldoa.armour.none",
+	"light": "ldoa.armour.light",
+	"medium": "ldoa.armour.medium",
+	"heavy": "ldoa.armour.heavy"
 };
 
-BSHConfiguration.armourTypes = {
+ldoaConfiguration.armourTypes = {
 	"none": {
-		"name": "bsh.armour.none",
+		"name": "ldoa.armour.none",
 	    "rating": 0
 	},
 	"light": {
-		"name": "bsh.armour.light",
+		"name": "ldoa.armour.light",
 	    "rating": 1
 	},
 	"medium": {
-		"name": "bsh.armour.medium",
+		"name": "ldoa.armour.medium",
 	    "rating": 2
 	},
 	"heavy": {
-		"name": "bsh.armour.heavy",
+		"name": "ldoa.armour.heavy",
 		"rating": 3
 	}
 };
 
-BSHConfiguration.backgroundList = {
+ldoaConfiguration.backgroundList = {
 	"assassin": {
 		"attributes": {
 			"dexterity": 1
 		},
 		"key": "assassin",
 		"origin": "decadent",
-		"name": "bsh.backgrounds.assassin.name",
+		"name": "ldoa.backgrounds.assassin.name",
 		"unique": true
 	},
 	"berserker": {
@@ -42,7 +42,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "berserker",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.berserker.name",
+		"name": "ldoa.backgrounds.berserker.name",
 		"unique": true
 	},
 	"bodyguard": {
@@ -51,7 +51,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "bodyguard",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.bodyguard.name",
+		"name": "ldoa.backgrounds.bodyguard.name",
 		"unique": false
 	},
 	"bookworm": {
@@ -60,7 +60,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "bookworm",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.bookworm.name",
+		"name": "ldoa.backgrounds.bookworm.name",
 		"unique": false
 	},
 	"changeling": {
@@ -69,7 +69,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "changeling",
 		"origin": "decadent",
-		"name": "bsh.backgrounds.changeling.name",
+		"name": "ldoa.backgrounds.changeling.name",
 		"unique": true
 	},
 	"chieftain": {
@@ -78,7 +78,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "chieftain",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.chieftain.name",
+		"name": "ldoa.backgrounds.chieftain.name",
 		"unique": false
 	},
 	"diplomat": {
@@ -87,7 +87,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "diplomat",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.diplomat.name",
+		"name": "ldoa.backgrounds.diplomat.name",
 		"unique": false
 	},
 	"forbidden_knowledge": {
@@ -96,7 +96,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "forbidden_knowledge",
 		"origin": "decadent",
-		"name": "bsh.backgrounds.forbidden_knowledge.name",
+		"name": "ldoa.backgrounds.forbidden_knowledge.name",
 		"unique": false
 	},
 	"herbalist": {
@@ -105,7 +105,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "herbalist",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.herbalist.name",
+		"name": "ldoa.backgrounds.herbalist.name",
 		"unique": false
 	},
 	"hunter": {
@@ -114,7 +114,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "hunter",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.hunter.name",
+		"name": "ldoa.backgrounds.hunter.name",
 		"unique": false
 	},
 	"inventor": {
@@ -123,7 +123,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "inventor",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.inventor.name",
+		"name": "ldoa.backgrounds.inventor.name",
 		"unique": true
 	},
 	"legionnaire": {
@@ -132,7 +132,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "legionnaire",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.legionnaire.name",
+		"name": "ldoa.backgrounds.legionnaire.name",
 		"unique": false
 	},
 	"pit-fighter": {
@@ -141,7 +141,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "pit-fighter",
 		"origin": "decadent",
-		"name": "bsh.backgrounds.pit_fighter.name",
+		"name": "ldoa.backgrounds.pit_fighter.name",
 		"unique": false
 	},
 	"raider": {
@@ -150,7 +150,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "raider",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.raider.name",
+		"name": "ldoa.backgrounds.raider.name",
 		"unique": false
 	},
 	"scout": {
@@ -159,7 +159,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "scout",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.scout.name",
+		"name": "ldoa.backgrounds.scout.name",
 		"unique": false
 	},
 	"shaman": {
@@ -168,7 +168,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "shaman",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.shaman.name",
+		"name": "ldoa.backgrounds.shaman.name",
 		"unique": false
 	},
 	"snake_blood": {
@@ -177,7 +177,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "snake_blood",
 		"origin": "decadent",
-		"name": "bsh.backgrounds.snake_blood.name",
+		"name": "ldoa.backgrounds.snake_blood.name",
 		"unique": false
 	},
 	"sophist": {
@@ -186,7 +186,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "sophist",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.sophist.name",
+		"name": "ldoa.backgrounds.sophist.name",
 		"unique": false
 	},
 	"storyteller": {
@@ -195,7 +195,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "storyteller",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.storyteller.name",
+		"name": "ldoa.backgrounds.storyteller.name",
 		"unique": false
 	},
 	"street_urchin": {
@@ -204,7 +204,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "street_urchin",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.street_urchin.name",
+		"name": "ldoa.backgrounds.street_urchin.name",
 		"unique": false
 	},
 	"surgeon": {
@@ -213,7 +213,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "surgeon",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.surgeon.name",
+		"name": "ldoa.backgrounds.surgeon.name",
 		"unique": false
 	},
 	"survivor": {
@@ -222,7 +222,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "survivor",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.survivor.name",
+		"name": "ldoa.backgrounds.survivor.name",
 		"unique": false
 	},
 	"swordmaster": {
@@ -231,7 +231,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "swordmaster",
 		"origin": "civilized",
-		"name": "bsh.backgrounds.swordmaster.name",
+		"name": "ldoa.backgrounds.swordmaster.name",
 		"unique": false
 	},
 	"vicious": {
@@ -240,7 +240,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "vicious",
 		"origin": "decadent",
-		"name": "bsh.backgrounds.vicious.name",
+		"name": "ldoa.backgrounds.vicious.name",
 		"unique": false
 	},
 	"warlock": {
@@ -249,7 +249,7 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "warlock",
 		"origin": "decadent",
-		"name": "bsh.backgrounds.warlock.name",
+		"name": "ldoa.backgrounds.warlock.name",
 		"unique": false
 	},
 	"wildling": {
@@ -258,179 +258,179 @@ BSHConfiguration.backgroundList = {
 		},
 		"key": "wildling",
 		"origin": "barbarian",
-		"name": "bsh.backgrounds.wildling.name",
+		"name": "ldoa.backgrounds.wildling.name",
 		"unique": false
 	}
 };
 
-BSHConfiguration.birthList = {
-	barbarian: ["bsh.births.barbarian.1",
-		          "bsh.births.barbarian.2",
-		          "bsh.births.barbarian.3",
-		          "bsh.births.barbarian.4",
-		          "bsh.births.barbarian.5",
-		          "bsh.births.barbarian.6",
-		          "bsh.births.barbarian.7",
-		          "bsh.births.barbarian.8",
-		          "bsh.births.barbarian.9",
-		          "bsh.births.barbarian.10",
-		          "bsh.births.barbarian.11",
-		          "bsh.births.barbarian.12",
-		          "bsh.births.barbarian.13",
-		          "bsh.births.barbarian.14",
-		          "bsh.births.barbarian.15",
-		          "bsh.births.barbarian.16",
-		          "bsh.births.barbarian.17",
-		          "bsh.births.barbarian.18",
-		          "bsh.births.barbarian.19",
-		          "bsh.births.barbarian.20"],
-	civilized: ["bsh.births.civilized.1",
-		          "bsh.births.civilized.2",
-		          "bsh.births.civilized.3",
-		          "bsh.births.civilized.4",
-		          "bsh.births.civilized.5",
-		          "bsh.births.civilized.6",
-		          "bsh.births.civilized.7",
-		          "bsh.births.civilized.8",
-		          "bsh.births.civilized.9",
-		          "bsh.births.civilized.10",
-		          "bsh.births.civilized.11",
-		          "bsh.births.civilized.12",
-		          "bsh.births.civilized.13",
-		          "bsh.births.civilized.14",
-		          "bsh.births.civilized.15",
-		          "bsh.births.civilized.16",
-		          "bsh.births.civilized.17",
-		          "bsh.births.civilized.18",
-		          "bsh.births.civilized.19",
-		          "bsh.births.civilized.20"],
-	decadent:  ["bsh.births.decadent.1",
-		          "bsh.births.decadent.2",
-		          "bsh.births.decadent.3",
-		          "bsh.births.decadent.4",
-		          "bsh.births.decadent.5",
-		          "bsh.births.decadent.6",
-		          "bsh.births.decadent.7",
-		          "bsh.births.decadent.8",
-		          "bsh.births.decadent.9",
-		          "bsh.births.decadent.10",
-		          "bsh.births.decadent.11",
-		          "bsh.births.decadent.12",
-		          "bsh.births.decadent.13",
-		          "bsh.births.decadent.14",
-		          "bsh.births.decadent.15",
-		          "bsh.births.decadent.16",
-		          "bsh.births.decadent.17",
-		          "bsh.births.decadent.18",
-		          "bsh.births.decadent.19",
-		          "bsh.births.decadent.20"]
+ldoaConfiguration.birthList = {
+	barbarian: ["ldoa.births.barbarian.1",
+		          "ldoa.births.barbarian.2",
+		          "ldoa.births.barbarian.3",
+		          "ldoa.births.barbarian.4",
+		          "ldoa.births.barbarian.5",
+		          "ldoa.births.barbarian.6",
+		          "ldoa.births.barbarian.7",
+		          "ldoa.births.barbarian.8",
+		          "ldoa.births.barbarian.9",
+		          "ldoa.births.barbarian.10",
+		          "ldoa.births.barbarian.11",
+		          "ldoa.births.barbarian.12",
+		          "ldoa.births.barbarian.13",
+		          "ldoa.births.barbarian.14",
+		          "ldoa.births.barbarian.15",
+		          "ldoa.births.barbarian.16",
+		          "ldoa.births.barbarian.17",
+		          "ldoa.births.barbarian.18",
+		          "ldoa.births.barbarian.19",
+		          "ldoa.births.barbarian.20"],
+	civilized: ["ldoa.births.civilized.1",
+		          "ldoa.births.civilized.2",
+		          "ldoa.births.civilized.3",
+		          "ldoa.births.civilized.4",
+		          "ldoa.births.civilized.5",
+		          "ldoa.births.civilized.6",
+		          "ldoa.births.civilized.7",
+		          "ldoa.births.civilized.8",
+		          "ldoa.births.civilized.9",
+		          "ldoa.births.civilized.10",
+		          "ldoa.births.civilized.11",
+		          "ldoa.births.civilized.12",
+		          "ldoa.births.civilized.13",
+		          "ldoa.births.civilized.14",
+		          "ldoa.births.civilized.15",
+		          "ldoa.births.civilized.16",
+		          "ldoa.births.civilized.17",
+		          "ldoa.births.civilized.18",
+		          "ldoa.births.civilized.19",
+		          "ldoa.births.civilized.20"],
+	decadent:  ["ldoa.births.decadent.1",
+		          "ldoa.births.decadent.2",
+		          "ldoa.births.decadent.3",
+		          "ldoa.births.decadent.4",
+		          "ldoa.births.decadent.5",
+		          "ldoa.births.decadent.6",
+		          "ldoa.births.decadent.7",
+		          "ldoa.births.decadent.8",
+		          "ldoa.births.decadent.9",
+		          "ldoa.births.decadent.10",
+		          "ldoa.births.decadent.11",
+		          "ldoa.births.decadent.12",
+		          "ldoa.births.decadent.13",
+		          "ldoa.births.decadent.14",
+		          "ldoa.births.decadent.15",
+		          "ldoa.births.decadent.16",
+		          "ldoa.births.decadent.17",
+		          "ldoa.births.decadent.18",
+		          "ldoa.births.decadent.19",
+		          "ldoa.births.decadent.20"]
 };
 
-BSHConfiguration.classicBirthList = [
-  "bsh.births.1",
-  "bsh.births.2",
-  "bsh.births.3",
-  "bsh.births.4",
-  "bsh.births.5",
-  "bsh.births.6",
-  "bsh.births.7",
-  "bsh.births.8",
-  "bsh.births.9",
-  "bsh.births.10",
-  "bsh.births.11",
-  "bsh.births.12",
-  "bsh.births.13",
-  "bsh.births.14",
-  "bsh.births.15",
-  "bsh.births.16",
-  "bsh.births.17",
-  "bsh.births.18",
-  "bsh.births.19",
-  "bsh.births.20"
+ldoaConfiguration.classicBirthList = [
+  "ldoa.births.1",
+  "ldoa.births.2",
+  "ldoa.births.3",
+  "ldoa.births.4",
+  "ldoa.births.5",
+  "ldoa.births.6",
+  "ldoa.births.7",
+  "ldoa.births.8",
+  "ldoa.births.9",
+  "ldoa.births.10",
+  "ldoa.births.11",
+  "ldoa.births.12",
+  "ldoa.births.13",
+  "ldoa.births.14",
+  "ldoa.births.15",
+  "ldoa.births.16",
+  "ldoa.births.17",
+  "ldoa.births.18",
+  "ldoa.births.19",
+  "ldoa.births.20"
 ];
 
-BSHConfiguration.diceList = {
-	"d4": "bsh.dice.d4",
-	"d6": "bsh.dice.d6",
-	"d8": "bsh.dice.d8",
-	"d10": "bsh.dice.d10",
-	"d12": "bsh.dice.d12",
-	"d20": "bsh.dice.d20"
+ldoaConfiguration.diceList = {
+	"d4": "ldoa.dice.d4",
+	"d6": "ldoa.dice.d6",
+	"d8": "ldoa.dice.d8",
+	"d10": "ldoa.dice.d10",
+	"d12": "ldoa.dice.d12",
+	"d20": "ldoa.dice.d20"
 };
 
-BSHConfiguration.giftList = [
+ldoaConfiguration.giftList = [
   {key: "none",
-   name: "bsh.none"},
+   name: "ldoa.none"},
 	{key:   "fortressOfTheMind",
-	 label: "bsh.gifts.fortressOfTheMind.label",
-	 name:  "bsh.gifts.fortressOfTheMind.name",
+	 label: "ldoa.gifts.fortressOfTheMind.label",
+	 name:  "ldoa.gifts.fortressOfTheMind.name",
 	 power: "balance"},
 	{key:   "meditation",
-	 label: "bsh.gifts.meditation.label",
-	 name:  "bsh.gifts.meditation.name",
+	 label: "ldoa.gifts.meditation.label",
+	 name:  "ldoa.gifts.meditation.name",
 	 power: "balance"},
 	{key:   "secondWind",
-	 label: "bsh.gifts.secondWind.label",
-	 name:  "bsh.gifts.secondWind.name",
+	 label: "ldoa.gifts.secondWind.label",
+	 name:  "ldoa.gifts.secondWind.name",
 	 power: "balance"},
 	{key:   "spiritAlliance",
-	 label: "bsh.gifts.spiritAlliance.label",
-	 name:  "bsh.gifts.spiritAlliance.name",
+	 label: "ldoa.gifts.spiritAlliance.label",
+	 name:  "ldoa.gifts.spiritAlliance.name",
 	 power: "balance"},
 	{key:   "survivorsLuck",
-	 label: "bsh.gifts.survivorsLuck.label",
-	 name:  "bsh.gifts.survivorsLuck.name",
+	 label: "ldoa.gifts.survivorsLuck.label",
+	 name:  "ldoa.gifts.survivorsLuck.name",
 	 power: "balance"},
 	{key:   "armourOfScars",
-	 label: "bsh.gifts.armorOfScars.label",
-	 name:  "bsh.gifts.armorOfScars.name",
+	 label: "ldoa.gifts.armorOfScars.label",
+	 name:  "ldoa.gifts.armorOfScars.name",
 	 power: "chaos"},
 	{key:   "bloodlust",
-	 label: "bsh.gifts.bloodlust.label",
-	 name:  "bsh.gifts.bloodlust.name",
+	 label: "ldoa.gifts.bloodlust.label",
+	 name:  "ldoa.gifts.bloodlust.name",
 	 power: "chaos"},
 	{key:   "darkRevelation",
-	 label: "bsh.gifts.darkRevelation.label",
-	 name:  "bsh.gifts.darkRevelation.name",
+	 label: "ldoa.gifts.darkRevelation.label",
+	 name:  "ldoa.gifts.darkRevelation.name",
 	 power: "chaos"},
 	{key:   "dubiousFriendships",
-	 label: "bsh.gifts.dubiousFriendships.label",
-	 name:  "bsh.gifts.dubiousFriendships.name",
+	 label: "ldoa.gifts.dubiousFriendships.label",
+	 name:  "ldoa.gifts.dubiousFriendships.name",
 	 power: "chaos"},
 	{key:   "paranoid",
-	 label: "bsh.gifts.paranoid.label",
-	 name:  "bsh.gifts.paranoid.name",
+	 label: "ldoa.gifts.paranoid.label",
+	 name:  "ldoa.gifts.paranoid.name",
 	 power: "chaos"},
 	{key:   "battleHardened",
-	 label: "bsh.gifts.battleHardened.label",
-	 name:  "bsh.gifts.battleHardened.name",
+	 label: "ldoa.gifts.battleHardened.label",
+	 name:  "ldoa.gifts.battleHardened.name",
 	 power: "law"},
 	{key:   "resourceful",
-	 label: "bsh.gifts.resourceful.label",
-	 name:  "bsh.gifts.resourceful.name",
+	 label: "ldoa.gifts.resourceful.label",
+	 name:  "ldoa.gifts.resourceful.name",
 	 power: "law"},
 	{key:   "riddleOfSteel",
-	 label: "bsh.gifts.riddleOfSteel.label",
-	 name:  "bsh.gifts.riddleOfSteel.name",
+	 label: "ldoa.gifts.riddleOfSteel.label",
+	 name:  "ldoa.gifts.riddleOfSteel.name",
 	 power: "law"},
 	{key:   "toughAsNails",
-	 label: "bsh.gifts.toughAsNails.label",
-	 name:  "bsh.gifts.toughAsNails.name",
+	 label: "ldoa.gifts.toughAsNails.label",
+	 name:  "ldoa.gifts.toughAsNails.name",
 	 power: "law"},
 	{key:   "willToLive",
-	 label: "bsh.gifts.willToLive.label",
-	 name:  "bsh.gifts.willToLive.name",
+	 label: "ldoa.gifts.willToLive.label",
+	 name:  "ldoa.gifts.willToLive.name",
 	 power: "law"}
 ];
 
-BSHConfiguration.itemRarityList = {
-	"common": "bsh.rarities.common",
-	"rare": "bsh.rarities.rare",
-	"exotic": "bsh.rarities.exotic",
-	"unique": "bsh.rarities.unique"
+ldoaConfiguration.itemRarityList = {
+	"common": "ldoa.rarities.common",
+	"rare": "ldoa.rarities.rare",
+	"exotic": "ldoa.rarities.exotic",
+	"unique": "ldoa.rarities.unique"
 };
 
-BSHConfiguration.levelSettings = [
+ldoaConfiguration.levelSettings = [
   {level: 1, stories: 0},
   {level: 2, stories: 1},
   {level: 3, stories: 3},
@@ -443,129 +443,129 @@ BSHConfiguration.levelSettings = [
   {level: 10, stories: 46},
 ];
 
-BSHConfiguration.languageList = {
+ldoaConfiguration.languageList = {
 	"alashan": {
 		"origin": "A corrupt empire.",
-		"name": "bsh.languages.alashan"
+		"name": "ldoa.languages.alashan"
 	},
 	"amaric": {
 		"origin": "The Caliphate.",
-		"name": "bsh.languages.amaric"
+		"name": "ldoa.languages.amaric"
 	},
 	"askavan": {
 		"origin": "A crumbling empire.",
-		"name": "bsh.languages.askavan"
+		"name": "ldoa.languages.askavan"
 	},
 	"chalidim": {
 		"origin": "The desert tribes.",
-		"name": "bsh.languages.chaladim"
+		"name": "ldoa.languages.chaladim"
 	},
 	"duhuang": {
 		"origin": "The Forbidden City & the Eastern Principalities",
-		"name": "bsh.languages.duhuang"
+		"name": "ldoa.languages.duhuang"
 	},
 	"jurka": {
 		"origin": "The Iron Horde.",
-		"name": "bsh.languages.jurka"
+		"name": "ldoa.languages.jurka"
 	},
 	"naruan": {
 		"origin": "The Golden Archipelago.",
-		"name": "bsh.languages.naruan"
+		"name": "ldoa.languages.naruan"
 	},
 	"pictish": {
 		"origin": "The Picts.",
-		"name": "bsh.languages.pictish"
+		"name": "ldoa.languages.pictish"
 	},
 	"thyrenian": {
 		"origin": "The Merchant League.",
-		"name": "bsh.languages.thyrenian"
+		"name": "ldoa.languages.thyrenian"
 	},
 	"urgic": {
 		"origin": "The northern raiders.",
-		"name": "bsh.languages.urgic"
+		"name": "ldoa.languages.urgic"
 	}
 };
 
-BSHConfiguration.optionalAttributeList = {
-	"charisma": "bsh.attributes.charisma.long",
-	"constitution": "bsh.attributes.constitution.long",
-	"dexterity": "bsh.attributes.dexterity.long",
-	"intelligence": "bsh.attributes.intelligence.long",
-	"none": "bsh.none",
-	"strength": "bsh.attributes.strength.long",
-	"wisdom": "bsh.attributes.wisdom.long"
+ldoaConfiguration.optionalAttributeList = {
+	"charisma": "ldoa.attributes.charisma.long",
+	"constitution": "ldoa.attributes.constitution.long",
+	"dexterity": "ldoa.attributes.dexterity.long",
+	"intelligence": "ldoa.attributes.intelligence.long",
+	"none": "ldoa.none",
+	"strength": "ldoa.attributes.strength.long",
+	"wisdom": "ldoa.attributes.wisdom.long"
 };
 
-BSHConfiguration.optionalAttributeListLong = [
-    {"key": "charisma", "value": "bsh.attributes.charisma.long"},
-    {"key": "constitution", "value": "bsh.attributes.constitution.long"},
-    {"key": "dexterity", "value": "bsh.attributes.dexterity.long"},
-    {"key": "intelligence", "value": "bsh.attributes.intelligence.long"},
-    {"key": "none", "value": "bsh.none"},
-    {"key": "strength", "value": "bsh.attributes.strength.long"},
-    {"key": "wisdom", "value": "bsh.attributes.wisdom.long"}
+ldoaConfiguration.optionalAttributeListLong = [
+    {"key": "charisma", "value": "ldoa.attributes.charisma.long"},
+    {"key": "constitution", "value": "ldoa.attributes.constitution.long"},
+    {"key": "dexterity", "value": "ldoa.attributes.dexterity.long"},
+    {"key": "intelligence", "value": "ldoa.attributes.intelligence.long"},
+    {"key": "none", "value": "ldoa.none"},
+    {"key": "strength", "value": "ldoa.attributes.strength.long"},
+    {"key": "wisdom", "value": "ldoa.attributes.wisdom.long"}
 ];
 
-BSHConfiguration.originList = {
-	"barbarian": "bsh.origins.barbarian.name",
-	"civilized": "bsh.origins.civilized.name",
-	"decadent": "bsh.origins.decadent.name",
+ldoaConfiguration.originList = {
+	"barbarian": "ldoa.origins.barbarian.name",
+	"civilized": "ldoa.origins.civilized.name",
+	"decadent": "ldoa.origins.decadent.name",
 };
 
-BSHConfiguration.powersList = {
-	"balance": "bsh.powers.balance.name",
-	"chaos": "bsh.powers.chaos.name",
-	"law": "bsh.powers.law.name"
+ldoaConfiguration.powersList = {
+	"balance": "ldoa.powers.balance.name",
+	"chaos": "ldoa.powers.chaos.name",
+	"law": "ldoa.powers.law.name"
 };
 
-BSHConfiguration.rollTypes = {
-	"advantage": "bsh.rolls.types.advantage",
-	"disadvantage": "bsh.rolls.types.disadvantage",
-	"standard": "bsh.rolls.types.standard"
+ldoaConfiguration.rollTypes = {
+	"advantage": "ldoa.rolls.types.advantage",
+	"disadvantage": "ldoa.rolls.types.disadvantage",
+	"standard": "ldoa.rolls.types.standard"
 };
 
-BSHConfiguration.spellStates = {
-	"available": "bsh.spells.states.available",
-	"cast": "bsh.spells.states.cast",
-	"unavailable": "bsh.spells.states.unavailable"
+ldoaConfiguration.spellStates = {
+	"available": "ldoa.spells.states.available",
+	"cast": "ldoa.spells.states.cast",
+	"unavailable": "ldoa.spells.states.unavailable"
 };
 
-BSHConfiguration.summoningStates = {
-	"unused": "bsh.summoning.states.unused",
-	"used": "bsh.summoning.states.used"
+ldoaConfiguration.summoningStates = {
+	"unused": "ldoa.summoning.states.unused",
+	"used": "ldoa.summoning.states.used"
 };
 
-BSHConfiguration.usageDieList = {
-	"exhausted": "bsh.dice.exhausted",
-	"d4": "bsh.dice.d4",
-	"d6": "bsh.dice.d6",
-	"d8": "bsh.dice.d8",
-	"d10": "bsh.dice.d10",
-	"d12": "bsh.dice.d12",
-	"d20": "bsh.dice.d20"
+ldoaConfiguration.usageDieList = {
+	"exhausted": "ldoa.dice.exhausted",
+	"d4": "ldoa.dice.d4",
+	"d6": "ldoa.dice.d6",
+	"d8": "ldoa.dice.d8",
+	"d10": "ldoa.dice.d10",
+	"d12": "ldoa.dice.d12",
+	"d20": "ldoa.dice.d20"
 };
 
-BSHConfiguration.usageDieOptionList = {
-	"d4": "bsh.dice.d4",
-	"d6": "bsh.dice.d6",
-	"d8": "bsh.dice.d8",
-	"d10": "bsh.dice.d10",
-	"d12": "bsh.dice.d12",
-	"d20": "bsh.dice.d20"
+ldoaConfiguration.usageDieOptionList = {
+	"d4": "ldoa.dice.d4",
+	"d6": "ldoa.dice.d6",
+	"d8": "ldoa.dice.d8",
+	"d10": "ldoa.dice.d10",
+	"d12": "ldoa.dice.d12",
+	"d20": "ldoa.dice.d20"
 };
 
-BSHConfiguration.weaponHandsList = {
-	"1": "bsh.weapons.hands.one",
-	"2": "bsh.weapons.hands.two"
+ldoaConfiguration.weaponHandsList = {
+	"1": "ldoa.weapons.hands.one",
+	"2": "ldoa.weapons.hands.two"
 };
 
-BSHConfiguration.weaponTypes = {
-	"melee": "bsh.weapons.types.melee",
-	"ranged": "bsh.weapons.types.ranged",
-	"unarmed": "bsh.weapons.types.unarmed"
+ldoaConfiguration.weaponTypes = {
+	"melee": "ldoa.weapons.types.melee",
+	"ranged": "ldoa.weapons.types.ranged",
+	"unarmed": "ldoa.weapons.types.unarmed"
 };
 
-BSHConfiguration.yesNoList = {
-	"yes": "bsh.yes",
-	"no": "bsh.no"
+ldoaConfiguration.yesNoList = {
+	"yes": "ldoa.yes",
+	"no": "ldoa.no"
 };

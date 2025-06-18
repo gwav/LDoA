@@ -1,4 +1,4 @@
-import {BSHConfiguration} from './configuration.js';
+import {ldoaConfiguration} from './configuration.js';
 import AttributeTestDialog from './attribute_test_dialog.js';
 import {logAttackRoll, logAttributeTest, logDieRoll, logItemUsageDieRoll} from './chat_messages.js';
 
@@ -42,7 +42,7 @@ export function deleteOwnedItem(itemId) {
         item.actor.deleteEmbeddedDocuments("Item", [itemId]);
     } else {
         console.error(`Delete of item id ${itemId} requested but unable to locate the actual item or it's owner.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.items.owned.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.items.owned.notFound"));
     }
 }
 
@@ -279,7 +279,7 @@ export async function handleRollAttributeDieEvent(event) {
             if(event.altKey) {
                 let attribute = element.dataset.attribute;
                 let rollType = "standard";
-                let title     = game.i18n.localize(`bsh.rolls.tests.${attribute}.title`);
+                let title     = game.i18n.localize(`ldoa.rolls.tests.${attribute}.title`);
 
                 if(event.shiftKey) {
                     rollType = "advantage";
@@ -293,11 +293,11 @@ export async function handleRollAttributeDieEvent(event) {
             }
         } else {
             console.error(`Unable to locate an actor with the id ${element.dataset.actor} for attribute die roll.`);
-            ui.notifications.error(game.i18n.localize("bsh.errors.actors.notFound"));
+            ui.notifications.error(game.i18n.localize("ldoa.errors.actors.notFound"));
         }
     } else {
         console.error("Attribute die roll requested but requesting element has no actor id value.");
-        ui.notifications.error(game.i18n.localize("bsh.errors.attributes.missing"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.attributes.missing"));
     }
     return(false);
 }
@@ -311,7 +311,7 @@ export async function handleRollAttributeDieEvent(event) {
 export async function handleRollDieEvent(event) {
     let element = event.currentTarget;
     let actor   = game.actors.find((a) => a.id === element.dataset.id);
-    let title   = game.i18n.localize(`bsh.fields.titles.dieRolls.${element.dataset.type}`)
+    let title   = game.i18n.localize(`ldoa.fields.titles.dieRolls.${element.dataset.type}`)
 
     event.preventDefault();
     logDieRoll(actor, element.dataset.die, title, event.shiftKey, event.ctrlKey);
@@ -327,7 +327,7 @@ export async function handleRollUsageDieEvent(event) {
         return(handleItemUsageDieRollEvent(event));
     } else {
         console.error("Roll usage die event occurred by source element does not have an actor or item reference id.");
-        ui.notifications.error(game.i18n.localize("bsh.errors.attributes.missing"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.attributes.missing"));
     }
 }
 
@@ -352,12 +352,12 @@ function handleActorUsageDieRollEvent(event) {
 
                             actor.update(data, {diff: true});
                             if(newDie !== "exhausted") {
-                                message  = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
+                                message  = interpolate(game.i18n.localize("ldoa.messages.usageDie.downgraded"), {die: newDie});
                             } else {
-                                message = game.i18n.localize("bsh.messages.usageDie.exhausted");
+                                message = game.i18n.localize("ldoa.messages.usageDie.exhausted");
                             }
                         } else {
-                            message = game.i18n.localize("bsh.messages.usageDie.unchanged");
+                            message = game.i18n.localize("ldoa.messages.usageDie.unchanged");
                         }
                         ChatMessage.create({content: message,
                                             speaker: ChatMessage.getSpeaker(),
@@ -365,19 +365,19 @@ function handleActorUsageDieRollEvent(event) {
                     });
                 } else {
                     console.warn(`Unable to roll usage die for actor id ${actor.id} as the particular usage die request is exhausted.`);
-                    ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
+                    ui.notifications.error(game.i18n.localize("ldoa.errors.usageDie.exhausted"));
                 }
             } else {
                 console.error(`Unable to locate the ${element.dataset.die} usage die setting for actor id ${actor.id}.`);
-                ui.notifications.error(game.i18n.localize("bsh.errors.attributes.invalid"));
+                ui.notifications.error(game.i18n.localize("ldoa.errors.attributes.invalid"));
             }
         } else {
             console.error("Usage die roll requested but requesting element has no die path attribute.");
-            ui.notifications.error(game.i18n.localize("bsh.errors.attributes.missing"));
+            ui.notifications.error(game.i18n.localize("ldoa.errors.attributes.missing"));
         }
     } else {
         console.error(`Unable to locate an actor with the id ${element.dataset.actor}.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.actors.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.actors.notFound"));
     }
     return(false);
 }
@@ -392,11 +392,11 @@ async function handleItemUsageDieRollEvent(event) {
             logItemUsageDieRoll(item, element.dataset.die, event.shiftKey, event.ctrlKey);
         } else {
             console.error("Usage die roll requested but requesting element has no die path attribute.");
-            ui.notifications.error(game.i18n.localize("bsh.errors.attributes.missing"));
+            ui.notifications.error(game.i18n.localize("ldoa.errors.attributes.missing"));
         }
     } else {
         console.error(`Unable to locate an item with the id ${element.dataset.item}.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.items.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.items.notFound"));
     }
     return(false);
 }
@@ -414,16 +414,16 @@ export async function handleWeaponRollEvent(event) {
                 logAttackRoll(weapon.actor.id, weapon.id, event.shiftKey, event.ctrlKey);
             } else {
                 console.error(`Unable to make a weapon attack roll for weapon id '${weapon.id}' as it is not an owned item.`);
-                ui.notifications.error(game.i18n.localize("bsh.errors.weapons.unowned"));
+                ui.notifications.error(game.i18n.localize("ldoa.errors.weapons.unowned"));
             }
 
         } else {
             console.error(`Unable to locate a weapon with an id of '${element.dataset.item}'.`);
-            ui.notifications.error(game.i18n.localize("bsh.errors.weapons.notFound"));
+            ui.notifications.error(game.i18n.localize("ldoa.errors.weapons.notFound"));
         }
     } else {
         console.error("Weapon attack roll requested but requesting element does not have an item id attribute.");
-        ui.notifications.error(game.i18n.localize("bsh.errors.attributes.missing"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.attributes.missing"));
     }
     return(false);
 }
@@ -443,7 +443,7 @@ export async function resetItemUsageDie(itemId) {
         }
     } else {
         console.error(`Unable to locate an owned item with the id '${itemId}'.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.items.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.items.notFound"));
     }
 }
 
@@ -460,11 +460,11 @@ export async function decrementItemQuantity(itemId) {
             item.update(data, {diff: true});
         } else {
             console.error(`Unable to reduce the quantity for owned item id '${itemId}'.`);
-            ui.notifications.error(game.i18n.localize("bsh.errors.items.owned.unavailable"));
+            ui.notifications.error(game.i18n.localize("ldoa.errors.items.owned.unavailable"));
         }
     } else {
         console.error(`Unable to locate an owned item with the id '${itemId}'.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.items.owned.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.items.owned.notFound"));
     }
 }
 
@@ -479,7 +479,7 @@ export async function incrementItemQuantity(itemId) {
         item.update(data, {diff: true});
     } else {
         console.error(`Unable to locate an owned item with the id '${itemId}'.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.items.owned.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.items.owned.notFound"));
     }
 }
 
@@ -543,13 +543,13 @@ export function onInfoIconClicked(event) {
     let content = icon.dataset.content.trim();
 
     if(content === "") {
-        content = game.i18n.localize("bsh.creatures.actions.info.noDescription")
+        content = game.i18n.localize("ldoa.creatures.actions.info.noDescription")
     }
-    content = `<div class="bsh-action-description">${content}<div><br>`;
+    content = `<div class="ldoa-action-description">${content}<div><br>`;
     Dialog.prompt({callback: () => {},
                    content:  content,
-                   label:    game.i18n.localize("bsh.creatures.actions.info.dismiss"),
-                   title:    game.i18n.localize("bsh.creatures.actions.info.title")});
+                   label:    game.i18n.localize("ldoa.creatures.actions.info.dismiss"),
+                   title:    game.i18n.localize("ldoa.creatures.actions.info.title")});
 }
 
 /**

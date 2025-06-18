@@ -1,16 +1,16 @@
 <p>
-    [{{actor}}] {{localize "bsh.messages.blurbs.summons"}}: {{demon}}
+    [{{actor}}] {{localize "ldoa.messages.blurbs.summons"}}: {{demon}}
 </p>
 
-{{> "systems/black-sword-hack/templates/messages/roll.hbs" roll}}
+{{> "systems/lastdays/templates/messages/roll.hbs" roll}}
 
-<p class="bsh-summon-results">
+<p class="ldoa-summon-results">
 {{#fumble}}
-    {{localize "bsh.messages.blurbs.summonFumble"}}
+    {{localize "ldoa.messages.blurbs.summonFumble"}}
 {{/fumble}}
 
 {{^fumble}}
-    {{localize "bsh.messages.blurbs.summonFailure"}}
+    {{localize "ldoa.messages.blurbs.summonFailure"}}
 {{/fumble}}
 </p>
 

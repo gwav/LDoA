@@ -1,4 +1,4 @@
-import {BSHConfiguration} from './configuration.js';
+import {ldoaConfiguration} from './configuration.js';
 import {calculateCharacterData, downgradeDie, getActorById, interpolate, rollEm} from './shared.js';
 
 /**
@@ -41,7 +41,7 @@ export function rollDoom(actor, rollType="standard") {
                         result.die.ending = newDie;
                         data.system.doom  = newDie;
                         if(result.die.ending === "exhausted") {
-                            ui.notifications.warn(interpolate("bsh.messages.doom.failExhausted", {name: actor.name}));
+                            ui.notifications.warn(interpolate("ldoa.messages.doom.failExhausted", {name: actor.name}));
                         }
                     } else {
                         result.die.ending = actor.doom;
@@ -51,7 +51,7 @@ export function rollDoom(actor, rollType="standard") {
                 }));
     } else {
         console.error(`Unable to roll doom for ${actor.name} as their doom die is exhausted.`);
-        ui.notifications.error(interpolate("bsh.messages.doom.exhausted", {name: actor.name}));
+        ui.notifications.error(interpolate("ldoa.messages.doom.exhausted", {name: actor.name}));
     }
 }
 

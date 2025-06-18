@@ -5,10 +5,10 @@
 			<input type="text" name="name" value="{{item.name}}" />
 		</h1>
 	</header>
-	<div class="bsh-weapon-body">
-		<div class="bsh-field">
-			<label class="bsh-label">{{localize "bsh.fields.labels.type"}}</label>
-	    	<select name="system.type" class="bsh-input bsh-select">
+	<div class="ldoa-weapon-body">
+		<div class="ldoa-field">
+			<label class="ldoa-label">{{localize "ldoa.fields.labels.type"}}</label>
+	    	<select name="system.type" class="ldoa-input ldoa-select">
 			{{#select item.system.type}}
 			{{#each configuration.weaponTypes as |key value|}}
 	    		<option value="{{value}}">{{localize key}}</option>
@@ -17,9 +17,9 @@
 	    	</select>
 		</div>
 
-		<div class="bsh-field">
-			<label class="bsh-label">{{localize "bsh.fields.labels.hands"}}</label>
-	    	<select name="system.hands" class="bsh-input bsh-select">
+		<div class="ldoa-field">
+			<label class="ldoa-label">{{localize "ldoa.fields.labels.hands"}}</label>
+	    	<select name="system.hands" class="ldoa-input ldoa-select">
 			{{#select item.system.hands}}
 			{{#each configuration.weaponHandsList as |key value|}}
 	    		<option value="{{value}}">{{localize key}}</option>
@@ -28,9 +28,9 @@
 	    	</select>
 		</div>
 
-		<div class="bsh-field">
-			<label class="bsh-label">{{localize "bsh.fields.labels.rarity"}}</label>
-	    	<select name="system.rarity" class="bsh-input bsh-select">
+		<div class="ldoa-field">
+			<label class="ldoa-label">{{localize "ldoa.fields.labels.rarity"}}</label>
+	    	<select name="system.rarity" class="ldoa-input ldoa-select">
 			{{#select item.system.rarity}}
 			{{#each configuration.itemRarityList as |key value|}}
 	    		<option value="{{value}}">{{localize key}}</option>
@@ -40,8 +40,8 @@
 		</div>
 	</div>
 
-	<div class="bsh-field">
-		<label for="system.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+	<div class="ldoa-field">
+		<label for="system.description" class="ldoa-label">{{localize "ldoa.fields.labels.description"}}</label>
 		{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
 	</div>
 </form>

@@ -32,7 +32,7 @@ export function takeLongRest(character) {
     if(Object.keys(updates.system).length > 0) {
         character.update(updates, {diff: true});
     }
-    ui.notifications.notify(interpolate("bsh.messages.rests.longRest", {name: character.name}));
+    ui.notifications.notify(interpolate("ldoa.messages.rests.longRest", {name: character.name}));
 }
 
 /**
@@ -54,5 +54,5 @@ export function takeShortRest(character) {
     if(Object.keys(updates.system).length > 0) {
         character.update(updates, {diff: true});
     }
-    ui.notifications.notify(interpolate("bsh.messages.rests.shortRest", {name: character.name}));
+    ui.notifications.notify(interpolate("ldoa.messages.rests.shortRest", {name: character.name}));
 }

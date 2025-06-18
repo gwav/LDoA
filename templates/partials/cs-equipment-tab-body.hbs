@@ -1,46 +1,46 @@
-<div class="bsh-tab-body bsh-equipment-tab {{tabBodySelectionClass "equipment"}}">
+<div class="ldoa-tab-body ldoa-equipment-tab {{tabBodySelectionClass "equipment"}}">
 	<section>
-	    <h2>{{localize "bsh.headers.wealth"}}</h2>
+	    <h2>{{localize "ldoa.headers.wealth"}}</h2>
 	    <div>
-	    	<span class="bsh-column-header">{{localize "bsh.headers.coins"}}</span>
+	    	<span class="ldoa-column-header">{{localize "ldoa.headers.coins"}}</span>
 	    </div>
-		<div class="bsh-coins-container">
-			<input type="text" name="system.coins.first" value="{{actor.system.coins.first}}" class="bsh-input" />
-			<input type="text" name="system.coins.second" value="{{actor.system.coins.second}}" class="bsh-input" />
-			<input type="text" name="system.coins.third" value="{{actor.system.coins.third}}" class="bsh-input" />
-			<input type="text" name="system.coins.fourth" value="{{actor.system.coins.fourth}}" class="bsh-input" />
-			<input type="text" name="system.coins.fifth" value="{{actor.system.coins.fifth}}" class="bsh-input" />
+		<div class="ldoa-coins-container">
+			<input type="text" name="system.coins.first" value="{{actor.system.coins.first}}" class="ldoa-input" />
+			<input type="text" name="system.coins.second" value="{{actor.system.coins.second}}" class="ldoa-input" />
+			<input type="text" name="system.coins.third" value="{{actor.system.coins.third}}" class="ldoa-input" />
+			<input type="text" name="system.coins.fourth" value="{{actor.system.coins.fourth}}" class="ldoa-input" />
+			<input type="text" name="system.coins.fifth" value="{{actor.system.coins.fifth}}" class="ldoa-input" />
 		</div>
     </section>
     <br>
 
     <div class="collapsible-widget" data-expanded="true">
         <h2>
-            <div class="bsh-float-left collapsible-widget-toggle">
+            <div class="ldoa-float-left collapsible-widget-toggle">
                 <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
                 <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
             </div>
             &nbsp;
-            {{localize "bsh.headers.consumables"}}
+            {{localize "ldoa.headers.consumables"}}
         </h2>
         <div class="collapsible-widget-target">
-            <div class="bsh-consumable-entries">
-            	<div class="bsh-text-truncated">
-            	    <span class="bsh-column-header">{{localize "bsh.headers.itemName"}}</span>
+            <div class="ldoa-consumable-entries">
+            	<div class="ldoa-text-truncated">
+            	    <span class="ldoa-column-header">{{localize "ldoa.headers.itemName"}}</span>
             	</div>
-            	<div class="bsh-text-truncated">
+            	<div class="ldoa-text-truncated">
             	    <center>
-            	    	<span class="bsh-column-header">{{localize "bsh.headers.itemQuantity"}}</span>
+            	    	<span class="ldoa-column-header">{{localize "ldoa.headers.itemQuantity"}}</span>
             	    </center>
             	</div>
-            	<div class="bsh-text-truncated">
+            	<div class="ldoa-text-truncated">
             	    <center>
-            	    	<span class="bsh-column-header">{{localize "bsh.headers.itemUsageDie"}}</span>
+            	    	<span class="ldoa-column-header">{{localize "ldoa.headers.itemUsageDie"}}</span>
             	    </center>
             	</div>
             	<div></div>
         	{{#each consumables as |consumable id|}}
-        	    {{> "systems/black-sword-hack/templates/partials/cs-consumable-entry.hbs" consumable}}
+        	    {{> "systems/lastdays/templates/partials/cs-consumable-entry.hbs" consumable}}
         	{{/each}}
             </div>
         </div>
@@ -48,17 +48,17 @@
 
     <div class="collapsible-widget" data-expanded="true">
         <h2>
-            <div class="bsh-float-left collapsible-widget-toggle">
+            <div class="ldoa-float-left collapsible-widget-toggle">
                 <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
                 <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
             </div>
             &nbsp;
-            {{localize "bsh.headers.equipment"}}
+            {{localize "ldoa.headers.equipment"}}
         </h2>
         <div class="collapsible-widget-target">
-            <div class="bsh-equipment-entries">
+            <div class="ldoa-equipment-entries">
         	{{#each equipment as |item id|}}
-        	    {{> "systems/black-sword-hack/templates/partials/cs-equipment-entry.hbs" item}}
+        	    {{> "systems/lastdays/templates/partials/cs-equipment-entry.hbs" item}}
         	{{/each}}
             </div>
         </div>

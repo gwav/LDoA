@@ -1,32 +1,32 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="bsh-origin-sheet-body">
-    	<div class="bsh-origin-main">
-    		<div class="bsh-origin-container">
+    <div class="ldoa-origin-sheet-body">
+    	<div class="ldoa-origin-main">
+    		<div class="ldoa-origin-container">
     			<div>
     				<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
     			</div>
 
     			<div>
-				    <div class="bsh-field">
-				    	<input class="bsh-input" name="name" type="text" value="{{item.name}}" />
+				    <div class="ldoa-field">
+				    	<input class="ldoa-input" name="name" type="text" value="{{item.name}}" />
 				    </div>
 
 			        <div>
-			        	<div class="bsh-backgrounds-header">
-			                <label class="bsh-label">{{localize "bsh.headers.backgrounds"}}</label>
+			        	<div class="ldoa-backgrounds-header">
+			                <label class="ldoa-label">{{localize "ldoa.headers.backgrounds"}}</label>
 			    
-			                <div class="bsh-backgrounds-header-icons">
-								<p class="bsh-icons-list">
-									<i class="fas fa-plus bsh-action-icon bsh-new-background-icon" data-origin="{{item.id}}"></i>
-									<i class="fas fa-minus bsh-action-icon bsh-delete-background-icon bsh-greyed-out" data-origin="{{item.id}}"></i>
+			                <div class="ldoa-backgrounds-header-icons">
+								<p class="ldoa-icons-list">
+									<i class="fas fa-plus ldoa-action-icon ldoa-new-background-icon" data-origin="{{item.id}}"></i>
+									<i class="fas fa-minus ldoa-action-icon ldoa-delete-background-icon ldoa-greyed-out" data-origin="{{item.id}}"></i>
 								</p>
 							</div>
 			        	</div>
 			        	<hr>
 
-						<div class="bsh-backgrounds-list">
+						<div class="ldoa-backgrounds-list">
 							{{#each data.system.backgroundObjects as |background index|}}
-							    {{> "systems/black-sword-hack/templates/partials/cs-background-entry.hbs" background}}
+							    {{> "systems/lastdays/templates/partials/cs-background-entry.hbs" background}}
 							{{/each}}
 						</div>
 					</div>

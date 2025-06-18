@@ -1,9 +1,9 @@
 import { terser } from 'rollup-plugin-terser';
 
 export default {
-  input: 'black-sword-hack.js',
+  input: 'lastdays.js',
   output: {
-    file: 'black-sword-hack.min.js',
+    file: 'lastdays.min.js',
     format: 'esm',
     plugins: [terser()]
   }

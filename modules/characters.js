@@ -1,4 +1,4 @@
-import {BSHConfiguration} from './configuration.js';
+import {ldoaConfiguration} from './configuration.js';
 import {generateBirthPlace,
         getBackgrounds,
         getOriginKeys} from './origins.js';

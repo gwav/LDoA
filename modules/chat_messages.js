@@ -1,4 +1,4 @@
-import {BSHConfiguration} from './configuration.js';
+import {ldoaConfiguration} from './configuration.js';
 import {rollDoom} from './doom.js';
 import {calculateAttributeValues,
         decrementItemQuantity,
@@ -17,7 +17,7 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
         let weapon = actor.items.find((i) => i.id === weaponId);
 
         if(weapon) {
-            let attributes = calculateAttributeValues(actor.system, BSHConfiguration);
+            let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
             let dice       = null;
             let attribute  = (weapon.system.type !== "ranged" ? "strength" : "dexterity");
             let critical   = {failure: false, success: false};
@@ -48,20 +48,20 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
                 critical.success = (roll.terms[0].results[0] === 1);
                 data.roll        = {expanded: expanded,
                                     formula:  roll.formula,
-                                    labels:   {title: interpolate("bsh.messages.titles.attackRoll")},
+                                    labels:   {title: interpolate("ldoa.messages.titles.attackRoll")},
                                     result:   roll.total,
                                     tested:   true};
 
                 data.roll.success = (!critical.failure && attributes[attribute] > data.roll.result);
 
                 if(!critical.success && !critical.failure) {
-                    data.roll.labels.result = interpolate(data.roll.success ? "bsh.messages.labels.hit" : "bsh.messages.labels.miss");
+                    data.roll.labels.result = interpolate(data.roll.success ? "ldoa.messages.labels.hit" : "ldoa.messages.labels.miss");
                 } else {
                     if(critical.success) {
-                        data.roll.labels.result = interpolate("bsh.messages.labels.criticalHit");
+                        data.roll.labels.result = interpolate("ldoa.messages.labels.criticalHit");
                     } else {
-                        data.roll.labels.result = interpolate("bsh.messages.labels.criticalMiss");
-                        data.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+                        data.roll.labels.result = interpolate("ldoa.messages.labels.criticalMiss");
+                        data.roll.additional    = {message: game.i18n.localize("ldoa.blurbs.critical_failure"),
                                                    show: true};
                     }
                 }
@@ -75,7 +75,7 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
                                    weaponId: weapon.id};
                 }
 
-                showMessage(actor, "systems/black-sword-hack/templates/messages/attack-roll.hbs", data);
+                showMessage(actor, "systems/lastdays/templates/messages/attack-roll.hbs", data);
             });
         } else {
             console.error(`Unable to locate weapon id '${weaponId}' on actor '${actor.name}'.`);
@@ -86,7 +86,7 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
 }
 
 export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false, expanded=false, adjustment=0) {
-    let attributes = calculateAttributeValues(actor.system, BSHConfiguration);
+    let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
     let critical   = {failure: false, success: true};
     let doomed     = (actor.system.doom === "exhausted");
     let message    = {actor:    actor.name, 
@@ -98,9 +98,9 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
                                  result:   0,
                                  success:  false,
                                  tested:   true}};
-    let title      = game.i18n.localize(`bsh.fields.titles.dieRolls.attributes.${attribute}`)
+    let title      = game.i18n.localize(`ldoa.fields.titles.dieRolls.attributes.${attribute}`)
 
-    message.roll.labels.title = game.i18n.localize(`bsh.fields.titles.dieRolls.attributes.${attribute}`);
+    message.roll.labels.title = game.i18n.localize(`ldoa.fields.titles.dieRolls.attributes.${attribute}`);
 
     if(shiftKey) {
         message.roll.formula = (doomed ? `1d20` : `2d20kl`);
@@ -123,20 +123,20 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
         message.roll.success = (critical.success || roll.total < attributes[attribute]);
         if(message.roll.success) {
             if(critical.success) {
-                message.roll.labels.result = game.i18n.localize("bsh.fields.titles.criticalSuccess");
+                message.roll.labels.result = game.i18n.localize("ldoa.fields.titles.criticalSuccess");
             } else {
-                message.roll.labels.result = game.i18n.localize("bsh.fields.titles.success");
+                message.roll.labels.result = game.i18n.localize("ldoa.fields.titles.success");
             }
         } else {
             if(critical.failure) {
-                message.roll.labels.result = game.i18n.localize("bsh.fields.titles.criticalFailure");
-                message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+                message.roll.labels.result = game.i18n.localize("ldoa.fields.titles.criticalFailure");
+                message.roll.additional    = {message: game.i18n.localize("ldoa.blurbs.critical_failure"),
                                               show: true};
             } else {
-                message.roll.labels.result = game.i18n.localize("bsh.fields.titles.failure");
+                message.roll.labels.result = game.i18n.localize("ldoa.fields.titles.failure");
             }
         }
-        showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+        showMessage(actor, "systems/lastdays/templates/messages/die-roll.hbs", message);
     });
 }
 
@@ -148,13 +148,13 @@ export function logCallSpirit(spirit, result) {
                    doomed:  result.doomed,
                    roll:    {expanded: false,
                              formula:  result.formula,
-                             labels:   {result: game.i18n.localize("bsh.fields.titles.success"),
-                                        title: game.i18n.localize("bsh.messages.titles.callSpirit")},
+                             labels:   {result: game.i18n.localize("ldoa.fields.titles.success"),
+                                        title: game.i18n.localize("ldoa.messages.titles.callSpirit")},
                              result:   result.result,
                              success:  true,
                              tested:   true}};
 
-    showMessage(actor, "systems/black-sword-hack/templates/messages/spirit-success.hbs", message);
+    showMessage(actor, "systems/lastdays/templates/messages/spirit-success.hbs", message);
 }
 
 export function logCallSpiritFailure(spirit, result) {
@@ -166,13 +166,13 @@ export function logCallSpiritFailure(spirit, result) {
                    fumble:  (result.die.ending === "exhausted"),
                    roll:    {expanded: false,
                              formula:  result.formula,
-                             labels:   {result: game.i18n.localize("bsh.fields.titles.failure"),
-                                        title: game.i18n.localize("bsh.messages.titles.callSpirit")},
+                             labels:   {result: game.i18n.localize("ldoa.fields.titles.failure"),
+                                        title: game.i18n.localize("ldoa.messages.titles.callSpirit")},
                              result:   result.result,
                              success:  false,
                              tested:   true}};
 
-    showMessage(actor, "systems/black-sword-hack/templates/messages/spirit-failure.hbs", message);
+    showMessage(actor, "systems/lastdays/templates/messages/spirit-failure.hbs", message);
 }
 
 export function logDamageRoll(event) {
@@ -183,14 +183,14 @@ export function logDamageRoll(event) {
         let actor   = game.actors.find((a) => a.id === rollData.actor);
         let data    = {doomed: (rollData.doomed === "true"),
                        roll:   {expanded: true,
-                                labels: {title: interpolate("bsh.messages.titles.damageRoll")},
+                                labels: {title: interpolate("ldoa.messages.titles.damageRoll")},
                                 tested: false}};
         let formula = rollData.formula;
 
         data.roll.formula = formula;
         rollEm(new Roll(formula)).then((roll) => {
             data.roll.result  = roll.total;
-            showMessage(actor, "systems/black-sword-hack/templates/messages/damage-roll.hbs", data)
+            showMessage(actor, "systems/lastdays/templates/messages/damage-roll.hbs", data)
         });
     } else {
         console.error("Damage roll requested but requesting element did not have a damage formula attribute.");
@@ -227,13 +227,13 @@ export function logDemonSummoning(demon, result) {
                    doomed:  result.doomed,
                    roll:    {expanded: false,
                              formula:  result.formula,
-                             labels:   {result: game.i18n.localize("bsh.fields.titles.success"),
-                                        title: game.i18n.localize("bsh.messages.titles.summonDemon")},
+                             labels:   {result: game.i18n.localize("ldoa.fields.titles.success"),
+                                        title: game.i18n.localize("ldoa.messages.titles.summonDemon")},
                              result:   result.result,
                              success:  true,
                              tested:   true}};
 
-    showMessage(actor, "systems/black-sword-hack/templates/messages/demon-success.hbs", message);
+    showMessage(actor, "systems/lastdays/templates/messages/demon-success.hbs", message);
 }
 
 export function logDemonSummoningFailure(demon, result) {
@@ -245,13 +245,13 @@ export function logDemonSummoningFailure(demon, result) {
                    fumble:  (result.die.ending === "exhausted"),
                    roll:    {expanded: false,
                              formula:  result.formula,
-                             labels:   {result: game.i18n.localize("bsh.fields.titles.failure"),
-                                        title: game.i18n.localize("bsh.messages.titles.summonDemon")},
+                             labels:   {result: game.i18n.localize("ldoa.fields.titles.failure"),
+                                        title: game.i18n.localize("ldoa.messages.titles.summonDemon")},
                              result:   result.result,
                              success:  false,
                              tested:   true}};
 
-    showMessage(actor, "systems/black-sword-hack/templates/messages/demon-failure.hbs", message);
+    showMessage(actor, "systems/lastdays/templates/messages/demon-failure.hbs", message);
 }
 
 export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false) {
@@ -275,15 +275,15 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
     }
     rollEm(new Roll(formula)).then((roll) => {
         message.roll.result = roll.total;
-        showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+        showMessage(actor, "systems/lastdays/templates/messages/die-roll.hbs", message);
     });
 }
 
 export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
-    let attributes = calculateAttributeValues(actor.system, BSHConfiguration);
+    let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
     let critical   = {failure: false, success: false};
     let doomed     = (actor.system.doom === "exhausted");
-    let title      = interpolate("bsh.messages.titles.dodgeRoll");
+    let title      = interpolate("ldoa.messages.titles.dodgeRoll");
     let message    = {actor:    actor.name, 
                       actorId:  actor.id,
                       doomed:   doomed,
@@ -311,18 +311,18 @@ export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
         message.roll.success = (critical.success || roll.total < attributes["dexterity"]);
 
         if(!critical.success && !critical.failure) {
-            message.roll.labels.result = interpolate(message.roll.success ? "bsh.messages.labels.success" : "bsh.messages.labels.failure");
+            message.roll.labels.result = interpolate(message.roll.success ? "ldoa.messages.labels.success" : "ldoa.messages.labels.failure");
         } else {
             if(critical.success) {
-                message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+                message.roll.labels.result = interpolate("ldoa.messages.labels.criticalSuccess");
             } else {
-                message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
-                message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.defend_fumble"),
+                message.roll.labels.result = interpolate("ldoa.messages.labels.criticalFailure");
+                message.roll.additional    = {message: game.i18n.localize("ldoa.blurbs.defend_fumble"),
                                               show: true};
             }
         }
 
-        showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+        showMessage(actor, "systems/lastdays/templates/messages/die-roll.hbs", message);
     });
 }
 
@@ -333,7 +333,7 @@ export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
                         roll:     {expanded: false,
                                    formula:  "",
                                    labels:   {result: "",
-                                              title:  interpolate("bsh.messages.titles.doomRoll")},
+                                              title:  interpolate("ldoa.messages.titles.doomRoll")},
                                    result:   0,
                                    tested:   true}};
         let rollType = "standard";
@@ -349,17 +349,17 @@ export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
             message.roll.result  = result.result;
             message.roll.success = !result.downgraded;
             if(!message.roll.success) {
-                message.roll.labels.result = interpolate("bsh.fields.titles.failure");
+                message.roll.labels.result = interpolate("ldoa.fields.titles.failure");
                 message.doomed = (result.die.ending === "exhausted");
             } else {
-                message.roll.labels.result = interpolate("bsh.fields.titles.success");
+                message.roll.labels.result = interpolate("ldoa.fields.titles.success");
             }
 
-            showMessage(actor, "systems/black-sword-hack/templates/messages/doom-roll.hbs", message);
+            showMessage(actor, "systems/lastdays/templates/messages/doom-roll.hbs", message);
         });
     } else {
         console.error(`Unable to make a doom roll for '${actor.name}' as their doom die is exhausted.`);
-        ui.notifications.error(interpolate("bsh.messages.doom.exhausted", {name: actor.name}));
+        ui.notifications.error(interpolate("ldoa.messages.doom.exhausted", {name: actor.name}));
     }
 }
 
@@ -368,10 +368,10 @@ export function logInitiativeRoll(event) {
 
     if(element.dataset.actor) {
         let actor      = game.actors.find((a) => a.id === element.dataset.actor);
-        let attributes = calculateAttributeValues(actor.system, BSHConfiguration);
+        let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
         let critical   = {failure: false, success: false};
         let doomed     = (actor.system.doom === "exhausted");
-        let title      = interpolate("bsh.messages.titles.initiativeRoll");
+        let title      = interpolate("ldoa.messages.titles.initiativeRoll");
         let message    = {actor:    actor.name, 
                           actorId:  actor.id,
                           doomed:   doomed,
@@ -399,18 +399,18 @@ export function logInitiativeRoll(event) {
             message.roll.success = (critical.success || roll.total < attributes["wisdom"]);
 
             if(!critical.success && !critical.failure) {
-                message.roll.labels.result = interpolate(message.roll.success ? "bsh.messages.labels.success" : "bsh.messages.labels.failure");
+                message.roll.labels.result = interpolate(message.roll.success ? "ldoa.messages.labels.success" : "ldoa.messages.labels.failure");
             } else {
                 if(critical.success) {
-                    message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+                    message.roll.labels.result = interpolate("ldoa.messages.labels.criticalSuccess");
                 } else {
-                    message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
-                    message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+                    message.roll.labels.result = interpolate("ldoa.messages.labels.criticalFailure");
+                    message.roll.additional    = {message: game.i18n.localize("ldoa.blurbs.critical_failure"),
                                                   show: true};
                 }
             }
 
-            showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+            showMessage(actor, "systems/lastdays/templates/messages/die-roll.hbs", message);
         });
     } else {
         console.error("Initiative roll requested but requesting element is missing an actor id data attribute.");
@@ -432,7 +432,7 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
                            roll:       {expanded: false,
                                         formula:  `1${usageDie}`,
                                         labels:   {result: "",
-                                                   title:  interpolate("bsh.messages.titles.usageDieRoll")},
+                                                   title:  interpolate("ldoa.messages.titles.usageDieRoll")},
                                         result:   0,
                                         tested:   true}};
 
@@ -449,37 +449,37 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
 
                     message.downgraded         = true;
                     message.roll.success       = false;
-                    message.roll.labels.result = interpolate("bsh.fields.titles.failure");
+                    message.roll.labels.result = interpolate("ldoa.fields.titles.failure");
                     item.update({system: data}, {diff: true});
                     if(newDie === "exhausted") {
                         decrementItemQuantity(item.id);
-                        message.feedback = game.i18n.localize("bsh.messages.usageDie.exhausted");
+                        message.feedback = game.i18n.localize("ldoa.messages.usageDie.exhausted");
                     } else {
-                        message.feedback = interpolate(game.i18n.localize("bsh.messages.usageDie.downgraded"), {die: newDie});
+                        message.feedback = interpolate(game.i18n.localize("ldoa.messages.usageDie.downgraded"), {die: newDie});
                     }
                 } else {
                     message.roll.success       = true;
-                    message.roll.labels.result = interpolate("bsh.fields.titles.success");                
+                    message.roll.labels.result = interpolate("ldoa.fields.titles.success");                
                 }
 
-                showMessage(item.actor, "systems/black-sword-hack/templates/messages/usage-die-roll.hbs", message);
+                showMessage(item.actor, "systems/lastdays/templates/messages/usage-die-roll.hbs", message);
             });
         } else {
             console.warn(`Unable to roll usage die for item id ${item.id} as the particular usage die request is exhausted.`);
-            ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.exhausted"));
+            ui.notifications.error(game.i18n.localize("ldoa.errors.usageDie.exhausted"));
         }
     } else {
         console.error(`Unable to locate the ${field} usage die setting for item id ${item.id} (${item.name}).`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.usageDie.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.usageDie.notFound"));
     }
 
 }
 
 export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
-    let attributes = calculateAttributeValues(actor.data.data, BSHConfiguration);
+    let attributes = calculateAttributeValues(actor.data.data, ldoaConfiguration);
     let critical   = {failure: false, success: false};
     let doomed     = (actor.system.doom === "exhausted");
-    let title      = interpolate("bsh.messages.titles.parryRoll");
+    let title      = interpolate("ldoa.messages.titles.parryRoll");
     let message    = {actor:    actor.name, 
                       actorId:  actor.id,
                       doomed:   doomed,
@@ -508,18 +508,18 @@ export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
         message.roll.success = (critical.success || roll.total < attributes["strength"]);
 
         if(!critical.success && !critical.failure) {
-            message.roll.labels.result = interpolate(message.roll.success ? "bsh.messages.labels.success" : "bsh.messages.labels.failure");
+            message.roll.labels.result = interpolate(message.roll.success ? "ldoa.messages.labels.success" : "ldoa.messages.labels.failure");
         } else {
             if(critical.success) {
-                message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+                message.roll.labels.result = interpolate("ldoa.messages.labels.criticalSuccess");
             } else {
-                message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
-                message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.defend_fumble"),
+                message.roll.labels.result = interpolate("ldoa.messages.labels.criticalFailure");
+                message.roll.additional    = {message: game.i18n.localize("ldoa.blurbs.defend_fumble"),
                                               show: true};
             }
         }
 
-        showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+        showMessage(actor, "systems/lastdays/templates/messages/die-roll.hbs", message);
     });
 }
 
@@ -528,10 +528,10 @@ export function logPerceptionRoll(event) {
 
     if(element.dataset.actor) {
         let actor      = game.actors.find((a) => a.id === element.dataset.actor);
-        let attributes = calculateAttributeValues(actor.system, BSHConfiguration);
+        let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
         let critical   = {failure: false, success: false};
         let doomed     = (actor.system.doom === "exhausted");
-        let title      = interpolate("bsh.messages.titles.perceptionRoll");
+        let title      = interpolate("ldoa.messages.titles.perceptionRoll");
         let message    = {actor:    actor.name, 
                           actorId:  actor.id,
                           doomed:   doomed,
@@ -559,18 +559,18 @@ export function logPerceptionRoll(event) {
             message.roll.success = (critical.success || roll.total < attributes["intelligence"]);
 
             if(!critical.success && !critical.failure) {
-                message.roll.labels.result = interpolate(message.roll.success ? "bsh.messages.labels.success" : "bsh.messages.labels.failure");
+                message.roll.labels.result = interpolate(message.roll.success ? "ldoa.messages.labels.success" : "ldoa.messages.labels.failure");
             } else {
                 if(critical.success) {
-                    message.roll.labels.result = interpolate("bsh.messages.labels.criticalSuccess");
+                    message.roll.labels.result = interpolate("ldoa.messages.labels.criticalSuccess");
                 } else {
-                    message.roll.labels.result = interpolate("bsh.messages.labels.criticalFailure");
-                    message.roll.additional    = {message: game.i18n.localize("bsh.blurbs.critical_failure"),
+                    message.roll.labels.result = interpolate("ldoa.messages.labels.criticalFailure");
+                    message.roll.additional    = {message: game.i18n.localize("ldoa.blurbs.critical_failure"),
                                                   show: true};
                 }
             }
 
-            showMessage(actor, "systems/black-sword-hack/templates/messages/die-roll.hbs", message);
+            showMessage(actor, "systems/lastdays/templates/messages/die-roll.hbs", message);
         });
     } else {
         console.error("Perception roll requested but requesting element is missing an actor id data attribute.");
@@ -585,13 +585,13 @@ export function logSpellCast(spell, result) {
                    doomed:  result.doomed,
                    roll:    {expanded: false,
                              formula:  result.formula,
-                             labels:   {result: game.i18n.localize("bsh.fields.titles.success"),
-                                        title: game.i18n.localize("bsh.messages.titles.castSpell")},
+                             labels:   {result: game.i18n.localize("ldoa.fields.titles.success"),
+                                        title: game.i18n.localize("ldoa.messages.titles.castSpell")},
                              result:   result.result,
                              success:  true,
                              tested:   true}};
 
-    showMessage(actor, "systems/black-sword-hack/templates/messages/spell-success.hbs", message);
+    showMessage(actor, "systems/lastdays/templates/messages/spell-success.hbs", message);
 }
 
 export function logSpellCastFailure(spell, result) {
@@ -603,13 +603,13 @@ export function logSpellCastFailure(spell, result) {
                    fumble:  (result.total === 20),
                    roll:    {expanded: false,
                              formula:  result.formula,
-                             labels:   {result: game.i18n.localize("bsh.fields.titles.failure"),
-                                        title: game.i18n.localize("bsh.messages.titles.castSpell")},
+                             labels:   {result: game.i18n.localize("ldoa.fields.titles.failure"),
+                                        title: game.i18n.localize("ldoa.messages.titles.castSpell")},
                              result:   result.result,
                              success:  false,
                              tested:   true}};
 
-    showMessage(actor, "systems/black-sword-hack/templates/messages/spell-failure.hbs", message);
+    showMessage(actor, "systems/lastdays/templates/messages/spell-failure.hbs", message);
 }
 
 export function showMessage(actor, templateKey, data) {
@@ -629,13 +629,13 @@ export function toggleAttributeTestDisplay(event) {
 
     event.preventDefault();
     if(parent) {
-        let details = parent.querySelector(".bsh-roll-details");
+        let details = parent.querySelector(".ldoa-roll-details");
 
         if(details) {
-            if(details.classList.contains("bsh-hidden")) {
-                details.classList.remove("bsh-hidden");
+            if(details.classList.contains("ldoa-hidden")) {
+                details.classList.remove("ldoa-hidden");
             } else {
-                details.classList.add("bsh-hidden");
+                details.classList.add("ldoa-hidden");
             }
         }
     }

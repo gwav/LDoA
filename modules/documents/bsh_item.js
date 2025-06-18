@@ -1,4 +1,4 @@
-export class BSHItem extends Item {
+export class ldoaItem extends Item {
     /** @override */
     prepareData() {
         super.prepareData();

@@ -15,13 +15,13 @@ export function initializeCollapsibles(container=document) {
 
         toggle.addEventListener("click", (e) => onCollapsibleToggleClicked(e, toggle, target));
         if(expanded) {
-            icons[0].classList.add("bsh-hidden");
-            icons[1].classList.remove("bsh-hidden");
-            target.classList.remove("bsh-hidden");
+            icons[0].classList.add("ldoa-hidden");
+            icons[1].classList.remove("ldoa-hidden");
+            target.classList.remove("ldoa-hidden");
         } else {
-            icons[0].classList.remove("bsh-hidden");
-            icons[1].classList.add("bsh-hidden");
-            target.classList.add("bsh-hidden");
+            icons[0].classList.remove("ldoa-hidden");
+            icons[1].classList.add("ldoa-hidden");
+            target.classList.add("ldoa-hidden");
         }
     }
 }
@@ -29,13 +29,13 @@ export function initializeCollapsibles(container=document) {
 function onCollapsibleToggleClicked(event, toggle, container) {
     let icons = toggle.querySelectorAll(".collapsible-widget-icon");
 
-    if(container.classList.contains("bsh-hidden")) {
-        container.classList.remove("bsh-hidden");
-        icons[0].classList.add("bsh-hidden");
-        icons[1].classList.remove("bsh-hidden");
+    if(container.classList.contains("ldoa-hidden")) {
+        container.classList.remove("ldoa-hidden");
+        icons[0].classList.add("ldoa-hidden");
+        icons[1].classList.remove("ldoa-hidden");
     } else {
-        container.classList.add("bsh-hidden");
-        icons[0].classList.remove("bsh-hidden");
-        icons[1].classList.add("bsh-hidden");
+        container.classList.add("ldoa-hidden");
+        icons[0].classList.remove("ldoa-hidden");
+        icons[1].classList.add("ldoa-hidden");
     }
 }

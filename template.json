@@ -54,7 +54,7 @@
                    "granted": false
                  },
                  "hitPoints": 1,
-                 "level": "bsh.levels.names.2"
+                 "level": "ldoa.levels.names.2"
                },
                "title": ""},
         "01": {"improvements": {
@@ -64,7 +64,7 @@
                  "granted": true
                },
                "hitPoints": 1,
-               "level": "bsh.levels.names.3"
+               "level": "ldoa.levels.names.3"
                },
                "title": ""},
         "02": {"improvements": {
@@ -73,7 +73,7 @@
                               "second": {"choice": "none"}},
                "gift": {"granted": false},
                "hitPoints": 1,
-               "level": "bsh.levels.names.4"
+               "level": "ldoa.levels.names.4"
                },
                "title": ""},
         "03": {"improvements": {
@@ -81,7 +81,7 @@
                "gift": {"choice": "none",
                         "granted": true},
                "hitPoints": 1,
-               "level": "bsh.levels.names.5"
+               "level": "ldoa.levels.names.5"
                },
                "title": ""},
         "04": {"improvements": {
@@ -89,7 +89,7 @@
                               "granted": true},
                "gift": {"granted": false},
                "hitPoints": 1,
-               "level": "bsh.levels.names.6"
+               "level": "ldoa.levels.names.6"
                },
                "title": ""},
         "05": {"improvements": {
@@ -97,7 +97,7 @@
                "gift": {"choice": "none",
                         "granted": true},
                "hitPoints": 1,
-               "level": "bsh.levels.names.7"
+               "level": "ldoa.levels.names.7"
                },
                "title": ""},
         "06": {"improvements": {
@@ -106,7 +106,7 @@
                               "second": {"choice": "none"}},
                "gift": {"granted": false},
                "hitPoints": 1,
-               "level": "bsh.levels.names.8"
+               "level": "ldoa.levels.names.8"
                },
                "title": ""},
         "07": {"improvements": {
@@ -114,7 +114,7 @@
                "gift": {"choice": "none",
                         "granted": true},
                "hitPoints": 1,
-               "level": "bsh.levels.names.9"
+               "level": "ldoa.levels.names.9"
                },
                "title": ""},
         "08": {"improvements": {
@@ -122,7 +122,7 @@
                "doomDie": "d8",
                "gift": {"granted": false},
                "hitPoints": 1,
-               "level": "bsh.levels.names.10"
+               "level": "ldoa.levels.names.10"
                },
                "title": ""}
       },

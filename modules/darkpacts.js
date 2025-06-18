@@ -2,7 +2,7 @@ import {logCallSpirit,
         logCallSpiritFailure,
         logDemonSummoning,
         logDemonSummoningFailure} from './chat_messages.js';
-import {BSHConfiguration} from './configuration.js';
+import {ldoaConfiguration} from './configuration.js';
 import {rollDoom} from './doom.js';
 import {calculateAttributeValues,
         getActorById,
@@ -25,7 +25,7 @@ export async function resetDarkPact(actorId, type) {
         }
     } else {
         console.error(`Unable to locate an actor with the id ${actorId}.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.actors.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.actors.notFound"));
     }
 }
 
@@ -56,11 +56,11 @@ export async function summonDemon(demonId, rollType) {
             });
         } else {
             console.error(`Unable to summon the '${demon.name}' demon as your Doom die is exhausted.`);
-            ui.notifications.error(interpolate("bsh.messages.demons.unavailable", {name: demon.name}));
+            ui.notifications.error(interpolate("ldoa.messages.demons.unavailable", {name: demon.name}));
         }
     } else {
         console.error(`Unable to locate an owned demon with the id '${demonId}'.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.items.owned.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.items.owned.notFound"));
     }
 }
 
@@ -91,10 +91,10 @@ export async function summonSpirit(spiritId, rollType) {
             });
         } else {
             console.error(`Unable to summon the '${spirit.name}' spirit as your Doom die is exhausted.`);
-            ui.notifications.error(interpolate("bsh.messages.spirits.unavailable", {name: spirit.name}));
+            ui.notifications.error(interpolate("ldoa.messages.spirits.unavailable", {name: spirit.name}));
         }
     } else {
         console.error(`Unable to locate an owned spirit with the id '${spiritId}'.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.items.owned.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.items.owned.notFound"));
     }
 }

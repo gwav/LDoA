@@ -1,6 +1,6 @@
 import {logSpellCast,
         logSpellCastFailure} from './chat_messages.js';
-import {BSHConfiguration} from './configuration.js';
+import {ldoaConfiguration} from './configuration.js';
 import {calculateAttributeValues,
         getOwnedItemById,
         interpolate,
@@ -17,7 +17,7 @@ export async function castSpell(spellId) {
         if(spell.system.state !== "unavailable") {
             let caster     = spell.actor;
             let dice       = null;
-            let attributes = calculateAttributeValues(caster.system, BSHConfiguration);
+            let attributes = calculateAttributeValues(caster.system, ldoaConfiguration);
             let message;
             let data       = {system: {state: "cast"}};
 
@@ -40,7 +40,7 @@ export async function castSpell(spellId) {
         }
     } else {
         console.error(`Unable to locate a spell with the id ${spellId}.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.spells.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.spells.notFound"));
     }
 }
 
@@ -54,7 +54,7 @@ export async function resetSpellState(spellId) {
         spell.update({system: {state: "available"}}, {diff: true});
     } else {
         console.error(`Unable to locate a spell with the id ${spellId}.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.spells.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.spells.notFound"));
     }
 }
 
@@ -69,6 +69,6 @@ export async function resetSpellStatesForActor(actorId) {
         });
     } else {
         console.error(`Unable to locate an actor with an id of ${actorId}.`);
-        ui.notifications.error(game.i18n.localize("bsh.errors.actors.notFound"));
+        ui.notifications.error(game.i18n.localize("ldoa.errors.actors.notFound"));
     }
 }

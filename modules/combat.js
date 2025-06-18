@@ -1,12 +1,12 @@
  import {calculateCharacterData, rollEm} from './shared.js';
 
-export default class BSHCombat extends Combat {
+export default class ldoaCombat extends Combat {
     /**
      * Called to advance a combat to the next round.
      */
     async nextRound() {
         let roundIndex   = this.round;
-        let roundHistory = (this.getFlag("black-sword-hack", "roundHistory") || []);
+        let roundHistory = (this.getFlag("lastdays", "roundHistory") || []);
 
         if(roundIndex < 0 || roundIndex >= roundHistory.length) {
             let ids = [];
@@ -30,7 +30,7 @@ export default class BSHCombat extends Combat {
      */
     async previousRound() {
         let roundIndex   = this.round - 2;
-        let roundHistory = (this.getFlag("black-sword-hack", "roundHistory") || []);
+        let roundHistory = (this.getFlag("lastdays", "roundHistory") || []);
 
         if(roundIndex >= 0 && roundIndex < roundHistory.length) {
             await this._applyRoundInitiatives(roundIndex);
@@ -78,7 +78,7 @@ export default class BSHCombat extends Combat {
     }
 
     async _applyRoundInitiatives(roundIndex) {
-        let roundHistory = (this.getFlag("black-sword-hack", "roundHistory") || []);
+        let roundHistory = (this.getFlag("lastdays", "roundHistory") || []);
 
         if(roundIndex >= 0 && roundIndex < roundHistory.length) {
             let changes = [];
@@ -110,7 +110,7 @@ export default class BSHCombat extends Combat {
                                                                        actor: combatant.actor?.id,
                                                                        token: combatant.token?.id,
                                                                        alias: combatant.name},
-                                                             flavor: game.i18n.format("bsh.initiative.roll"),
+                                                             flavor: game.i18n.format("ldoa.initiative.roll"),
                                                              flags: {"core.initiativeRoll": true}
                                                             }, messageOptions);
                 const chatData  = await results[i].roll.toMessage(messageData, {create: false,
@@ -177,7 +177,7 @@ export default class BSHCombat extends Combat {
      */
     async _pushRoundInitiatives(roundIndex=null) {
         let initiatives = {};
-        let history     = (this.getFlag("black-sword-hack", "roundHistory") || []).slice();
+        let history     = (this.getFlag("lastdays", "roundHistory") || []).slice();
 
         for(let combatant of this.combatants) {
             initiatives[combatant.id] = combatant.initiative;
@@ -187,6 +187,6 @@ export default class BSHCombat extends Combat {
         } else {
             history.push(initiatives);
         }
-        await this.setFlag("black-sword-hack", "roundHistory", history);
+        await this.setFlag("lastdays", "roundHistory", history);
     }
 }

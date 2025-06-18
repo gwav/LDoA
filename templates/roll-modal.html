@@ -1,26 +1,26 @@
 <form autocomplete="off" class="{{cssClass}}">
     <hr>
-    <div class="bsh-font-size-5">
+    <div class="ldoa-font-size-5">
         <center>
             <strong>{{attribute}}</strong>: {{score}}
         </center>
     </div>
     <hr>
 
-    <div class="bsh-grid bsh-grid-3-col bsh-grid-extended-gap">
-        <div class="bsh-field">
-            <label class="bsh-label">{{localize "bsh.fields.labels.threat"}}</label>
-            <input class="bsh-input" name="threat" type="number" value="{{threat}}">
+    <div class="ldoa-grid ldoa-grid-3-col ldoa-grid-extended-gap">
+        <div class="ldoa-field">
+            <label class="ldoa-label">{{localize "ldoa.fields.labels.threat"}}</label>
+            <input class="ldoa-input" name="threat" type="number" value="{{threat}}">
         </div>
 
-        <div class="bsh-field">
-            <label class="bsh-label">{{localize "bsh.fields.labels.bonusPenalty"}}</label>
-            <input class="bsh-input" name="adjustment" type="number" value="{{adjustment}}">
+        <div class="ldoa-field">
+            <label class="ldoa-label">{{localize "ldoa.fields.labels.bonusPenalty"}}</label>
+            <input class="ldoa-input" name="adjustment" type="number" value="{{adjustment}}">
         </div>
 
-        <div class="bsh-field">
-            <label class="bsh-label">{{localize "bsh.fields.labels.rollType"}}</label>
-            <select name="type" class="bsh-input bsh-select">
+        <div class="ldoa-field">
+            <label class="ldoa-label">{{localize "ldoa.fields.labels.rollType"}}</label>
+            <select name="type" class="ldoa-input ldoa-select">
             {{#select type}}
             {{#each configuration.rollTypes as |label value|}}
                 <option value="{{value}}">{{localize label}}</option>
