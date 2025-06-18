@@ -1,0 +1,9 @@
+<div class="bsh-tab-body bsh-saga-tab {{tabBodySelectionClass 'saga'}}">
+	<div class="bsh-field">
+		<h2>{{localize "bsh.fields.labels.stories"}}</h2>
+		<p class="bsh-blurb">{{localize "bsh.blurbs.stories"}}</p>
+    {{#each actor.system.stories}}
+        {{> "systems/black-sword-hack/templates/partials/cs-story-entry.hbs"}}
+    {{/each}}
+	</div>
+</div>

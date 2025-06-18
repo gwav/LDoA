@@ -1,0 +1,56 @@
+<form class="{{cssClass}} bsh-character-sheet" data-id="{{actor.id}}" autocomplete="off">
+	<div class="bsh-cs-container" data-actor="{{actor.id}}">
+		<div class="bsh-cs-left-side">
+			<!-- Character Image -->
+			<div class="bsh-cs-img">
+				<center>
+				    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="96" width="96"/>
+				</center>
+				<div>
+					<center>
+						<i class="far fa-pause-circle bsh-rest-icon" title="{{localize 'bsh.controls.titles.shortRest'}}" data-actor="{{actor.id}}" data-type="short"></i>
+						<i class="fas fa-bed bsh-rest-icon" title="{{localize 'bsh.controls.titles.longRest'}}" data-actor="{{actor.id}}" data-type="long"></i>
+					</center>
+				</div>
+			</div>
+			<hr>
+
+			<!-- Attribute List -->
+			{{> "systems/black-sword-hack/templates/partials/cs-attribute-list.hbs"}}
+		</div>
+
+		<div class="bsh-cs-main-body">
+			<div class="bsh-field">
+				<label class="bsh-label" for="actor.name">{{localize "bsh.fields.labels.name"}}</label>
+				<input type="text" name="name" value="{{actor.name}}" class="bsh-input"/>
+			</div>
+
+            <div class="bsh-stats-line-2">
+				<div class="bsh-field">
+					<label class="bsh-label" for="system.playerName">{{localize "bsh.fields.labels.playerName"}}</label>
+					<input type="text" name="system.playerName" value="{{actor.system.playerName}}" class="bsh-input"/>
+				</div>
+
+				<div class="bsh-field">
+					<label class="bsh-label" for="level">{{localize "bsh.fields.labels.level"}}</label>
+					<input type="number" name="level" value="{{actor.system.level}}" class="bsh-input bsh-centered-input" readonly />
+				</div>
+
+				<div class="bsh-field">
+					<label class="bsh-label" for="system.doom">
+                        <i class="fas fa-dice-two bsh-doom-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
+					    {{localize "bsh.fields.labels.doomDie"}}
+					</label>
+					<select name="system.doom">
+						{{{selectOptions configuration.usageDieList selected=actor.system.doom localize=true }}}
+					</select>
+				</div>
+			</div>
+
+			<div class="bsh-tab-container">
+				{{> "systems/black-sword-hack/templates/partials/cs-tab-labels.hbs"}}
+				{{> "systems/black-sword-hack/templates/partials/cs-tab-bodies.hbs"}}
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,19 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="bsh-demon-sheet-body">
+    	<div>
+			<div class="bsh-field">
+				<label class="bsh-label">{{localize "bsh.fields.labels.name"}}</label>
+				<input name="name" type="text" value="{{item.name}}" />
+			</div>
+
+			<div class="bsh-field">
+				<label for="system.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+				{{editor item.system.description target="system.description" button=true owner=owner editable=editable engine="prosemirror"}}
+			</div>
+    	</div>
+
+    	<div>
+    		<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
+    	</div>
+    </div>
+</form>

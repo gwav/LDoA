@@ -1,0 +1,27 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<div class="bsh-equipment-body">
+		<div>
+			<img class="bsh-item-image" data-edit="img" src="{{item.img}}" title="{{item.name}}">
+			<hr>
+
+			<div class="bsh-field">
+				<label class="bsh-label">{{localize "bsh.fields.labels.power"}}</label>
+				<select name="system.power" class="bsh-input bsh-select">
+					{{{selectOptions configuration.powersList selected=item.system.power localize=true }}}
+				</select>
+			</div>
+		</div>
+
+		<div>
+		    <div class="bsh-field">
+		    	<input class="bsh-enlarged-input" name="name" type="text" value="{{item.name}}" />
+		    </div>
+		    <hr>
+
+			<div class="bsh-field">
+				<label for="system.description" class="bsh-label">{{localize "bsh.fields.labels.description"}}</label>
+				{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+			</div>
+		</div>
+	</div>
+</form>

@@ -1,0 +1,117 @@
+<div class="bsh-tab-body bsh-front-page-tab {{tabBodySelectionClass "front-page"}}">
+    <div class="bsh-stats-line-4">
+        <div class="bsh-field">
+            <label class="bsh-label" for="ystem.damageDice.armed">
+                <i class="fas fa-dice-six bsh-dice-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-die="{{actor.system.damageDice.armed}}" data-id="{{actor.id}}" data-type="armedDamage"></i>
+                {{localize "bsh.fields.labels.damageArmed"}}
+            </label>
+            <select name="system.damageDice.armed" class="bsh-input bsh-select">
+                {{selectOptions configuration.diceList localize=true selected=actor.system.damageDice.armed}}
+            </select>
+        </div>
+
+        <div class="bsh-field">
+            <label class="bsh-label" for="system.damageDice.unarmed">
+                <i class="fas fa-dice-six bsh-dice-roll-icon bsh-action-icon" title="{{localize 'bsh.fields.titles.rollDie'}}" data-die="{{actor.system.damageDice.unarmed}}" data-id="{{actor.id}}" data-type="unarmedDamage"></i>
+                {{localize "bsh.fields.labels.damageUnarmed"}}
+            </label>
+            <select name="system.damageDice.unarmed" class="bsh-input bsh-select">
+                {{selectOptions configuration.diceList localize=true selected=actor.system.damageDice.unarmed}}
+            </select>
+        </div>
+
+        <div class="bsh-field">
+            <label class="bsh-label" for="system.maximumHitPoints">{{localize "bsh.fields.labels.hitPointsMaximum"}}</label>
+            <input type="number" name="system.maximumHitPoints" value="{{actor.system.maximumHitPoints}}" class="bsh-input bsh-centered-input" readonly />
+        </div>
+
+        <div class="bsh-field">
+            <label class="bsh-label" for="system.currentHitPoints">{{localize "bsh.fields.labels.hitPointsCurrent"}}</label>
+            <input type="number" name="system.currentHitPoints" value="{{actor.system.currentHitPoints}}" class="bsh-input bsh-centered-input" />
+        </div>
+    </div>
+
+    <div class="bsh-stats-line-3">
+        <div class="bsh-field">
+            <label class="bsh-label" for="system.armour.description">{{localize "bsh.fields.labels.armourDescription"}}</label>
+            <input type="text" name="system.armour.description" value="{{actor.system.armour.description}}" class="bsh-input" />
+        </div>
+
+        <div class="bsh-field">
+            <label class="bsh-label" for="system.armour.type">{{localize "bsh.fields.labels.armourType"}}</label>
+            <select name="system.armour.type" class="bsh-input bsh-select">
+                {{selectOptions configuration.armourNames localize=true selected=actor.system.armour.type}}
+            </select>
+        </div>
+
+        <div class="bsh-field">
+            <label class="bsh-label" for="system.armour.shield">{{localize "bsh.fields.labels.shield"}}</label>
+            <select name="system.armour.shield" class="bsh-input bsh-select">
+                {{selectOptions configuration.yesNoList localize=true selected=actor.system.armour.shield}}
+            </select>
+        </div>
+    </div>
+
+    <div class="collapsible-widget" data-expanded="true">
+    	<h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.weapons"}}
+        </h2>
+        <div class="collapsible-widget-target">
+        	<div class="bsh-weapon-entries">
+            	<div>
+            	    <span class="bsh-column-header">{{localize "bsh.headers.weaponName"}}</span>
+            	</div>
+            	<div>
+        	    	<span class="bsh-column-header">{{localize "bsh.headers.weaponKind"}}</span>
+            	</div>
+                <div></div>
+        	{{#each weapons as |weapon id|}}
+        	    {{> "systems/black-sword-hack/templates/partials/cs-weapon-entry.hbs" weapon}}
+        	{{/each}}
+            </div>
+        </div>
+    </div>
+
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.gifts"}}
+        </h2>
+
+        <div class="collapsible-widget-target">
+            <div class="bsh-gift-entries">
+            {{#each gifts as |gift id|}}
+              {{> "systems/black-sword-hack/templates/partials/cs-gift-entry.hbs" gift}}
+            {{/each}}
+            </div>
+        </div>
+    </div>
+
+    <div class="collapsible-widget" data-expanded="true">
+        <h2>
+            <div class="bsh-float-left collapsible-widget-toggle">
+                <span class="collapsible-widget-icon"><i class="fas fa-plus"></i></span>
+                <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
+            </div>
+            &nbsp;
+            {{localize "bsh.headers.backgrounds"}}
+        </h2>
+
+        <div class="collapsible-widget-target">
+            <div class="bsh-background-entries">
+            {{#each backgrounds as |background id|}}
+              {{> "systems/black-sword-hack/templates/partials/cs-fp-background-entry.hbs" background}}
+            {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

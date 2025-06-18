@@ -1,0 +1,19 @@
+<div class="bsh-tab-body bsh-background-tab {{tabBodySelectionClass "background"}}">
+    <h2>{{localize "bsh.headers.base_attributes"}}</h2>
+    <p class="bsh-blurb">{{localize "bsh.blurbs.base_attributes"}}</p>
+    {{> "systems/black-sword-hack/templates/partials/cs-base-attributes-list.hbs"}}
+
+	<h2>{{localize "bsh.headers.background"}}</h2>
+
+    <div class="bsh-field">
+    	<label for="system.birth" class="bsh-label">{{localize "bsh.fields.labels.birth"}}</label>
+        <input class="bsh-input" name="system.birth" type="text" value="{{actor.system.birth}}"/>
+    </div>
+
+    {{> "systems/black-sword-hack/templates/partials/cs-backgrounds-classic.hbs"}}
+
+    <br>
+    <h2>{{localize "bsh.headers.random"}}</h2>
+    <p class="bsh-blurb">{{localize "bsh.blurbs.random_generation"}}</p>
+    <button type="button" class="bsh-random-character-generator-button" data-id="{{actor.id}}">{{localize "bsh.buttons.random_generation"}}</button>
+</div>

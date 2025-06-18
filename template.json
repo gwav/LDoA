@@ -1,0 +1,195 @@
+{
+  "Actor": {
+    "types" : ["character", "creature"],
+    "character": {
+      "armour": {
+        "description": "",
+        "type": "none",
+        "shield": "no"
+      },
+      "attributes": {
+        "strength": 10,
+        "dexterity" : 10,
+        "constitution": 10,
+        "intelligence": 10,
+        "wisdom": 10,
+        "charisma": 10
+      },
+      "backgrounds": {
+        "first": "",
+        "second": "",
+        "third": ""
+      },
+      "birth": "",
+      "coins": {
+        "first": 0,
+        "second": 0,
+        "third": 0,
+        "fourth": 0,
+        "fifth": 0
+      },
+      "currentHitPoints": 0,
+      "description": "",
+      "damageDice": {
+        "armed": "d6",
+        "unarmed": "d4"
+      },
+      "doom": "d6",
+      "gifts": [
+        "", "", "", "", ""
+      ],
+      "languages": [
+        "", "", "", "", ""
+      ],
+      "level": 1,
+      "origin": "barbarian",
+      "playerName": "",
+      "stories": {
+        "00": {"improvements": {
+                 "attributes": {
+                   "first": {"choice": "none"},
+                   "granted": true
+                 },
+                 "gift": {
+                   "granted": false
+                 },
+                 "hitPoints": 1,
+                 "level": "bsh.levels.names.2"
+               },
+               "title": ""},
+        "01": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {
+                 "choice": "none",
+                 "granted": true
+               },
+               "hitPoints": 1,
+               "level": "bsh.levels.names.3"
+               },
+               "title": ""},
+        "02": {"improvements": {
+               "attributes": {"first": {"choice": "none"},
+                              "granted": true,
+                              "second": {"choice": "none"}},
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.4"
+               },
+               "title": ""},
+        "03": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {"choice": "none",
+                        "granted": true},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.5"
+               },
+               "title": ""},
+        "04": {"improvements": {
+               "attributes": {"first": {"choice": "none"},
+                              "granted": true},
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.6"
+               },
+               "title": ""},
+        "05": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {"choice": "none",
+                        "granted": true},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.7"
+               },
+               "title": ""},
+        "06": {"improvements": {
+               "attributes": {"first": {"choice": "none"},
+                              "granted": true,
+                              "second": {"choice": "none"}},
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.8"
+               },
+               "title": ""},
+        "07": {"improvements": {
+               "attributes": {"granted": false},
+               "gift": {"choice": "none",
+                        "granted": true},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.9"
+               },
+               "title": ""},
+        "08": {"improvements": {
+               "attributes": {"granted": false},
+               "doomDie": "d8",
+               "gift": {"granted": false},
+               "hitPoints": 1,
+               "level": "bsh.levels.names.10"
+               },
+               "title": ""}
+      },
+      "summoning": {
+        "demon": "unused",
+        "spirit": "unused"
+      },
+      "tabSelected": "front-page"
+    },
+    "creature": {
+      "description": "",
+      "level": 1,
+      "hitPoints": 5,
+      "resistances": "",
+      "vulnerabilities": ""
+    }
+  },
+  "Item": {
+  	"types": ["consumable", "creature_action", "demon", "equipment", "gift", "origin", "spell", "spirit", "weapon"],
+  	"templates": {
+  	},
+    "consumable": {
+      "description": "",
+      "quantity": 1,
+      "rarity": "common",
+      "usageDie": {
+        "current": "^",
+        "maximum": "d4"}
+    },
+    "creature_action": {
+      "attributes": {
+        "strength": false,
+        "dexterity": false,
+        "constitution": false,
+        "intelligence": false,
+        "wisdom": false,
+        "charisma": false
+      },
+      "damage": "",
+      "description": ""
+    },
+    "demon": {
+      "description": ""
+    },
+    "equipment": {
+      "description": "",
+      "rarity": "common"
+    },
+    "gift": {
+      "description": "",
+      "power": "balance"
+    },
+    "origin": {
+      "backgrounds": []
+    },
+    "spell": {
+      "description": "",
+      "state": "available"
+    },
+    "spirit": {
+      "description": ""
+    },
+    "weapon": {
+      "description": "",
+      "hands": 1,
+      "rarity": "common",
+      "type": "melee"
+    }
+  }
+}
