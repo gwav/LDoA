@@ -286,7 +286,7 @@
     "data": {
       "descriptions": {
         "armedDamage": "daño",
-        "doom": "perdición",
+        "stress": "perdición",
         "unarmedDamage": "daño",
         "usageDie": "dado de uso"
       }
@@ -308,7 +308,7 @@
     "demons": {
       "tableName": "Represalia demoníaca"
     },
-    "doom": {
+    "stress": {
       "die": {
         "upgraded": "El dado de Perdición pasa a ser un D8"
       }
@@ -364,10 +364,10 @@
         "damageUnarmed": "Daño desarmado",
         "description": "Descripción",
         "disadvantage": "Desventaja",
-        "doomDie": "Perdición",
-        "doomDieUpgrade": "Mejora del Dado de Perdición",
+        "stressDie": "Perdición",
+        "stressDieUpgrade": "Mejora del Dado de Perdición",
         "firstBackground": "Trasfondo 1",
-        "gift": "Don",
+        "boon": "Don",
         "hands": "Manos",
         "hitPoints": "PG",
         "hitPointsCurrent": "PG (Actual)",
@@ -403,7 +403,7 @@
         "deleteConsumable": "Eliminar el objeto.",
         "deleteDemon": "Eliminar el demonio.",
         "deleteEquipment": "Eliminar el elemento.",
-        "deleteGift": "Eliminar el don.",
+        "deleteBoon": "Eliminar el don.",
         "deleteSpell": "Eliminar el conjuro.",
         "deleteSpirit": "Eliminar el espíritu.",
         "deleteWeapon": "Eliminar el arma.",
@@ -439,7 +439,7 @@
         "summonSpirit": "Llamar a este espíritu."
       }
     },
-    "gifts": {
+    "boons": {
       "fortressOfTheMind": {
         "label": "",
         "name": "Baluarte mental (Equilibrio)"
@@ -510,7 +510,7 @@
       "demonName": "Nombre",
       "demons": "Demonios",
       "equipment": "Otro equipo",
-      "gifts": "Dones",
+      "boons": "Dones",
       "itemName": "Objeto",
       "itemQuantity": "Cantidad",
       "itemUsageDie": "Dado",
@@ -559,8 +559,8 @@
         "castFailure": "¡Sin embargo, el conjuro se disipa y falla!",
         "castSuccess": "¡Y el lanzamiento del conjuro es un éxito!",
         "damageInflicted": "Se inflinge daño",
-        "doomed": "¡El personaje está Condenado!",
-        "rollsDoom": "Tirada de Perdición para",
+        "stressed": "¡El personaje está Condenado!",
+        "rollsStress": "Tirada de Perdición para",
         "rollsUsageDie": "Tirada del Dado de uso para",
         "summons": "Invoca",
         "summonFailure": "¡El demonio ignora la invocación!",
@@ -572,7 +572,7 @@
         "summonSuccessful": "La invocación del demonio %NAME% fue un éxito.",
         "unavailable": "La invocación del demonio %NAME% falló - ¡se ha agotado el dado de Perdición!"
       },
-      "doom": {
+      "stress": {
         "downgraded": "El dado de Perdición para %NAME% ha descendido a %DIE%.",
         "exhausted": "¡No se puede tirar Perdición para %NAME% porque el dado está agotado!",
         "failExhausted": "¡%NAME% ha agotado su dado de Perdición!",
@@ -611,7 +611,7 @@
         "castSpell": "Lanzar conjuro (prueba de INT)",
         "damageRoll": "Tirada de daño",
         "dodgeRoll": "Tirada de esquiva",
-        "doomRoll": "Tirada de Perdición",
+        "stressRoll": "Tirada de Perdición",
         "formula": "Tira",
         "initiativeRoll": "Tirada de iniciativa",
         "parryRoll": "Tirada de parada",
@@ -737,5 +737,13 @@
       }
     },
     "yes": "Sí"
+  },
+  "SIDEBAR": {
+    "ACTIONS": {
+      "CREATE": {
+        "Actor": "Crear Actor",
+        "-Actor": "Crear Actor"
+      }
+    }
   }
 }

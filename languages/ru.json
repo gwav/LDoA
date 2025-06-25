@@ -286,7 +286,7 @@
     "data": {
       "descriptions": {
         "armedDamage": "урон",
-        "doom": "Рок",
+        "stress": "Рок",
         "unarmedDamage": "урон",
         "usageDie": "Кубик Использования"
       }
@@ -308,7 +308,7 @@
     "demons": {
       "tableName": "Месть демона"
     },
-    "doom": {
+    "stress": {
       "die": {
         "upgraded": "Кубик Рока повышен до 1d8"
       }
@@ -364,10 +364,10 @@
         "damageUnarmed": "Урон без оружия",
         "description": "Описание",
         "disadvantage": "Осложнение",
-        "doomDie": "Рок",
-        "doomDieUpgrade": "Кубик Рока повышен",
+        "stressDie": "Рок",
+        "stressDieUpgrade": "Кубик Рока повышен",
         "firstBackground": "Предыстория №1",
-        "gift": "Дар",
+        "boon": "Дар",
         "hands": "Руки",
         "hitPoints": "ОЗ",
         "hitPointsCurrent": "ОЗ (Текущее)",
@@ -403,7 +403,7 @@
         "deleteConsumable": "Удалить этот предмет.",
         "deleteDemon": "Удалить этого демона.",
         "deleteEquipment": "Удалить этот предмет.",
-        "deleteGift": "Удалить этот дар.",
+        "deleteBoon": "Удалить этот дар.",
         "deleteSpell": "Удалить это заклинание.",
         "deleteSpirit": "Удалить этого духа.",
         "deleteWeapon": "Удалить это оружие.",
@@ -439,7 +439,7 @@
         "summonSpirit": "Призвать этого духа."
       }
     },
-    "gifts": {
+    "boons": {
       "fortressOfTheMind": {
         "label": "",
         "name": "Крепость Разума (Баланс)"
@@ -510,7 +510,7 @@
       "demonName": "Имя",
       "demons": "Демоны",
       "equipment": "Другое снаряжение",
-      "gifts": "Дары",
+      "boons": "Дары",
       "itemName": "Предметы",
       "itemQuantity": "Кол-во",
       "itemUsageDie": "Кубик",
@@ -559,8 +559,8 @@
         "castFailure": "Заклинание терпит неудачу!",
         "castSuccess": "Заклинание успешно наложено!",
         "damageInflicted": "Нанесенный урон",
-        "doomed": "Персонаж Обречен!",
-        "rollsDoom": "Бросок Рока",
+        "stressed": "Персонаж Обречен!",
+        "rollsStress": "Бросок Рока",
         "rollsUsageDie": "Бросок Кубика Использования",
         "summons": "Вызов",
         "summonFailure": "Демон предпочитает игнорировать призыв!",
@@ -572,7 +572,7 @@
         "summonSuccessful": "Вызов демона %NAME% прошел успешно.",
         "unavailable": "Призвать демона %NAME% не удалось — кубик Рока исчерпан!"
       },
-      "doom": {
+      "stress": {
         "downgraded": "Уровень кубика судьбы для %NAME% понижен до %DIE%.",
         "exhausted": "Невозможно выполнить бросок судьбы для %NAME%, так как его кубик судьбы исчерпан!",
         "failExhausted": "%NAME% исчерпал свой кубик Рока!",
@@ -611,7 +611,7 @@
         "castSpell": "Применение заклинания (проверка INT)",
         "damageRoll": "Бросок урона",
         "dodgeRoll": "Бросок уклонения",
-        "doomRoll": "Бросок Рока",
+        "stressRoll": "Бросок Рока",
         "formula": "Бросок",
         "initiativeRoll": "Бросок инициативы",
         "parryRoll": "Бросок паррирования",
@@ -737,5 +737,13 @@
       }
     },
     "yes": "Да"
+  },
+  "SIDEBAR": {
+    "ACTIONS": {
+      "CREATE": {
+        "Actor": "Создать Актёра",
+        "-Actor": "Создать Актёра"
+      }
+    }
   }
 }

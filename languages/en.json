@@ -254,10 +254,11 @@
     },
     "blurbs": {
       "base_attributes": "The values below are the base values for your attributes. These will be altered by your backgrounds to generate your actual attribute values. Changes to your attribute values and backgrounds here will update your actual attribute values.",
+      "boons": "Boons are special abilities and traits that your character has acquired through their adventures. Each boon belongs to a power category (Balance, Chaos, or Law) and may provide mechanical benefits.",
       "critical_failure": "Your next attribute test or attack roll should be made with disadvantage!",
       "defend_fumble": "Your armour does not protect you from the damage of this attack!",
       "random_generation": "By clicking on the button below you'll randomly generate all details for your character according to the default rules of the system. Note that doing this will overwrite your current character settings - you have been warned!",
-      "stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The list below records the stories you've been part of and what level that makes you. Remember to also select your gifts and attribute bonuses as you attain the appropriate level."
+      "stories": "Stories dictate your level. The more stories you've survived the higher your will be in level. The list below records the stories you've been part of and what level that makes you. Remember to also select your boons and attribute bonuses as you attain the appropriate level."
     },
     "buttons": {
       "cancel": "Cancel",
@@ -286,7 +287,7 @@
     "data": {
       "descriptions": {
         "armedDamage": "damage",
-        "doom": "doom",
+        "stress": "stress",
         "unarmedDamage": "damage",
         "usageDie": "usage die"
       }
@@ -308,9 +309,9 @@
     "demons": {
       "tableName": "Demon's Revenge"
     },
-    "doom": {
+    "stress": {
       "die": {
-        "upgraded": "Doom Die Upgraded To 1d8"
+        "upgraded": "Stress Die Upgraded To 1d8"
       }
     },
     "errors": {
@@ -364,10 +365,10 @@
         "damageUnarmed": "Unarmed Damage",
         "description": "Description",
         "disadvantage": "Disadvantage",
-        "doomDie": "Doom",
-        "doomDieUpgrade": "Doom Die Upgrade",
+        "stressDie": "Stress",
+        "stressDieUpgrade": "Stress Die Upgrade",
         "firstBackground": "Background 1",
-        "gift": "Gift",
+        "boon": "Boon",
         "hands": "Hands",
         "hitPoints": "HP",
         "hitPointsCurrent": "HP (Current)",
@@ -392,7 +393,26 @@
         "type": "Type",
         "unique": "Unique",
         "usageDie": "Usage Die",
-        "vulnerabilities": "Vulnerabilities"
+        "vulnerabilities": "Vulnerabilities",
+        "effects": "Effects",
+        "attributes": "Attributes",
+        "initiative": "Initiative",
+        "attackRolls": "Attack Rolls",
+        "damageRolls": "Damage Rolls",
+        "armorRating": "Armor Rating",
+        "special": "Special",
+        "strength": "Strength",
+        "dexterity": "Dexterity",
+        "constitution": "Constitution",
+        "intelligence": "Intelligence",
+        "wisdom": "Wisdom",
+        "charisma": "Charisma",
+        "effects": "Effects",
+        "otherEffects": "Other Effects",
+        "special": "Special Effects"
+      },
+      "placeholders": {
+        "specialEffects": "e.g., Advantage on Intimidation checks"
       },
       "titles": {
         "calculatedAttribute": "Consult the Basics tab to alter your attributes.",
@@ -403,8 +423,10 @@
         "deleteConsumable": "Delete this item.",
         "deleteDemon": "Delete this demon.",
         "deleteEquipment": "Delete this item.",
-        "deleteGift": "Delete this gift.",
+        "deleteBoon": "Delete this boon.",
+        "viewDescription": "View full description",
         "deleteSpell": "Delete this spell.",
+        "deleteStory": "Delete this story.",
         "deleteSpirit": "Delete this spirit.",
         "deleteWeapon": "Delete this weapon.",
         "dieRolls": {
@@ -439,7 +461,7 @@
         "summonSpirit": "Summon this spirit."
       }
     },
-    "gifts": {
+    "boons": {
       "fortressOfTheMind": {
         "label": "",
         "name": "Fortress Of The Mind (Balance)"
@@ -510,7 +532,7 @@
       "demonName": "Name",
       "demons": "Demons",
       "equipment": "Other Equipment",
-      "gifts": "Gifts",
+      "boons": "Boons",
       "itemName": "Item",
       "itemQuantity": "Quantity",
       "itemUsageDie": "Die",
@@ -559,8 +581,8 @@
         "castFailure": "But the spell fizzles and fails!",
         "castSuccess": "And spell casting is a success!",
         "damageInflicted": "Damage Inflicted",
-        "doomed": "Character Is Doomed!",
-        "rollsDoom": "Doom Roll For",
+        "stressed": "Character Is Stressed!",
+        "rollsStress": "Stress Roll For",
         "rollsUsageDie": "Usage Die Roll For",
         "summons": "Summons",
         "summonFailure": "The demon chooses to ignore the summoning!",
@@ -570,13 +592,21 @@
       "demons": {
         "summonFumbled": "Summoning of the %NAME% demon was unsuccessful. Roll on the %TABLE% table.",
         "summonSuccessful": "Summoning of the %NAME% demon was successful.",
-        "unavailable": "Summoning of the %NAME% demon failed - Doom die is exhausted!"
+        "unavailable": "Summoning of the %NAME% demon failed - Stress die is exhausted!"
       },
-      "doom": {
-        "downgraded": "Doom die for %NAME% has been downgraded to %DIE%.",
-        "exhausted": "Unable to roll doom for %NAME% as their doom die is exhausted!",
-        "failExhausted": "%NAME% has exhausted their Doom die!",
-        "unchanged": "Doom die for %NAME% is unchanged."
+      "stress": {
+        "downgraded": "Stress die for %NAME% has been downgraded to %DIE%.",
+        "exhausted": "Unable to roll stress for %NAME% as their stress die is exhausted!",
+        "failExhausted": "%NAME% has exhausted their Stress die!",
+        "unchanged": "Stress die for %NAME% is unchanged."
+      },
+      "boons": {
+        "noBoons": "No boons yet.",
+        "dragBoonsFromCompendium": "Drag boons from the Boons compendium to add them to this character."
+      },
+      "stories": {
+        "noStories": "No stories yet.",
+        "dragStoriesFromCompendium": "Drag stories from the compendium to add them to this character."
       },
       "labels": {
         "buttons": {
@@ -601,23 +631,23 @@
         "castSuccessful": "Casting of the %NAME% spell was successful."
       },
       "spirits": {
-        "unavailable": "Summoning of the %NAME% spirit failed - Doom die is exhausted!",
-        "summonFailed": "Summoning of the %NAME% spirit failed - Doom is now exhausted.",
+        "unavailable": "Summoning of the %NAME% spirit failed - Stress die is exhausted!",
+        "summonFailed": "Summoning of the %NAME% spirit failed - Stress is now exhausted.",
         "summonSuccessful": "Your summoning of the %NAME% spirit was successful."
       },
       "titles": {
         "attackRoll": "Attack Roll",
-        "callSpirit": "Call Spirit (Doom Roll)",
+        "callSpirit": "Call Spirit (Stress Roll)",
         "castSpell": "Cast Spell (INT Test)",
         "damageRoll": "Damage Roll",
         "dodgeRoll": "Dodge Roll",
-        "doomRoll": "Doom Roll",
+        "stressRoll": "Stress Roll",
         "formula": "Roll",
         "initiativeRoll": "Initiative Roll",
         "parryRoll": "Parry Roll",
         "perceptionRoll": "Perception Roll",
         "roll": "Result",
-        "summonDemon": "Summon Demon (Doom Roll)",
+        "summonDemon": "Summon Demon (Stress Roll)",
         "usageDieRoll": "Usage Die"
       },
       "usageDie": {
@@ -640,14 +670,125 @@
         "name": "Decadent"}
     },
     "powers": {
-      "balance": {
-        "name": "Balance"
+      "anyone": {
+        "name": "Anyone"
       },
-      "chaos": {
-        "name": "Chaos"
+      "arte": {
+        "name": "Arte"
       },
-      "law": {
-        "name": "Law"
+      "martial": {
+        "name": "Martial"
+      },
+      "blooded": {
+        "name": "Blooded"
+      },
+      "human": {
+        "name": "Human"
+      },
+      "manikin": {
+        "name": "Manikin"
+      },
+      "trickster": {
+        "name": "Trickster"
+      }
+    },
+    "languages": {
+      "groups": {
+        "universal": {
+          "name": "Universal"
+        },
+        "barbarian": {
+          "name": "Barbarian Tongues"
+        },
+        "civilized": {
+          "name": "Civilized Tongues"
+        },
+        "decadent": {
+          "name": "Decadent Tongues"
+        },
+        "nonhuman": {
+          "name": "Non-Human Tongues"
+        }
+      },
+      "thyrenian": {
+        "name": "Thyrenian",
+        "description": "Spoken by The Merchant league. Origin from Earth (English). Trade language understood by almost everyone."
+      },
+      "amaric": {
+        "name": "Amaric",
+        "description": "Spoken by the Caliphate of the Mad Jinn."
+      },
+      "chalidim": {
+        "name": "Chalidim",
+        "description": "The tribes of the Blue Desert."
+      },
+      "jurka": {
+        "name": "Jurka",
+        "description": "Spoken by the Iron Horde that are found east of the Great Spine."
+      },
+      "naruan": {
+        "name": "Naruan",
+        "description": "Spoken throughout the Shattered Islands."
+      },
+      "pictish": {
+        "name": "Pictish",
+        "description": "Spoken by Picts from the highlands of Kelta."
+      },
+      "urgic": {
+        "name": "Urgic",
+        "description": "Spoken by the Northern raiders of Hyperboria."
+      },
+      "alashan": {
+        "name": "Alashan",
+        "description": "Spoken by the corrupt empire of Alasha."
+      },
+      "duhuang": {
+        "name": "Duhuang",
+        "description": "Spoken by The Forbidden City and the Eastern Principalities."
+      },
+      "askavian": {
+        "name": "Askavian",
+        "description": "Spoken by the dusty, crumbling empire of Askavia."
+      },
+      "polari": {
+        "name": "Polari",
+        "description": "From Earth Realm, spoken by gay men in 1960's England. Used in the decadent City State of Atlantis."
+      },
+      "silenttongue": {
+        "name": "Silent Tongue",
+        "description": "Conveyed by hand signals. From Earth Realm. Used by noble classes and members of the undercity."
+      },
+      "celestial": {
+        "name": "Celestial",
+        "description": "Spoken by beings from the 7 Heavens."
+      },
+      "enochian": {
+        "name": "Enochian (Deep Speech)",
+        "description": "Spoken by beings from the Way Outs. Sometimes called True Atlantean."
+      },
+      "draconic": {
+        "name": "Draconic",
+        "description": "Spoken by dragons and drakes. Used by arcane spellcasters."
+      },
+      "highelven": {
+        "name": "High Elven",
+        "description": "Spoken by the fey nobility of Elfland."
+      },
+      "infernal": {
+        "name": "Infernal",
+        "description": "Spoken by beings of the 9 Hells."
+      },
+      "primordial": {
+        "name": "Primordial",
+        "description": "Spoken by beings from the Elemental Realms."
+      },
+      "sylvian": {
+        "name": "Sylvian",
+        "description": "Spoken by the beings of Fairie."
+      },
+      "undercommon": {
+        "name": "Undercommon",
+        "description": "Spoken by those that live deep underground."
       }
     },
     "rarities": {
@@ -719,9 +860,12 @@
     "tabs": {
       "labels": {
         "background": "Basics",
-        "equipment": "Possessions",
+        "boons": "Boons",
+        "equipment": "Equipment",
         "front": "Front Page",
+        "languages": "Languages",
         "magic": "Magic",
+        "overview": "Overview",
         "saga": "Saga"
       }
     },
@@ -737,5 +881,13 @@
       }
     },
     "yes": "Yes"
+  },
+  "SIDEBAR": {
+    "ACTIONS": {
+      "CREATE": {
+        "Actor": "Create Actor",
+        "-Actor": "Create Actor"
+      }
+    }
   }
 }

@@ -9,7 +9,7 @@
       "creature_action": "Action de créature",
       "demon": "Démon",
       "equipment": "Équipement",
-      "gift": "Don",
+      "boon": "Don",
       "origin": "Origine",
       "spell": "Sort",
       "spirit": "Esprit",
@@ -303,7 +303,7 @@
     "data": {
       "descriptions": {
         "armedDamage": "Dégât",
-        "doom": "destin",
+        "stress": "destin",
         "unarmedDamage": "dégât",
         "usageDie": "dé d'usage"
       }
@@ -325,7 +325,7 @@
     "demons": {
       "tableName": "La vengeance du démon"
     },
-    "doom": {
+    "stress": {
       "die": {
         "upgraded": "Le dé du destin passe à 1D8"
       }
@@ -381,10 +381,10 @@
         "damageUnarmed": "Dégâts à mains nues",
         "description": "Description",
         "disadvantage": "Désavantage",
-        "doomDie": "Destin",
-        "doomDieUpgrade": "Amélioration du dé de Destin",
+        "stressDie": "Destin",
+        "stressDieUpgrade": "Amélioration du dé de Destin",
         "firstBackground": "Historique 1",
-        "gift": "Don",
+        "boon": "Don",
         "hands": "Mains",
         "hitPoints": "PV",
         "hitPointsCurrent": "PV (Actuel)",
@@ -420,7 +420,7 @@
         "deleteConsumable": "Supprimer cet élément.",
         "deleteDemon": "Supprimer ce démon.",
         "deleteEquipment": "Supprimer cet équipement.",
-        "deleteGift": "Supprimer ce don.",
+        "deleteBoon": "Supprimer ce don.",
         "deleteSpell": "Supprimer ce sort.",
         "deleteSpirit": "Supprimer cet esprit.",
         "deleteWeapon": "Supprimer cette arme.",
@@ -456,7 +456,7 @@
         "summonSpirit": "Invoquez cet esprit."
       }
     },
-    "gifts": {
+    "boons": {
       "fortressOfTheMind": {
         "label": "",
         "name": "Forteresse de l'esprit (Balance)"
@@ -527,7 +527,7 @@
       "demonName": "Nom",
       "demons": "Démons",
       "equipment": "Autres Équipements",
-      "gifts": "Dons",
+      "boons": "Dons",
       "itemName": "Objet",
       "itemQuantity": "Quantité",
       "itemUsageDie": "Dé",
@@ -576,8 +576,8 @@
         "castFailure": "Mais le sort se dissipe et échoue !",
         "castSuccess": "Et le lancement de sort est un succès !",
         "damageInflicted": "Dommages Infligés",
-        "doomed": "Le personnage est maudit !",
-        "rollsDoom": "Jet du dé du Destin pour",
+        "stressed": "Le personnage est maudit !",
+        "rollsStress": "Jet du dé du Destin pour",
         "rollsUsageDie": "Jet de dé d'usage pour",
         "summons": "Invoque",
         "summonFailure": "Le démon choisit d'ignorer l'invocation !",
@@ -589,7 +589,7 @@
         "summonSuccessful": "L'invocation du démon %NAME% a réussi.",
         "unavailable": "L'invocation du démon %NAME% a échoué - le dé de Destin est épuisé !"
       },
-      "doom": {
+      "stress": {
         "downgraded": "Le dé de Destin pour %NAME% a été dégradé en %DIE%.",
         "exhausted": "Impossible de faire un jet de Destin pour %NAME% car leur dé de Destin est épuisé !",
         "failExhausted": "%NAME% a épuisé leur dé de Destin !",
@@ -628,7 +628,7 @@
         "castSpell": "Lancer un sort Spell (Test d'INT)",
         "damageRoll": "Jet de dégâts",
         "dodgeRoll": "Jet d'esquive",
-        "doomRoll": "Jet de Destin",
+        "stressRoll": "Jet de Destin",
         "formula": "Jet",
         "initiativeRoll": "Jet d'initiative",
         "parryRoll": "Jet de parade",
@@ -757,5 +757,13 @@
       }
     },
     "yes": "Oui"
+  },
+  "SIDEBAR": {
+    "ACTIONS": {
+      "CREATE": {
+        "Actor": "Créer un acteur",
+        "-Actor": "Créer un acteur"
+      }
+    }
   }
 }
