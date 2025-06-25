@@ -1,5 +1,5 @@
 import {ldoaConfiguration} from './configuration.js';
-import {rollDoom} from './doom.js';
+import {rollStress} from './stress.js';
 import {calculateAttributeValues,
         decrementItemQuantity,
         downgradeDie,
@@ -21,15 +21,15 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
             let dice       = null;
             let attribute  = (weapon.system.type !== "ranged" ? "strength" : "dexterity");
             let critical   = {failure: false, success: false};
-            let doomed     = (actor.system.doom === "exhausted");
+            let stressed     = (actor.system.stress === "exhausted");
             let data       = {actor:    actor.name, 
                               actorId:  actorId,
-                              doomed:   doomed,
+                              stressed:   stressed,
                               weapon:   weapon.name,
                               weaponId: weapon.id};
 
             if(shiftKey) {
-                if(!doomed) {
+                if(!stressed) {
                     dice = new Roll(generateDieRollFormula({kind: "advantage"}));
                 } else {
                     dice = new Roll(generateDieRollFormula());
@@ -37,7 +37,7 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
             } else if(ctrlKey) {
                 dice = new Roll(generateDieRollFormula({kind: "disadvantage"}));
             } else {
-                if(!doomed) {
+                if(!stressed) {
                     dice = new Roll(generateDieRollFormula());
                 } else {
                     dice = new Roll(generateDieRollFormula({kind: "disadvantage"}));
@@ -69,8 +69,8 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
                 if(data.roll.success) {
                     data.damage = {actorId:  actor.id, 
                                    critical: critical.success,
-                                   doomed:   doomed,
-                                   formula:  generateDamageRollFormula(actor, weapon, {critical: critical.success, doomed: doomed}),
+                                   stressed:   stressed,
+                                   formula:  generateDamageRollFormula(actor, weapon, {critical: critical.success, stressed: stressed}),
                                    weapon:   weapon.name,
                                    weaponId: weapon.id};
                 }
@@ -88,12 +88,12 @@ export function logAttackRoll(actorId, weaponId, shiftKey=false, ctrlKey=false, 
 export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false, expanded=false, adjustment=0) {
     let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
     let critical   = {failure: false, success: true};
-    let doomed     = (actor.system.doom === "exhausted");
+    let stressed     = (actor.system.stress === "exhausted");
     let message    = {actor:    actor.name, 
                       actorId:  actor.id,
-                      roll:     {doomed:   doomed,
+                      roll:     {stressed:   stressed,
                                  expanded: expanded,
-                                 formula:  (doomed ? "2d20kh" : "1d20"),
+                                 formula:  (stressed ? "2d20kh" : "1d20"),
                                  labels:   {result: "", title: ""},
                                  result:   0,
                                  success:  false,
@@ -103,9 +103,9 @@ export function logAttributeTest(actor, attribute, shiftKey=false, ctrlKey=false
     message.roll.labels.title = game.i18n.localize(`ldoa.fields.titles.dieRolls.attributes.${attribute}`);
 
     if(shiftKey) {
-        message.roll.formula = (doomed ? `1d20` : `2d20kl`);
+        message.roll.formula = (stressed ? `1d20` : `2d20kl`);
     } else if(ctrlKey) {
-        if(!doomed) {
+        if(!stressed) {
             message.roll.formula = "2d20kh";
         }
     }
@@ -145,7 +145,7 @@ export function logCallSpirit(spirit, result) {
     let message = {actor:   actor.name,
                    actorId: actor.id,
                    spirit:  spirit.name,
-                   doomed:  result.doomed,
+                   stressed:  result.stressed,
                    roll:    {expanded: false,
                              formula:  result.formula,
                              labels:   {result: game.i18n.localize("ldoa.fields.titles.success"),
@@ -162,7 +162,7 @@ export function logCallSpiritFailure(spirit, result) {
     let message = {actor:   actor.name,
                    actorId: actor.id,
                    spirit:  spirit.name,
-                   doomed:  result.doomed,
+                   stressed:  result.stressed,
                    fumble:  (result.die.ending === "exhausted"),
                    roll:    {expanded: false,
                              formula:  result.formula,
@@ -181,7 +181,7 @@ export function logDamageRoll(event) {
 
     if(rollData.formula && rollData.actor) {
         let actor   = game.actors.find((a) => a.id === rollData.actor);
-        let data    = {doomed: (rollData.doomed === "true"),
+        let data    = {stressed: (rollData.stressed === "true"),
                        roll:   {expanded: true,
                                 labels: {title: interpolate("ldoa.messages.titles.damageRoll")},
                                 tested: false}};
@@ -224,7 +224,7 @@ export function logDemonSummoning(demon, result) {
     let message = {actor:   actor.name,
                    actorId: actor.id,
                    demon:   demon.name,
-                   doomed:  result.doomed,
+                   stressed:  result.stressed,
                    roll:    {expanded: false,
                              formula:  result.formula,
                              labels:   {result: game.i18n.localize("ldoa.fields.titles.success"),
@@ -241,7 +241,7 @@ export function logDemonSummoningFailure(demon, result) {
     let message = {actor:   actor.name,
                    actorId: actor.id,
                    demon:   demon.name,
-                   doomed:  result.doomed,
+                   stressed:  result.stressed,
                    fumble:  (result.die.ending === "exhausted"),
                    roll:    {expanded: false,
                              formula:  result.formula,
@@ -255,11 +255,11 @@ export function logDemonSummoningFailure(demon, result) {
 }
 
 export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false) {
-    let doomed  = (actor.system.doom === "exhausted");
-    let formula = (doomed ? `2${dieType}kl` : `1${dieType}`);
+    let stressed  = (actor.system.stress === "exhausted");
+    let formula = (stressed ? `2${dieType}kl` : `1${dieType}`);
     let message = {actor:    actor.name, 
                    actorId:  actor.id,
-                   doomed:   doomed,
+                   stressed:   stressed,
                    roll:     {expanded: true,
                               formula:  formula,
                               labels:   {title: title},
@@ -267,9 +267,9 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
                               tested:   false}};
 
     if(shiftKey) {
-        formula = (doomed ? `1${dieType}` : `2${dieType}kh`);
+        formula = (stressed ? `1${dieType}` : `2${dieType}kh`);
     } else if(ctrlKey) {
-        if(!doomed) {
+        if(!stressed) {
             formula = `2${dieType}kl`;
         }
     }
@@ -282,18 +282,18 @@ export function logDieRoll(actor, dieType, title, shiftKey=false, ctrlKey=false)
 export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
     let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
     let critical   = {failure: false, success: false};
-    let doomed     = (actor.system.doom === "exhausted");
+    let stressed     = (actor.system.stress === "exhausted");
     let title      = interpolate("ldoa.messages.titles.dodgeRoll");
     let message    = {actor:    actor.name, 
                       actorId:  actor.id,
-                      doomed:   doomed,
+                      stressed:   stressed,
                       roll:     {expanded: false,
                                  formula:  "",
                                  labels:   {title: title},
                                  result:   0,
                                  tested:   true}};
 
-    if(!doomed) {
+    if(!stressed) {
         if(shiftKey) {
             message.roll.formula = "2d20kl";
         } else if(ctrlKey) {
@@ -326,14 +326,14 @@ export function logDodgeRoll(actor, shiftKey=false, ctrlKey=false) {
     });
 }
 
-export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
-    if(actor.system.doom !== "exhausted") {
+export function logStressDieRoll(actor, shiftKey=false, ctrlKey=false) {
+    if(actor.system.stress !== "exhausted") {
         let message  = {actor:    actor.name,
                         actorId:  actor.id,
                         roll:     {expanded: false,
                                    formula:  "",
                                    labels:   {result: "",
-                                              title:  interpolate("ldoa.messages.titles.doomRoll")},
+                                              title:  interpolate("ldoa.messages.titles.stressRoll")},
                                    result:   0,
                                    tested:   true}};
         let rollType = "standard";
@@ -344,22 +344,22 @@ export function logDoomDieRoll(actor, shiftKey=false, ctrlKey=false) {
         } else if(ctrlKey) {
             rollType = "disadvantage";
         }
-        rollDoom(actor, rollType).then((result) => {
+        rollStress(actor, rollType).then((result) => {
             message.roll.formula = result.formula;
             message.roll.result  = result.result;
             message.roll.success = !result.downgraded;
             if(!message.roll.success) {
                 message.roll.labels.result = interpolate("ldoa.fields.titles.failure");
-                message.doomed = (result.die.ending === "exhausted");
+                message.stressed = (result.die.ending === "exhausted");
             } else {
                 message.roll.labels.result = interpolate("ldoa.fields.titles.success");
             }
 
-            showMessage(actor, "systems/lastdays/templates/messages/doom-roll.hbs", message);
+            showMessage(actor, "systems/lastdays/templates/messages/stress-roll.hbs", message);
         });
     } else {
-        console.error(`Unable to make a doom roll for '${actor.name}' as their doom die is exhausted.`);
-        ui.notifications.error(interpolate("ldoa.messages.doom.exhausted", {name: actor.name}));
+        console.error(`Unable to make a stress roll for '${actor.name}' as their stress die is exhausted.`);
+        ui.notifications.error(interpolate("ldoa.messages.stress.exhausted", {name: actor.name}));
     }
 }
 
@@ -370,18 +370,18 @@ export function logInitiativeRoll(event) {
         let actor      = game.actors.find((a) => a.id === element.dataset.actor);
         let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
         let critical   = {failure: false, success: false};
-        let doomed     = (actor.system.doom === "exhausted");
+        let stressed     = (actor.system.stress === "exhausted");
         let title      = interpolate("ldoa.messages.titles.initiativeRoll");
         let message    = {actor:    actor.name, 
                           actorId:  actor.id,
-                          doomed:   doomed,
+                          stressed:   stressed,
                           roll:     {expanded: false,
                                      formula:  "",
                                      labels:   {title: title},
                                      result:   0,
                                      tested:   true}};
 
-        if(!doomed) {
+        if(!stressed) {
             if(event.shiftKey) {
                 message.roll.formula = "2d20kl";
             } else if(event.ctrlKey) {
@@ -478,11 +478,11 @@ export function logItemUsageDieRoll(item, field, shiftKey=false, ctrlKey=false) 
 export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
     let attributes = calculateAttributeValues(actor.data.data, ldoaConfiguration);
     let critical   = {failure: false, success: false};
-    let doomed     = (actor.system.doom === "exhausted");
+    let stressed     = (actor.system.stress === "exhausted");
     let title      = interpolate("ldoa.messages.titles.parryRoll");
     let message    = {actor:    actor.name, 
                       actorId:  actor.id,
-                      doomed:   doomed,
+                      stressed:   stressed,
                       roll:     {expanded: false,
                                  formula:  "",
                                  labels:   {title: title},
@@ -490,7 +490,7 @@ export function logParryRoll(actor, shiftKey=false, ctrlKey=false) {
                                  tested:   true}};
     let shield     = (actor.system.armour.shield === "yes");
 
-    if(!doomed) {
+    if(!stressed) {
         if(ctrlKey && !shield) {
             message.roll.formula = "2d20kh";
         } else if((shiftKey || shield) && !ctrlKey) {
@@ -530,18 +530,18 @@ export function logPerceptionRoll(event) {
         let actor      = game.actors.find((a) => a.id === element.dataset.actor);
         let attributes = calculateAttributeValues(actor.system, ldoaConfiguration);
         let critical   = {failure: false, success: false};
-        let doomed     = (actor.system.doom === "exhausted");
+        let stressed     = (actor.system.stress === "exhausted");
         let title      = interpolate("ldoa.messages.titles.perceptionRoll");
         let message    = {actor:    actor.name, 
                           actorId:  actor.id,
-                          doomed:   doomed,
+                          stressed:   stressed,
                           roll:     {expanded: false,
                                      formula:  "",
                                      labels:   {title: title},
                                      result:   0,
                                      tested:   true}};
 
-        if(!doomed) {
+        if(!stressed) {
             if(event.shiftKey) {
                 message.roll.formula = "2d20kl";
             } else if(event.ctrlKey) {
@@ -582,7 +582,7 @@ export function logSpellCast(spell, result) {
     let message = {actor:   actor.name,
                    actorId: actor.id,
                    spell:   spell.name,
-                   doomed:  result.doomed,
+                   stressed:  result.stressed,
                    roll:    {expanded: false,
                              formula:  result.formula,
                              labels:   {result: game.i18n.localize("ldoa.fields.titles.success"),
@@ -599,7 +599,7 @@ export function logSpellCastFailure(spell, result) {
     let message = {actor:   actor.name,
                    actorId: actor.id,
                    spell:  spell.name,
-                   doomed:  result.doomed,
+                   stressed:  result.stressed,
                    fumble:  (result.total === 20),
                    roll:    {expanded: false,
                              formula:  result.formula,

@@ -1,6 +1,6 @@
 export default class SpellSheet  extends ItemSheet {
 	get template() {
-		return("systems/black-sword-hack/templates/sheets/spell-sheet.html");
+		return("systems/lastdays/templates/sheets/spell-sheet.html");
 	}
 
 	getData() {

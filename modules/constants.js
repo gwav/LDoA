@@ -438,4 +438,176 @@ const CLASSIC_ORIGIN_MAP = {
 	"wildling":            {id: "barbarian", index: 5, key: "wildling"}
 };
 
-export {BARBARIAN, CIVILIZED, DECADENT, CLASSIC_ORIGINS, CLASSIC_ORIGIN_MAP};
+// New Background System - 7 Backgrounds
+const NEW_BARBARIAN = {
+    description: "<p>Those that live outside of civilizations' restraints.</p>",
+    index: 0,
+    key: "barbarian",
+    localeKeys: {
+        "description": "ldoa.backgrounds.new_barbarian.description",
+        "label": "ldoa.backgrounds.new_barbarian.label"
+    },
+    name: "Barbarian",
+    type: "Martial",
+    stats: {
+        charisma: "+0",
+        constitution: "+0",
+        dexterity: "+0",
+        intelligence: "+0",
+        strength: "+1",
+        wisdom: "+0"
+    },
+    unique: false
+};
+
+const NEW_KNIGHT = {
+    description: "<p>Those that uphold chivalry and civilization itself.</p>",
+    index: 1,
+    key: "knight",
+    localeKeys: {
+        "description": "ldoa.backgrounds.new_knight.description",
+        "label": "ldoa.backgrounds.new_knight.label"
+    },
+    name: "Knight",
+    type: "Martial",
+    stats: {
+        charisma: "+1",
+        constitution: "+0",
+        dexterity: "+0",
+        intelligence: "+0",
+        strength: "+0",
+        wisdom: "+0"
+    },
+    unique: false
+};
+
+const NEW_MAGE = {
+    description: "<p>Those that study occult tomes and formulas to unleash magick into the world.</p>",
+    index: 2,
+    key: "mage",
+    localeKeys: {
+        "description": "ldoa.backgrounds.new_mage.description",
+        "label": "ldoa.backgrounds.new_mage.label"
+    },
+    name: "Mage",
+    type: "Arte",
+    stats: {
+        charisma: "+0",
+        constitution: "+0",
+        dexterity: "+0",
+        intelligence: "+1",
+        strength: "+0",
+        wisdom: "+0"
+    },
+    unique: false
+};
+
+const NEW_PRIEST = {
+    description: "<p>Those that bend knee to powerful gods, demigods and godlings for power.</p>",
+    index: 3,
+    key: "priest",
+    localeKeys: {
+        "description": "ldoa.backgrounds.new_priest.description",
+        "label": "ldoa.backgrounds.new_priest.label"
+    },
+    name: "Priest",
+    type: "Arte",
+    stats: {
+        charisma: "+0",
+        constitution: "+0",
+        dexterity: "+0",
+        intelligence: "+0",
+        strength: "+0",
+        wisdom: "+1"
+    },
+    unique: false
+};
+
+const NEW_PHENOM = {
+    description: "<p>Those that stand separate and outside of the other backgrounds.</p>",
+    index: 4,
+    key: "phenom",
+    localeKeys: {
+        "description": "ldoa.backgrounds.new_phenom.description",
+        "label": "ldoa.backgrounds.new_phenom.label"
+    },
+    name: "Phenom",
+    type: "Martial",
+    stats: {
+        charisma: "+0",
+        constitution: "+1",
+        dexterity: "+0",
+        intelligence: "+0",
+        strength: "+0",
+        wisdom: "+0"
+    },
+    unique: false
+};
+
+const NEW_PROMETHEAN = {
+    description: "<p>Practitioners of Science, the newest magickal paradigm to come about on Evermore.</p>",
+    index: 5,
+    key: "promethean",
+    localeKeys: {
+        "description": "ldoa.backgrounds.new_promethean.description",
+        "label": "ldoa.backgrounds.new_promethean.label"
+    },
+    name: "Promethean",
+    type: "Arte",
+    stats: {
+        charisma: "+0",
+        constitution: "+0",
+        dexterity: "+0",
+        intelligence: "+1",
+        strength: "+0",
+        wisdom: "+0"
+    },
+    unique: false
+};
+
+const NEW_PSION = {
+    description: "<p>Those that either have blood of the True Atlanteans flowing in their veins or have come into contact with their artifacts to give them the power of psionics.</p>",
+    index: 6,
+    key: "psion",
+    localeKeys: {
+        "description": "ldoa.backgrounds.new_psion.description",
+        "label": "ldoa.backgrounds.new_psion.label"
+    },
+    name: "Psion",
+    type: "Arte",
+    stats: {
+        charisma: "+0",
+        constitution: "+0",
+        dexterity: "+1",
+        intelligence: "+0",
+        strength: "+0",
+        wisdom: "+0"
+    },
+    unique: false
+};
+
+// New Background Collections
+const NEW_BACKGROUNDS = [
+    NEW_BARBARIAN,
+    NEW_KNIGHT,
+    NEW_MAGE,
+    NEW_PRIEST,
+    NEW_PHENOM,
+    NEW_PROMETHEAN,
+    NEW_PSION
+];
+
+const NEW_MARTIAL_BACKGROUNDS = [
+    NEW_BARBARIAN,
+    NEW_KNIGHT,
+    NEW_PHENOM
+];
+
+const NEW_ARTE_BACKGROUNDS = [
+    NEW_MAGE,
+    NEW_PRIEST,
+    NEW_PROMETHEAN,
+    NEW_PSION
+];
+
+export {BARBARIAN, CIVILIZED, DECADENT, CLASSIC_ORIGINS, CLASSIC_ORIGIN_MAP, NEW_BACKGROUNDS, NEW_MARTIAL_BACKGROUNDS, NEW_ARTE_BACKGROUNDS};

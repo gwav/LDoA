@@ -8,7 +8,7 @@ async function updateCharacterBirthPlaces() {
     game.actors.forEach((actor) => {
         if(actor.type === "character") {
             console.log(`Attempting birthplace migration for '${actor.name}' (id: ${actor.id}).`);
-            if(actor.system.birth.startsWith("ldoa.births")) {
+            if(actor.system.birth && typeof actor.system.birth === "string" && actor.system.birth.startsWith("ldoa.births")) {
                 actor.update({system: {birth: game.i18n.localize(actor.system.birth)}}, {diff: true});
             }
         }
@@ -23,28 +23,56 @@ async function updateClassicCharacterBackgrounds() {
     if(!game.settings.get("lastdays", "customOrigins")) {
     	game.actors.forEach((actor) => {
     		if(actor.type === "character") {
-    			let first  = `${actor.system.backgrounds.first}`.trim();
-    			let second = `${actor.system.backgrounds.second}`.trim();
-    			let third  = `${actor.system.backgrounds.third}`.trim();
+    			// Check if backgrounds exists, if not skip this actor
+    			if (!actor.system.backgrounds) {
+    				console.log(`Skipping actor ${actor.name} - no backgrounds data`);
+    				return;
+    			}
+    			
+    			// Handle corrupted array backgrounds
+    			let first = actor.system.backgrounds.first;
+    			if (Array.isArray(first)) {
+    				first = first.find(val => typeof val === 'string' && val.trim() !== '') || '';
+    			}
+    			first = `${first}`.trim();
+    			
+    			let second = actor.system.backgrounds.second;
+    			if (Array.isArray(second)) {
+    				second = second.find(val => typeof val === 'string' && val.trim() !== '') || '';
+    			}
+    			second = `${second}`.trim();
+    			
+    			let third = actor.system.backgrounds.third;
+    			if (Array.isArray(third)) {
+    				third = third.find(val => typeof val === 'string' && val.trim() !== '') || '';
+    			}
+    			third = `${third}`.trim();
 
                 console.log(`Attempting classic background migration for '${actor.name}' (id: ${actor.id}).`);
-    			if(typeof actor.system.backgrounds.first === "string" ||
-    			   typeof actor.system.backgrounds.second === "string" ||
-    			   typeof actor.system.backgrounds.third === "string") {
+    			if(typeof actor.system.backgrounds?.first === "string" ||
+    			   typeof actor.system.backgrounds?.second === "string" ||
+    			   typeof actor.system.backgrounds?.third === "string") {
                     let updatable = true;
     				let updates   = {system: {
     					                    backgrounds: {first: first, second: second, third:  third}
     					                }
     					            };
 
-                    Object.values(actor.system.backgrounds).forEach((name) => {
-                        if(name.trim() !== "") {
-                            let match = `${name}`.trim().match(/^(barbarian|civilized|decadent)#(.*)/);
+                    Object.values(actor.system.backgrounds || {}).forEach((name) => {
+                        // Handle corrupted array data
+                        let cleanName = name;
+                        if (Array.isArray(name)) {
+                            console.warn(`Migration: fixing corrupted background array for ${actor.name}:`, name);
+                            cleanName = name.find(val => typeof val === 'string' && val.trim() !== '') || '';
+                        }
+                        
+                        if(cleanName && typeof cleanName === 'string' && cleanName.trim() !== "") {
+                            let match = `${cleanName}`.trim().match(/^(barbarian|civilized|decadent)#(.*)/);
 
                         	if(!match) {
-                                let origin = CLASSIC_ORIGIN_MAP[name.trim()];
+                                let origin = CLASSIC_ORIGIN_MAP[cleanName.trim()];
                                 if(!origin) {
-                                    console.error(`Unable to migrate the '${name}' background for character id '${actor.id}' (${actor.name}).`);
+                                    console.error(`Unable to migrate the '${cleanName}' background for character id '${actor.id}' (${actor.name}).`);
                                     updatable = false;
                                 }
                             }
@@ -52,24 +80,24 @@ async function updateClassicCharacterBackgrounds() {
                     });
 
                     if(updatable) {
-                        if(first !== "" && typeof actor.system.backgrounds.first === "string" && CLASSIC_ORIGIN_MAP[first]) {
+                        if(first !== "" && typeof actor.system.backgrounds?.first === "string" && CLASSIC_ORIGIN_MAP[first]) {
                             let key = `${CLASSIC_ORIGIN_MAP[first].id}#${CLASSIC_ORIGIN_MAP[first].key}`
 
-                        	console.log(`Migrating '${actor.system.backgrounds.first}' to`, key);
+                        	console.log(`Migrating '${actor.system.backgrounds?.first}' to`, key);
                         	updates.system.backgrounds.first = key;
                         }
 
-                        if(second !== "" && typeof actor.system.backgrounds.second === "string" && CLASSIC_ORIGIN_MAP[second]) {
+                        if(second !== "" && typeof actor.system.backgrounds?.second === "string" && CLASSIC_ORIGIN_MAP[second]) {
                             let key = `${CLASSIC_ORIGIN_MAP[first].id}#${CLASSIC_ORIGIN_MAP[second].key}`;
 
-                        	console.log(`Migrating '${actor.system.backgrounds.second}' to`, key);
+                        	console.log(`Migrating '${actor.system.backgrounds?.second}' to`, key);
                         	updates.system.backgrounds.second = key;
                         }
 
-                        if(third !== "" && typeof actor.system.backgrounds.third === "string" && CLASSIC_ORIGIN_MAP[third]) {
+                        if(third !== "" && typeof actor.system.backgrounds?.third === "string" && CLASSIC_ORIGIN_MAP[third]) {
                             let key = `${CLASSIC_ORIGIN_MAP[first].id}#${CLASSIC_ORIGIN_MAP[third].key}`;
 
-                        	console.log(`Migrating '${actor.system.backgrounds.third}' to`, key);
+                        	console.log(`Migrating '${actor.system.backgrounds?.third}' to`, key);
                         	updates.system.backgrounds.third = key;
                         }
 

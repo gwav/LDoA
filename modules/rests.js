@@ -1,4 +1,4 @@
-import {resetDoomDie} from './doom.js';
+import {resetStressDie} from './stress.js';
 import {calculateCharacterData, interpolate} from './shared.js';
 import {resetSpellStatesForActor} from './spells.js';
 
@@ -27,7 +27,7 @@ export function takeLongRest(character) {
     }
 
     resetSpellStatesForActor(character.id);
-    resetDoomDie(character);
+    resetStressDie(character);
 
     if(Object.keys(updates.system).length > 0) {
         character.update(updates, {diff: true});

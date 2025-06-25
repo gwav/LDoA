@@ -3,7 +3,7 @@ import {logCallSpirit,
         logDemonSummoning,
         logDemonSummoningFailure} from './chat_messages.js';
 import {ldoaConfiguration} from './configuration.js';
-import {rollDoom} from './doom.js';
+import {rollStress} from './stress.js';
 import {calculateAttributeValues,
         getActorById,
         getOwnedItemById,
@@ -30,13 +30,13 @@ export async function resetDarkPact(actorId, type) {
 }
 
 /**
- * This function makes the doom roll related to summoning a demon.
+ * This function makes the stress roll related to summoning a demon.
  */
 export async function summonDemon(demonId, rollType) {
     let demon = getOwnedItemById(demonId);
 
     if(demon && demon.type === "demon") {
-        if(demon.actor.system.doom !== "exhausted") {
+        if(demon.actor.system.stress !== "exhausted") {
             if(demon.actor.system.summoning.demon !== "unused") {
                 if(rollType === "advantage") {
                     rollType = "standard";
@@ -45,9 +45,9 @@ export async function summonDemon(demonId, rollType) {
                 }
             }
 
-            rollDoom(demon.actor, rollType).then((result) => {
+            rollStress(demon.actor, rollType).then((result) => {
                 demon.actor.update({system: {summoning: {demon: "used"}}}, {diff: true});
-                result.doomed = (result.die.ending === "exhausted");
+                result.stressed = (result.die.ending === "exhausted");
                 if(result.downgraded) {
                     logDemonSummoningFailure(demon, result);
                 } else {
@@ -55,7 +55,7 @@ export async function summonDemon(demonId, rollType) {
                 }
             });
         } else {
-            console.error(`Unable to summon the '${demon.name}' demon as your Doom die is exhausted.`);
+            console.error(`Unable to summon the '${demon.name}' demon as your Stress die is exhausted.`);
             ui.notifications.error(interpolate("ldoa.messages.demons.unavailable", {name: demon.name}));
         }
     } else {
@@ -65,13 +65,13 @@ export async function summonDemon(demonId, rollType) {
 }
 
 /**
- * This function makes the doom roll related to summoning a spirit.
+ * This function makes the stress roll related to summoning a spirit.
  */
 export async function summonSpirit(spiritId, rollType) {
     let spirit = getOwnedItemById(spiritId);
 
     if(spirit && spirit.type === "spirit") {
-        if(spirit.actor.system.doom !== "exhausted") {
+        if(spirit.actor.system.stress !== "exhausted") {
             if(spirit.actor.system.summoning.spirit !== "unused") {
                 if(rollType === "advantage") {
                     rollType = "standard";
@@ -80,9 +80,9 @@ export async function summonSpirit(spiritId, rollType) {
                 }
             }
 
-            rollDoom(spirit.actor, rollType).then((result) => {
+            rollStress(spirit.actor, rollType).then((result) => {
                 spirit.actor.update({system: {summoning: {spirit: "used"}}}, {diff: true});
-                result.doomed = (result.die.ending === "exhausted");
+                result.stressed = (result.die.ending === "exhausted");
                 if(result.downgraded) {
                     logCallSpiritFailure(spirit, result);
                 } else {
@@ -90,7 +90,7 @@ export async function summonSpirit(spiritId, rollType) {
                 }
             });
         } else {
-            console.error(`Unable to summon the '${spirit.name}' spirit as your Doom die is exhausted.`);
+            console.error(`Unable to summon the '${spirit.name}' spirit as your Stress die is exhausted.`);
             ui.notifications.error(interpolate("ldoa.messages.spirits.unavailable", {name: spirit.name}));
         }
     } else {

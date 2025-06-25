@@ -1,14 +1,14 @@
 export default class ConsumableSheet  extends ItemSheet {
 	static get defaultOptions() {
 	    return(foundry.utils.mergeObject(super.defaultOptions,
-	    	                             {classes: ["bsh", "bsh-sheet", "bsh-consumable"],
+	    	                             {classes: ["ldoa", "ldoa-sheet", "ldoa-consumable"],
 	    	                              height: 450,
-	    	               	              template: "systems/black-sword-hack/templates/sheets/consumable-sheet.html",
+	    	               	              template: "systems/lastdays/templates/sheets/consumable-sheet.html",
 	    	                              width: 600}));
 	}
 
 	get template() {
-		return("systems/black-sword-hack/templates/sheets/consumable-sheet.html");
+		return("systems/lastdays/templates/sheets/consumable-sheet.html");
 	}
 
 	getData() {

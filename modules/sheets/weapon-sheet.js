@@ -1,6 +1,6 @@
 export default class WeaponSheet  extends ItemSheet {
 	get template() {
-		return("systems/black-sword-hack/templates/sheets/weapon-sheet.html");
+		return("systems/lastdays/templates/sheets/weapon-sheet.html");
 	}
 
 	getData() {

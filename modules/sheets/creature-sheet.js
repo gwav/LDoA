@@ -3,9 +3,9 @@ import {onInfoIconClicked} from "../shared.js";
 export default class CreatureSheet extends ActorSheet {
     static get defaultOptions() {
         return(foundry.utils.mergeObject(super.defaultOptions,
-                                         {classes: ["bsh", "bsh-sheet", "bsh-character"],
+                                         {classes: ["ldoa", "ldoa-sheet", "ldoa-character"],
                                           height: 750,
-                                          template: "systems/black-sword-hack/templates/sheets/creature-sheet.html",
+                                          template: "systems/lastdays/templates/sheets/creature-sheet.html",
                                           width: 700}));
     }
 
@@ -21,13 +21,13 @@ export default class CreatureSheet extends ActorSheet {
 
     /** @override */
     get template() {
-        return(`systems/black-sword-hack/templates/sheets/creature-sheet.html`);
+        return(`systems/lastdays/templates/sheets/creature-sheet.html`);
     }
 
     activateListeners(html) {
         html.find('input[type="number"]').on("input", this._onNumericInputChanged.bind(this));
-        html.find(".bsh-delete-action").click(this._onDeleteActionClicked.bind(this));
-        html.find(".bsh-info-icon").click(onInfoIconClicked);
+        html.find(".ldoa-delete-action").click(this._onDeleteActionClicked.bind(this));
+        html.find(".ldoa-info-icon").click(onInfoIconClicked);
         super.activateListeners(html);
     }
 
@@ -67,10 +67,10 @@ export default class CreatureSheet extends ActorSheet {
                 });
 
                 if(attributes.length > 0) {
-                    let names = attributes.map((n) => game.i18n.localize(`bsh.attributes.${n}.short`));
+                    let names = attributes.map((n) => game.i18n.localize(`ldoa.attributes.${n}.short`));
                     item.testAttribute = names.join(" / ");
                 } else {
-                    item.testAttribute = game.i18n.localize("bsh.none");
+                    item.testAttribute = game.i18n.localize("ldoa.none");
                 }
                 actions.push(item);
             }

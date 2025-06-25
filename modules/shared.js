@@ -50,6 +50,8 @@ export function deleteOwnedItem(itemId) {
  * Calculates a set of dynamic data values related to a character.
  */
 export function calculateCharacterData(context, configuration) {
+    const originalContext = context; // Keep reference to full context with items
+    
     if(context.actor) {
         context = context.actor.system;
     } else {
@@ -57,7 +59,7 @@ export function calculateCharacterData(context, configuration) {
     }
 
     context.level            = calculateLevel(context, configuration);
-    context.calculated       = calculateAttributeValues(context, configuration);
+    context.calculated       = calculateAttributeValues(context, configuration, originalContext.items);
     context.maximumHitPoints = calculateMaximumHitPoints(context, context.level);
 }
 
@@ -65,21 +67,25 @@ export function calculateCharacterData(context, configuration) {
  * This function calculates the final values for the characters attribute
  * values.
  */
-export function calculateAttributeValues(data, configuration) {
-    let calculated      = {constitution: data.attributes.constitution,
-                           charisma:     data.attributes.charisma,
-                           dexterity:    data.attributes.dexterity,
-                           intelligence: data.attributes.intelligence,
-                           wisdom:       data.attributes.wisdom,
-                           strength:     data.attributes.strength};
-    let backgroundNames = [data.backgrounds.first,
-                           data.backgrounds.second,
-                           data.backgrounds.third].map((name) => {
-                               if(name.includes("#")) {
+export function calculateAttributeValues(data, configuration, items = null) {
+    // Start with beginning (base rolled) values
+    let calculated      = {constitution: data.beginning?.constitution || 10,
+                           charisma:     data.beginning?.charisma || 10,
+                           dexterity:    data.beginning?.dexterity || 10,
+                           intelligence: data.beginning?.intelligence || 10,
+                           wisdom:       data.beginning?.wisdom || 10,
+                           strength:     data.beginning?.strength || 10};
+    
+    console.log("🧮 ATTRIBUTE CALCULATION BREAKDOWN:");
+    console.log("📊 Starting with beginning values:", calculated);
+    let backgroundNames = [data.backgrounds?.first || "",
+                           data.backgrounds?.second || "",
+                           data.backgrounds?.third || ""].map((name) => {
+                               if(name && typeof name === "string" && name.includes("#")) {
                                    let parts = name.split("#");
                                    return(parts[parts.length - 1]);
                                } else {
-                                   return(name);
+                                   return(name || "");
                                }
                            });
 
@@ -89,11 +95,13 @@ export function calculateAttributeValues(data, configuration) {
 
     backgrounds.forEach((e) => {
         if(e && e.attributes) {
+            console.log("📚 Adding background bonuses:", e.attributes);
             for(let attribute in e.attributes) {
                 calculated[attribute] += e.attributes[attribute];
             }
         }
     });
+    console.log("📊 After backgrounds:", calculated);
 
     Object.keys(data.stories).forEach((key) => {
         let story = data.stories[key];
@@ -113,6 +121,73 @@ export function calculateAttributeValues(data, configuration) {
             }
         }
     });
+    console.log("📊 After stories:", calculated);
+
+    // Add creation bonuses and in-game bonuses
+    console.log("🎯 BONUS APPLICATION:");
+    console.log("🔧 Available creationBonus:", data.creationBonus);
+    console.log("🔧 Available inGameBonus:", data.inGameBonus);
+    
+    if (data.creationBonus) {
+        Object.keys(calculated).forEach((key) => {
+            if (data.creationBonus[key]) {
+                console.log(`🎯 Adding creation bonus to ${key}: ${calculated[key]} + ${data.creationBonus[key]} = ${calculated[key] + data.creationBonus[key]}`);
+                calculated[key] += data.creationBonus[key];
+            }
+        });
+    }
+    console.log("📊 After creation bonuses:", calculated);
+    
+    if (data.inGameBonus) {
+        Object.keys(calculated).forEach((key) => {
+            if (data.inGameBonus[key]) {
+                console.log(`🎯 Adding in-game bonus to ${key}: ${calculated[key]} + ${data.inGameBonus[key]} = ${calculated[key] + data.inGameBonus[key]}`);
+                calculated[key] += data.inGameBonus[key];
+            }
+        });
+    }
+    console.log("📊 After in-game bonuses:", calculated);
+    
+    // Add boon bonuses
+    console.log("🔧 Available items for boon processing:", items?.length || 0);
+    if (items) {
+        const boons = items.filter(item => item.type === "boon");
+        console.log("🔧 Found boons:", boons.length);
+        boons.forEach(boon => {
+            console.log(`🎯 Processing boon "${boon.name}":`, boon.system?.effects?.attributes);
+            if (boon.system && boon.system.effects && boon.system.effects.attributes) {
+                Object.keys(calculated).forEach(attribute => {
+                    if (boon.system.effects.attributes[attribute]) {
+                        console.log(`🎯 Adding boon bonus to ${attribute}: ${calculated[attribute]} + ${boon.system.effects.attributes[attribute]} = ${calculated[attribute] + boon.system.effects.attributes[attribute]}`);
+                        calculated[attribute] += boon.system.effects.attributes[attribute];
+                    }
+                });
+            }
+        });
+    }
+    
+    console.log("📊 After boon bonuses:", calculated);
+    
+    // Final summary showing the complete formula
+    console.log("🎯 FINAL CALCULATION SUMMARY:");
+    Object.keys(calculated).forEach((key) => {
+        const beginning = data.beginning?.[key] || 10;
+        const creation = data.creationBonus?.[key] || 0;
+        const inGame = data.inGameBonus?.[key] || 0;
+        
+        // Calculate boon total for this attribute
+        let boonTotal = 0;
+        if (data.items) {
+            const boons = data.items.filter(item => item.type === "boon");
+            boons.forEach(boon => {
+                if (boon.system?.effects?.attributes?.[key]) {
+                    boonTotal += boon.system.effects.attributes[key];
+                }
+            });
+        }
+        
+        console.log(`📊 ${key}: ${beginning} (beginning) + ${creation} (creation) + ${inGame} (inGame) + ${boonTotal} (boons) = ${calculated[key]} (final)`);
+    });
 
     Object.keys(calculated).forEach((key) => {
         if(calculated[key] > 18) {
@@ -130,10 +205,16 @@ export function calculateAttributeValues(data, configuration) {
 export function calculateMaximumHitPoints(context, level) {
     let total = context.calculated.constitution;
 
-    if(level < 10) {
-        total += (level - 1);
-    } else {
-        total += 9;
+    total += (level - 1);
+
+    // Add boon hitPoints bonuses
+    if (context.items) {
+        const boons = context.items.filter(item => item.type === "boon");
+        boons.forEach(boon => {
+            if (boon.system && boon.system.effects && boon.system.effects.hitPoints) {
+                total += boon.system.effects.hitPoints;
+            }
+        });
     }
 
     return(total);
@@ -148,7 +229,7 @@ export function calculateLevel(data, configuration) {
     let stories      = data.stories;
 
     Object.keys(stories).sort().forEach((index) => {
-        if(stories[index].title && stories[index].title.trim() !== "") {
+        if(stories[index].title && typeof stories[index].title === "string" && stories[index].title.trim() !== "") {
             totalStories++;
         }
     });
@@ -233,8 +314,8 @@ export function generateDieRollFormula(options={}) {
 /**
  * Generates a string containing a formula for a damage dice roll. Recognised
  * options include critical (accepts a true or false settings to indicate
- * whether the damage roll is for a critical hit or not) and doomed (which
- * indicates whether the character is currently doomed).
+ * whether the damage roll is for a critical hit or not) and stressed (which
+ * indicates whether the character is currently stressed).
  */
 export function generateDamageRollFormula(actor, weapon, options={}) {
     let formula = null;
@@ -246,9 +327,9 @@ export function generateDamageRollFormula(actor, weapon, options={}) {
         dieType = actor.system.damageDice.unarmed;
     }
 
-    formula = (options.doomed ? `2${dieType}kl` : `1${dieType}`);
+    formula = (options.stressed ? `2${dieType}kl` : `1${dieType}`);
     if(weapon.system.hands > 1) {
-        if(options.doomed) {
+        if(options.stressed) {
             formula = `1${dieType}`;
         } else {
             formula = `2${dieType}kh`;

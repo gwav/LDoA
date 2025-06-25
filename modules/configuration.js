@@ -358,68 +358,68 @@ ldoaConfiguration.diceList = {
 	"d20": "ldoa.dice.d20"
 };
 
-ldoaConfiguration.giftList = [
+ldoaConfiguration.boonList = [
   {key: "none",
    name: "ldoa.none"},
 	{key:   "fortressOfTheMind",
-	 label: "ldoa.gifts.fortressOfTheMind.label",
-	 name:  "ldoa.gifts.fortressOfTheMind.name",
+	 label: "ldoa.boons.fortressOfTheMind.label",
+	 name:  "ldoa.boons.fortressOfTheMind.name",
 	 power: "balance"},
 	{key:   "meditation",
-	 label: "ldoa.gifts.meditation.label",
-	 name:  "ldoa.gifts.meditation.name",
+	 label: "ldoa.boons.meditation.label",
+	 name:  "ldoa.boons.meditation.name",
 	 power: "balance"},
 	{key:   "secondWind",
-	 label: "ldoa.gifts.secondWind.label",
-	 name:  "ldoa.gifts.secondWind.name",
+	 label: "ldoa.boons.secondWind.label",
+	 name:  "ldoa.boons.secondWind.name",
 	 power: "balance"},
 	{key:   "spiritAlliance",
-	 label: "ldoa.gifts.spiritAlliance.label",
-	 name:  "ldoa.gifts.spiritAlliance.name",
+	 label: "ldoa.boons.spiritAlliance.label",
+	 name:  "ldoa.boons.spiritAlliance.name",
 	 power: "balance"},
 	{key:   "survivorsLuck",
-	 label: "ldoa.gifts.survivorsLuck.label",
-	 name:  "ldoa.gifts.survivorsLuck.name",
+	 label: "ldoa.boons.survivorsLuck.label",
+	 name:  "ldoa.boons.survivorsLuck.name",
 	 power: "balance"},
 	{key:   "armourOfScars",
-	 label: "ldoa.gifts.armorOfScars.label",
-	 name:  "ldoa.gifts.armorOfScars.name",
+	 label: "ldoa.boons.armorOfScars.label",
+	 name:  "ldoa.boons.armorOfScars.name",
 	 power: "chaos"},
 	{key:   "bloodlust",
-	 label: "ldoa.gifts.bloodlust.label",
-	 name:  "ldoa.gifts.bloodlust.name",
+	 label: "ldoa.boons.bloodlust.label",
+	 name:  "ldoa.boons.bloodlust.name",
 	 power: "chaos"},
 	{key:   "darkRevelation",
-	 label: "ldoa.gifts.darkRevelation.label",
-	 name:  "ldoa.gifts.darkRevelation.name",
+	 label: "ldoa.boons.darkRevelation.label",
+	 name:  "ldoa.boons.darkRevelation.name",
 	 power: "chaos"},
 	{key:   "dubiousFriendships",
-	 label: "ldoa.gifts.dubiousFriendships.label",
-	 name:  "ldoa.gifts.dubiousFriendships.name",
+	 label: "ldoa.boons.dubiousFriendships.label",
+	 name:  "ldoa.boons.dubiousFriendships.name",
 	 power: "chaos"},
 	{key:   "paranoid",
-	 label: "ldoa.gifts.paranoid.label",
-	 name:  "ldoa.gifts.paranoid.name",
+	 label: "ldoa.boons.paranoid.label",
+	 name:  "ldoa.boons.paranoid.name",
 	 power: "chaos"},
 	{key:   "battleHardened",
-	 label: "ldoa.gifts.battleHardened.label",
-	 name:  "ldoa.gifts.battleHardened.name",
+	 label: "ldoa.boons.battleHardened.label",
+	 name:  "ldoa.boons.battleHardened.name",
 	 power: "law"},
 	{key:   "resourceful",
-	 label: "ldoa.gifts.resourceful.label",
-	 name:  "ldoa.gifts.resourceful.name",
+	 label: "ldoa.boons.resourceful.label",
+	 name:  "ldoa.boons.resourceful.name",
 	 power: "law"},
 	{key:   "riddleOfSteel",
-	 label: "ldoa.gifts.riddleOfSteel.label",
-	 name:  "ldoa.gifts.riddleOfSteel.name",
+	 label: "ldoa.boons.riddleOfSteel.label",
+	 name:  "ldoa.boons.riddleOfSteel.name",
 	 power: "law"},
 	{key:   "toughAsNails",
-	 label: "ldoa.gifts.toughAsNails.label",
-	 name:  "ldoa.gifts.toughAsNails.name",
+	 label: "ldoa.boons.toughAsNails.label",
+	 name:  "ldoa.boons.toughAsNails.name",
 	 power: "law"},
 	{key:   "willToLive",
-	 label: "ldoa.gifts.willToLive.label",
-	 name:  "ldoa.gifts.willToLive.name",
+	 label: "ldoa.boons.willToLive.label",
+	 name:  "ldoa.boons.willToLive.name",
 	 power: "law"}
 ];
 
@@ -513,9 +513,132 @@ ldoaConfiguration.originList = {
 };
 
 ldoaConfiguration.powersList = {
-	"balance": "ldoa.powers.balance.name",
-	"chaos": "ldoa.powers.chaos.name",
-	"law": "ldoa.powers.law.name"
+	"anyone": "ldoa.powers.anyone.name",
+	"arte": "ldoa.powers.arte.name",
+	"martial": "ldoa.powers.martial.name",
+	"blooded": "ldoa.powers.blooded.name",
+	"human": "ldoa.powers.human.name",
+	"manikin": "ldoa.powers.manikin.name",
+	"trickster": "ldoa.powers.trickster.name"
+};
+
+ldoaConfiguration.languagesList = {
+	// Universal Language
+	"thyrenian": "ldoa.languages.thyrenian.name",
+	
+	// Barbarian Tongues
+	"amaric": "ldoa.languages.amaric.name",
+	"chalidim": "ldoa.languages.chalidim.name",
+	"jurka": "ldoa.languages.jurka.name",
+	"naruan": "ldoa.languages.naruan.name",
+	"pictish": "ldoa.languages.pictish.name",
+	"urgic": "ldoa.languages.urgic.name",
+	
+	// Civilized Tongues
+	"alashan": "ldoa.languages.alashan.name",
+	"duhuang": "ldoa.languages.duhuang.name",
+	
+	// Decadent Tongues
+	"askavian": "ldoa.languages.askavian.name",
+	"polari": "ldoa.languages.polari.name",
+	"silenttongue": "ldoa.languages.silenttongue.name",
+	
+	// Non-Human Tongues
+	"celestial": "ldoa.languages.celestial.name",
+	"enochian": "ldoa.languages.enochian.name",
+	"draconic": "ldoa.languages.draconic.name",
+	"highelven": "ldoa.languages.highelven.name",
+	"infernal": "ldoa.languages.infernal.name",
+	"primordial": "ldoa.languages.primordial.name",
+	"sylvian": "ldoa.languages.sylvian.name",
+	"undercommon": "ldoa.languages.undercommon.name"
+};
+
+ldoaConfiguration.languageGroups = {
+	"universal": {
+		"name": "ldoa.languages.groups.universal.name",
+		"languages": ["thyrenian"]
+	},
+	"barbarian": {
+		"name": "ldoa.languages.groups.barbarian.name", 
+		"languages": ["amaric", "chalidim", "jurka", "naruan", "pictish", "urgic"]
+	},
+	"civilized": {
+		"name": "ldoa.languages.groups.civilized.name",
+		"languages": ["alashan", "duhuang"]
+	},
+	"decadent": {
+		"name": "ldoa.languages.groups.decadent.name",
+		"languages": ["askavian", "polari", "silenttongue"]
+	},
+	"nonhuman": {
+		"name": "ldoa.languages.groups.nonhuman.name",
+		"languages": ["celestial", "enochian", "draconic", "highelven", "infernal", "primordial", "sylvian", "undercommon"]
+	}
+};
+
+ldoaConfiguration.languageBonuses = {
+	backgrounds: {
+		"barbarian": {
+			slots: 1,
+			automatic: [],
+			restricted: ["barbarian"],
+			description: "1 language from Barbarian tongues"
+		},
+		"knight": {
+			slots: 1,
+			automatic: [],
+			restricted: ["civilized", "decadent"],
+			description: "1 language from Civilized or Decadent tongues"
+		},
+		"mage": {
+			slots: 3,
+			automatic: ["draconic"],
+			restricted: [],
+			description: "Draconic + any 3 other languages"
+		},
+		"priest": {
+			slots: 1,
+			automatic: [],
+			restricted: ["celestial", "infernal"],
+			description: "1 language: Celestial or Infernal"
+		},
+		"phenom": {
+			slots: 2,
+			automatic: [],
+			restricted: ["origin"],
+			description: "2 languages from origin background"
+		},
+		"promethean": {
+			slots: 1,
+			automatic: ["enochian"],
+			restricted: [],
+			description: "Enochian + 1 other language (any)"
+		},
+		"psion": {
+			slots: 1,
+			automatic: ["enochian"],
+			restricted: ["origin"],
+			description: "Enochian + 1 language from origin"
+		},
+		"rogue": {
+			slots: 1,
+			automatic: ["silenttongue"],
+			restricted: [],
+			description: "Silent Tongue + any 1 other language"
+		},
+		"sandman": {
+			slots: 3,
+			automatic: [],
+			restricted: [],
+			description: "3 languages from any group"
+		}
+	},
+	kin: {
+		"human": 1,
+		"manikin": 2,
+		"trickster": 1
+	}
 };
 
 ldoaConfiguration.rollTypes = {

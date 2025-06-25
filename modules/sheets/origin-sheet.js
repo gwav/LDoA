@@ -3,14 +3,14 @@ import BackgroundDialog from "../dialogs/background_dialog.js";
 export default class OriginSheet extends ItemSheet {
 	static get defaultOptions() {
 	    return(foundry.utils.mergeObject(super.defaultOptions,
-	    	                             {classes: ["bsh", "bsh-sheet", "bsh-origin"],
+	    	                             {classes: ["ldoa", "ldoa-sheet", "ldoa-origin"],
 	    	                              height: 600,
-	    	               	              template: "systems/black-sword-hack/templates/sheets/origin-sheet.html",
+	    	               	              template: "systems/lastdays/templates/sheets/origin-sheet.html",
 	    	                              width: 700}));
 	}
 
 	get template() {
-		return("systems/black-sword-hack/templates/sheets/origin-sheet.html");
+		return("systems/lastdays/templates/sheets/origin-sheet.html");
 	}
 
 	getData() {
@@ -21,22 +21,22 @@ export default class OriginSheet extends ItemSheet {
 	}
 
 	activateListeners(html) {
-		html.find(".bsh-new-background-icon").click(this._onNewBackgroundClicked.bind(this));
-		html.find(".bsh-background-column").click(this._onEditBackgroundClicked.bind(this));
-		html.find(".bsh-background-checkbox").click(this._onBackgroundSelectionClicked.bind(this));
-		html.find(".bsh-delete-background-icon").click(this._onDeleteBackgroundClicked.bind(this));
+		html.find(".ldoa-new-background-icon").click(this._onNewBackgroundClicked.bind(this));
+		html.find(".ldoa-background-column").click(this._onEditBackgroundClicked.bind(this));
+		html.find(".ldoa-background-checkbox").click(this._onBackgroundSelectionClicked.bind(this));
+		html.find(".ldoa-delete-background-icon").click(this._onDeleteBackgroundClicked.bind(this));
 
-		Array.from(html.find(".bsh-background-column")).forEach((row) => row.dataset.origin = this.object.id);
+		Array.from(html.find(".ldoa-background-column")).forEach((row) => row.dataset.origin = this.object.id);
 		super.activateListeners(html);
-		if(!game.settings.get("black-sword-hack", "customOrigins")) {
-		    ui.notifications.error(game.i18n.localize("bsh.errors.origins.custom.inactive"));
+		if(!game.settings.get("lastdays", "customOrigins")) {
+		    ui.notifications.error(game.i18n.localize("ldoa.errors.origins.custom.inactive"));
 		}
 	}
 
 	_findRootElement(element) {
 		let root = element;
 
-		while(!root.classList.contains("bsh-origin-sheet-body")) {
+		while(!root.classList.contains("ldoa-origin-sheet-body")) {
 			root = root.parentElement;
 		}
 
@@ -46,20 +46,20 @@ export default class OriginSheet extends ItemSheet {
 	_onBackgroundSelectionClicked(event) {
 		let sheetBody  = this._findRootElement(event.currentTarget);
 		let checkboxes = sheetBody.querySelectorAll('input[type="checkbox"]:checked');
-		let icon       = sheetBody.querySelector('.bsh-delete-background-icon');
+		let icon       = sheetBody.querySelector('.ldoa-delete-background-icon');
 
 		if(checkboxes.length === 0) {
-			icon.classList.add("bsh-greyed-out");
+			icon.classList.add("ldoa-greyed-out");
 		} else {
-			icon.classList.remove("bsh-greyed-out");
+			icon.classList.remove("ldoa-greyed-out");
 		}
 	}
 
 	_onDeleteBackgroundClicked(event) {
 		let sheetBody = this._findRootElement(event.currentTarget);
-		let icon      = sheetBody.querySelector('.bsh-delete-background-icon');
+		let icon      = sheetBody.querySelector('.ldoa-delete-background-icon');
 
-        if(!icon.classList.contains("bsh-greyed-out")) {
+        if(!icon.classList.contains("ldoa-greyed-out")) {
         	let checkboxes  = sheetBody.querySelectorAll('input[type="checkbox"]:checked');
         	let keys        = Array.from(checkboxes).map((c) => c.dataset.key);
         	let backgrounds = this.object.system.backgrounds.map((e) => JSON.parse(e));
