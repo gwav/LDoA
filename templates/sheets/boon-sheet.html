@@ -1,0 +1,99 @@
+<form class="{{cssClass}}" autocomplete="off">
+	<div class="ldoa-equipment-body">
+		<div>
+			<img class="ldoa-item-image" data-edit="img" src="{{item.img}}" title="{{item.name}}">
+			<hr>
+
+			<div class="ldoa-field">
+				<label class="ldoa-label">{{localize "ldoa.fields.labels.power"}}</label>
+				<select name="system.power" class="ldoa-input ldoa-select">
+					{{{selectOptions configuration.powersList selected=item.system.power localize=true }}}
+				</select>
+			</div>
+		</div>
+
+		<div>
+		    <div class="ldoa-field">
+		    	<input class="ldoa-enlarged-input" name="name" type="text" value="{{item.name}}" />
+		    </div>
+		    <hr>
+
+			<div class="ldoa-field">
+				<label for="system.description" class="ldoa-label">{{localize "ldoa.fields.labels.description"}}</label>
+				{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+			</div>
+
+			<hr>
+
+			<div class="ldoa-field">
+				<h3>{{localize "ldoa.fields.labels.effects"}}</h3>
+				
+				<!-- Attribute Effects -->
+				<div class="ldoa-effects-section">
+					<h4>{{localize "ldoa.fields.labels.attributes"}}</h4>
+					<div class="ldoa-attribute-effects-grid">
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.strength"}}</label>
+							<input type="number" name="system.effects.attributes.strength" value="{{item.system.effects.attributes.strength}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.dexterity"}}</label>
+							<input type="number" name="system.effects.attributes.dexterity" value="{{item.system.effects.attributes.dexterity}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.constitution"}}</label>
+							<input type="number" name="system.effects.attributes.constitution" value="{{item.system.effects.attributes.constitution}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.intelligence"}}</label>
+							<input type="number" name="system.effects.attributes.intelligence" value="{{item.system.effects.attributes.intelligence}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.wisdom"}}</label>
+							<input type="number" name="system.effects.attributes.wisdom" value="{{item.system.effects.attributes.wisdom}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.charisma"}}</label>
+							<input type="number" name="system.effects.attributes.charisma" value="{{item.system.effects.attributes.charisma}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Other Effects -->
+				<div class="ldoa-effects-section">
+					<h4>{{localize "ldoa.fields.labels.otherEffects"}}</h4>
+					<div class="ldoa-other-effects-grid">
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.hitPoints"}}</label>
+							<input type="number" name="system.effects.hitPoints" value="{{item.system.effects.hitPoints}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.initiative"}}</label>
+							<input type="number" name="system.effects.initiative" value="{{item.system.effects.initiative}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.attackRolls"}}</label>
+							<input type="number" name="system.effects.attackRolls" value="{{item.system.effects.attackRolls}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.damageRolls"}}</label>
+							<input type="number" name="system.effects.damageRolls" value="{{item.system.effects.damageRolls}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+						<div class="ldoa-effect-field">
+							<label class="ldoa-label">{{localize "ldoa.fields.labels.armorRating"}}</label>
+							<input type="number" name="system.effects.armorRating" value="{{item.system.effects.armorRating}}" class="ldoa-input ldoa-centered-input" />
+						</div>
+					</div>
+				</div>
+
+				<!-- Special Effects -->
+				<div class="ldoa-effects-section">
+					<div class="ldoa-field">
+						<label class="ldoa-label">{{localize "ldoa.fields.labels.special"}}</label>
+						<input type="text" name="system.effects.special" value="{{item.system.effects.special}}" class="ldoa-input" placeholder="{{localize 'ldoa.fields.placeholders.specialEffects'}}" />
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

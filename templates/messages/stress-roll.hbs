@@ -1,0 +1,9 @@
+<p>
+    {{localize "ldoa.messages.blurbs.rollsStress"}}: {{actor}}
+</p>
+
+{{> "systems/lastdays/templates/messages/roll.hbs" roll}}
+
+{{#stressed}}
+  {{> "systems/lastdays/templates/messages/stressed.hbs"}}
+{{/stressed}}

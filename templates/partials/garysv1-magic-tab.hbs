@@ -1,0 +1,68 @@
+<div class="garysv1-magic-content">
+    <div class="garysv1-section-header">
+        <h3>{{localize "ldoa.headers.magic"}}</h3>
+    </div>
+
+    <!-- Spells Section -->
+    <div class="garysv1-spells-section">
+        <h4>{{localize "ldoa.headers.spells"}}</h4>
+        <div class="garysv1-magic-list">
+            {{#each spells as |spell id|}}
+            <div class="garysv1-spell-card">
+                <div class="garysv1-spell-header">
+                    <span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+                    <div class="garysv1-spell-actions">
+                        <i class="fas fa-magic ldoa-cast-spell-icon ldoa-action-icon" data-item="{{_id}}" title="{{localize 'ldoa.fields.titles.castSpell'}}"></i>
+                        <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{_id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteSpell'}}"></i>
+                    </div>
+                </div>
+                <div class="garysv1-spell-description">
+                    <p>{{system.description}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <!-- Spirits Section -->
+    <div class="garysv1-spirits-section">
+        <h4>{{localize "ldoa.headers.spirits"}}</h4>
+        <div class="garysv1-magic-list">
+            {{#each spirits as |spirit id|}}
+            <div class="garysv1-spirit-card">
+                <div class="garysv1-spirit-header">
+                    <span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+                    <div class="garysv1-spirit-actions">
+                        <i class="fas fa-ghost ldoa-summon-spirit-icon ldoa-action-icon" data-item="{{_id}}" title="{{localize 'ldoa.fields.titles.summonSpirit'}}"></i>
+                        <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{_id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteSpirit'}}"></i>
+                    </div>
+                </div>
+                <div class="garysv1-spirit-description">
+                    <p>{{system.description}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+    <!-- Demons Section -->
+    <div class="garysv1-demons-section">
+        <h4>{{localize "ldoa.headers.demons"}}</h4>
+        <div class="garysv1-magic-list">
+            {{#each demons as |demon id|}}
+            <div class="garysv1-demon-card">
+                <div class="garysv1-demon-header">
+                    <span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+                    <div class="garysv1-demon-actions">
+                        <i class="fas fa-fire ldoa-summon-demon-icon ldoa-action-icon" data-item="{{_id}}" title="{{localize 'ldoa.fields.titles.summonDemon'}}"></i>
+                        <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{_id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteDemon'}}"></i>
+                    </div>
+                </div>
+                <div class="garysv1-demon-description">
+                    <p>{{system.description}}</p>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>

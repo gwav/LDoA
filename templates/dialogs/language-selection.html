@@ -1,0 +1,44 @@
+<form autocomplete="off">
+    <div class="language-selection-content">
+        <p><strong>Select {{options.availableSlots}} language(s):</strong></p>
+        
+        <div class="language-selection-slots">
+            {{#times options.availableSlots}}
+            <div class="language-selection-slot">
+                <label>Language {{add @index 1}}:</label>
+                <select name="language_{{@index}}" class="language-select">
+                    <option value="">-- Select Language --</option>
+                    {{#each ../options.availableLanguages}}
+                    {{#unless (in ../options.automaticLanguages @key)}}
+                    <option value="{{@key}}">
+                        {{localize this}}
+                    </option>
+                    {{/unless}}
+                    {{/each}}
+                </select>
+                <div class="language-description" data-for="language_{{@index}}"></div>
+            </div>
+            {{/times}}
+        </div>
+        
+        {{#if options.automaticLanguages.length}}
+        <div class="automatic-languages-info">
+            <h4>Automatic Languages (already known):</h4>
+            <div class="automatic-languages-list">
+                {{#each options.automaticLanguages}}
+                <span class="automatic-language-tag">{{localize (concat "ldoa.languages." this ".name")}}</span>
+                {{/each}}
+            </div>
+        </div>
+        {{/if}}
+        
+        <div class="form-group">
+            <button type="submit" class="save-languages">
+                <i class="fas fa-save"></i> Save Selection
+            </button>
+            <button type="button" class="cancel-languages">
+                <i class="fas fa-times"></i> Cancel
+            </button>
+        </div>
+    </div>
+</form>

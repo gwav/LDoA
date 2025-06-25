@@ -1,0 +1,163 @@
+<section class="garysv1-abilities-section">
+    <div class="garysv1-abilities-header">
+        {{#if actor.system.creationMode}}
+            <h3>Attributes</h3>
+        {{else}}
+            <h3>Resolution</h3>
+        {{/if}}
+    </div>
+    
+    <div class="garysv1-abilities-list">
+        <!-- Strength -->
+        <div class="garysv1-ability-container">
+            <div class="garysv1-ability-row ldoa-attribute-roll-icon" data-actor="{{actor.id}}" data-attribute="strength" 
+                 title="{{#if actor.system.creationMode}}Roll for Strength (Character Creation){{else}}Roll Strength Resolution (Current: {{actor.system.calculated.strength}}, Beginning: {{actor.system.beginning.strength}}){{/if}}">
+                <input type="number" name="system.calculated.strength" value="{{actor.system.calculated.strength}}" 
+                       class="garysv1-ability-value" title="Current Strength Value" {{#if actor.system.creationMode}}readonly{{/if}} />
+                <span class="garysv1-ability-name">{{localize "ldoa.attributes.strength.long"}}</span>
+                <i class="fas fa-dice-d20 garysv1-ability-icon"></i>
+            </div>
+            {{#unless actor.system.creationMode}}
+            <div class="garysv1-ability-bonuses">
+                <div class="garysv1-bonus-box" title="Beginning Value">
+                    <input type="number" name="system.beginning.strength" value="{{actor.system.beginning.strength}}" class="garysv1-bonus-input" readonly />
+                </div>
+                <div class="garysv1-bonus-box" title="Creation Bonus">
+                    <input type="number" name="system.creationBonus.strength" value="{{actor.system.creationBonus.strength}}" class="garysv1-bonus-input" />
+                </div>
+                <div class="garysv1-bonus-box" title="In-Game Bonus (includes boons)">
+                    <input type="number" name="system.inGameBonus.strength" value="{{math actor.system.inGameBonus.strength '+' boonBonuses.strength}}" class="garysv1-bonus-input" />
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+
+        <!-- Dexterity -->
+        <div class="garysv1-ability-container">
+            <div class="garysv1-ability-row ldoa-attribute-roll-icon" data-actor="{{actor.id}}" data-attribute="dexterity" 
+                 title="{{#if actor.system.creationMode}}Roll for Dexterity (Character Creation){{else}}Roll Dexterity Resolution (Current: {{actor.system.calculated.dexterity}}, Beginning: {{actor.system.beginning.dexterity}}){{/if}}">
+                <input type="number" name="system.calculated.dexterity" value="{{actor.system.calculated.dexterity}}" 
+                       class="garysv1-ability-value" title="Current Dexterity Value" {{#if actor.system.creationMode}}readonly{{/if}} />
+                <span class="garysv1-ability-name">{{localize "ldoa.attributes.dexterity.long"}}</span>
+                <i class="fas fa-dice-d20 garysv1-ability-icon"></i>
+            </div>
+            {{#unless actor.system.creationMode}}
+            <div class="garysv1-ability-bonuses">
+                <div class="garysv1-bonus-box" title="Beginning Value">
+                    <input type="number" name="system.beginning.dexterity" value="{{actor.system.beginning.dexterity}}" class="garysv1-bonus-input" readonly />
+                </div>
+                <div class="garysv1-bonus-box" title="Creation Bonus">
+                    <input type="number" name="system.creationBonus.dexterity" value="{{actor.system.creationBonus.dexterity}}" class="garysv1-bonus-input" />
+                </div>
+                <div class="garysv1-bonus-box" title="In-Game Bonus (includes boons)">
+                    <input type="number" name="system.inGameBonus.dexterity" value="{{math actor.system.inGameBonus.dexterity '+' boonBonuses.dexterity}}" class="garysv1-bonus-input" />
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+
+        <!-- Constitution -->
+        <div class="garysv1-ability-container">
+            <div class="garysv1-ability-row ldoa-attribute-roll-icon" data-actor="{{actor.id}}" data-attribute="constitution" 
+                 title="{{#if actor.system.creationMode}}Roll for Constitution (Character Creation){{else}}Roll Constitution Resolution (Current: {{actor.system.calculated.constitution}}, Beginning: {{actor.system.beginning.constitution}}){{/if}}">
+                <input type="number" name="system.calculated.constitution" value="{{actor.system.calculated.constitution}}" 
+                       class="garysv1-ability-value" title="Current Constitution Value" {{#if actor.system.creationMode}}readonly{{/if}} />
+                <span class="garysv1-ability-name">{{localize "ldoa.attributes.constitution.long"}}</span>
+                <i class="fas fa-dice-d20 garysv1-ability-icon"></i>
+            </div>
+            {{#unless actor.system.creationMode}}
+            <div class="garysv1-ability-bonuses">
+                <div class="garysv1-bonus-box" title="Beginning Value">
+                    <input type="number" name="system.beginning.constitution" value="{{actor.system.beginning.constitution}}" class="garysv1-bonus-input" readonly />
+                </div>
+                <div class="garysv1-bonus-box" title="Creation Bonus">
+                    <input type="number" name="system.creationBonus.constitution" value="{{actor.system.creationBonus.constitution}}" class="garysv1-bonus-input" />
+                </div>
+                <div class="garysv1-bonus-box" title="In-Game Bonus (includes boons)">
+                    <input type="number" name="system.inGameBonus.constitution" value="{{math actor.system.inGameBonus.constitution '+' boonBonuses.constitution}}" class="garysv1-bonus-input" />
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+
+        <!-- Intelligence -->
+        <div class="garysv1-ability-container">
+            <div class="garysv1-ability-row ldoa-attribute-roll-icon" data-actor="{{actor.id}}" data-attribute="intelligence" 
+                 title="{{#if actor.system.creationMode}}Roll for Intelligence (Character Creation){{else}}Roll Intelligence Resolution (Current: {{actor.system.calculated.intelligence}}, Beginning: {{actor.system.beginning.intelligence}}){{/if}}">
+                <input type="number" name="system.calculated.intelligence" value="{{actor.system.calculated.intelligence}}" 
+                       class="garysv1-ability-value" title="Current Intelligence Value" {{#if actor.system.creationMode}}readonly{{/if}} />
+                <span class="garysv1-ability-name">{{localize "ldoa.attributes.intelligence.long"}}</span>
+                <i class="fas fa-dice-d20 garysv1-ability-icon"></i>
+            </div>
+            {{#unless actor.system.creationMode}}
+            <div class="garysv1-ability-bonuses">
+                <div class="garysv1-bonus-box" title="Beginning Value">
+                    <input type="number" name="system.beginning.intelligence" value="{{actor.system.beginning.intelligence}}" class="garysv1-bonus-input" readonly />
+                </div>
+                <div class="garysv1-bonus-box" title="Creation Bonus">
+                    <input type="number" name="system.creationBonus.intelligence" value="{{actor.system.creationBonus.intelligence}}" class="garysv1-bonus-input" />
+                </div>
+                <div class="garysv1-bonus-box" title="In-Game Bonus (includes boons)">
+                    <input type="number" name="system.inGameBonus.intelligence" value="{{math actor.system.inGameBonus.intelligence '+' boonBonuses.intelligence}}" class="garysv1-bonus-input" />
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+
+        <!-- Wisdom -->
+        <div class="garysv1-ability-container">
+            <div class="garysv1-ability-row ldoa-attribute-roll-icon" data-actor="{{actor.id}}" data-attribute="wisdom" 
+                 title="{{#if actor.system.creationMode}}Roll for Wisdom (Character Creation){{else}}Roll Wisdom Resolution (Current: {{actor.system.calculated.wisdom}}, Beginning: {{actor.system.beginning.wisdom}}){{/if}}">
+                <input type="number" name="system.calculated.wisdom" value="{{actor.system.calculated.wisdom}}" 
+                       class="garysv1-ability-value" title="Current Wisdom Value" {{#if actor.system.creationMode}}readonly{{/if}} />
+                <span class="garysv1-ability-name">{{localize "ldoa.attributes.wisdom.long"}}</span>
+                <i class="fas fa-dice-d20 garysv1-ability-icon"></i>
+            </div>
+            {{#unless actor.system.creationMode}}
+            <div class="garysv1-ability-bonuses">
+                <div class="garysv1-bonus-box" title="Beginning Value">
+                    <input type="number" name="system.beginning.wisdom" value="{{actor.system.beginning.wisdom}}" class="garysv1-bonus-input" readonly />
+                </div>
+                <div class="garysv1-bonus-box" title="Creation Bonus">
+                    <input type="number" name="system.creationBonus.wisdom" value="{{actor.system.creationBonus.wisdom}}" class="garysv1-bonus-input" />
+                </div>
+                <div class="garysv1-bonus-box" title="In-Game Bonus (includes boons)">
+                    <input type="number" name="system.inGameBonus.wisdom" value="{{math actor.system.inGameBonus.wisdom '+' boonBonuses.wisdom}}" class="garysv1-bonus-input" />
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+
+        <!-- Charisma -->
+        <div class="garysv1-ability-container">
+            <div class="garysv1-ability-row ldoa-attribute-roll-icon" data-actor="{{actor.id}}" data-attribute="charisma" 
+                 title="{{#if actor.system.creationMode}}Roll for Charisma (Character Creation){{else}}Roll Charisma Resolution (Current: {{actor.system.calculated.charisma}}, Beginning: {{actor.system.beginning.charisma}}){{/if}}">
+                <input type="number" name="system.calculated.charisma" value="{{actor.system.calculated.charisma}}" 
+                       class="garysv1-ability-value" title="Current Charisma Value" {{#if actor.system.creationMode}}readonly{{/if}} />
+                <span class="garysv1-ability-name">{{localize "ldoa.attributes.charisma.long"}}</span>
+                <i class="fas fa-dice-d20 garysv1-ability-icon"></i>
+            </div>
+            {{#unless actor.system.creationMode}}
+            <div class="garysv1-ability-bonuses">
+                <div class="garysv1-bonus-box" title="Beginning Value">
+                    <input type="number" name="system.beginning.charisma" value="{{actor.system.beginning.charisma}}" class="garysv1-bonus-input" readonly />
+                </div>
+                <div class="garysv1-bonus-box" title="Creation Bonus">
+                    <input type="number" name="system.creationBonus.charisma" value="{{actor.system.creationBonus.charisma}}" class="garysv1-bonus-input" />
+                </div>
+                <div class="garysv1-bonus-box" title="In-Game Bonus (includes boons)">
+                    <input type="number" name="system.inGameBonus.charisma" value="{{math actor.system.inGameBonus.charisma '+' boonBonuses.charisma}}" class="garysv1-bonus-input" />
+                </div>
+            </div>
+            {{/unless}}
+        </div>
+    </div>
+
+    <!-- Roll All Attributes Button -->
+    <div class="garysv1-roll-all-container">
+        <button type="button" class="garysv1-roll-all-button" data-actor="{{actor.id}}" 
+                title="Roll all attribute tests">
+            <i class="fas fa-dice-d20"></i> Roll All Attributes
+        </button>
+    </div>
+</section>

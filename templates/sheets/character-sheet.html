@@ -37,12 +37,12 @@
 				</div>
 
 				<div class="ldoa-field">
-					<label class="ldoa-label" for="system.doom">
-                        <i class="fas fa-dice-two ldoa-doom-roll-icon ldoa-action-icon" title="{{localize 'ldoa.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
-					    {{localize "ldoa.fields.labels.doomDie"}}
+					<label class="ldoa-label" for="system.stress">
+                        <i class="fas fa-dice-two ldoa-stress-roll-icon ldoa-action-icon" title="{{localize 'ldoa.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
+					    {{localize "ldoa.fields.labels.stressDie"}}
 					</label>
-					<select name="system.doom">
-						{{{selectOptions configuration.usageDieList selected=actor.system.doom localize=true }}}
+					<select name="system.stress">
+						{{{selectOptions configuration.usageDieList selected=actor.system.stress localize=true }}}
 					</select>
 				</div>
 			</div>

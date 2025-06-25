@@ -1,0 +1,93 @@
+<div class="ldoa-tab-body {{tabBodySelectionClass "boons"}}" data-tab="boons">
+    <div class="ldoa-tab-content">
+        <div class="ldoa-field-group">
+            <h2>{{localize "ldoa.headers.boons"}}</h2>
+            <p class="ldoa-help-text">{{localize "ldoa.blurbs.boons"}}</p>
+        </div>
+
+        <div class="ldoa-boons-container">
+            <div class="ldoa-boons-list">
+                {{#each boons as |boon id|}}
+                <div class="ldoa-boon-card">
+                    <div class="ldoa-boon-header">
+                        <div class="ldoa-boon-name">
+                            <span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+                        </div>
+                        <div class="ldoa-boon-power">
+                            <span class="ldoa-boon-power-badge ldoa-power-{{system.power}}">{{system.power}}</span>
+                        </div>
+                        <div class="ldoa-boon-actions">
+                            <i class="fas fa-info-circle ldoa-info-icon" data-content="{{system.description}}" title="{{localize 'ldoa.fields.titles.viewDescription'}}"></i>
+                            <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{_id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteBoon'}}"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="ldoa-boon-description">
+                        <p>{{system.description}}</p>
+                    </div>
+
+                    {{#if system.effects}}
+                    <div class="ldoa-boon-effects">
+                        <h4>{{localize "ldoa.fields.labels.effects"}}</h4>
+                        
+                        {{#if (hasAttributeEffects system.effects.attributes)}}
+                        <div class="ldoa-boon-attribute-effects">
+                            <strong>{{localize "ldoa.fields.labels.attributes"}}:</strong>
+                            {{#each system.effects.attributes as |value attribute|}}
+                                {{#if value}}
+                                    <span class="ldoa-attribute-effect">{{localize (concat "ldoa.fields.labels." attribute)}}: {{showBonus value}}</span>
+                                {{/if}}
+                            {{/each}}
+                        </div>
+                        {{/if}}
+
+                        {{#if system.effects.hitPoints}}
+                        <div class="ldoa-boon-effect">
+                            <strong>{{localize "ldoa.fields.labels.hitPoints"}}:</strong> {{showBonus system.effects.hitPoints}}
+                        </div>
+                        {{/if}}
+
+                        {{#if system.effects.initiative}}
+                        <div class="ldoa-boon-effect">
+                            <strong>{{localize "ldoa.fields.labels.initiative"}}:</strong> {{showBonus system.effects.initiative}}
+                        </div>
+                        {{/if}}
+
+                        {{#if system.effects.attackRolls}}
+                        <div class="ldoa-boon-effect">
+                            <strong>{{localize "ldoa.fields.labels.attackRolls"}}:</strong> {{showBonus system.effects.attackRolls}}
+                        </div>
+                        {{/if}}
+
+                        {{#if system.effects.damageRolls}}
+                        <div class="ldoa-boon-effect">
+                            <strong>{{localize "ldoa.fields.labels.damageRolls"}}:</strong> {{showBonus system.effects.damageRolls}}
+                        </div>
+                        {{/if}}
+
+                        {{#if system.effects.armorRating}}
+                        <div class="ldoa-boon-effect">
+                            <strong>{{localize "ldoa.fields.labels.armorRating"}}:</strong> {{showBonus system.effects.armorRating}}
+                        </div>
+                        {{/if}}
+
+                        {{#if system.effects.special}}
+                        <div class="ldoa-boon-effect">
+                            <strong>{{localize "ldoa.fields.labels.special"}}:</strong> {{system.effects.special}}
+                        </div>
+                        {{/if}}
+                    </div>
+                    {{/if}}
+                </div>
+                {{/each}}
+            </div>
+
+            {{#unless boons.length}}
+            <div class="ldoa-empty-state">
+                <p>{{localize "ldoa.messages.boons.noBoons"}}</p>
+                <p class="ldoa-help-text">{{localize "ldoa.messages.boons.dragBoonsFromCompendium"}}</p>
+            </div>
+            {{/unless}}
+        </div>
+    </div>
+</div>

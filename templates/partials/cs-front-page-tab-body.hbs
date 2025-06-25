@@ -84,13 +84,13 @@
                 <span class="collapsible-widget-icon"><i class="fas fa-minus"></i></span>
             </div>
             &nbsp;
-            {{localize "ldoa.headers.gifts"}}
+            {{localize "ldoa.headers.boons"}}
         </h2>
 
         <div class="collapsible-widget-target">
-            <div class="ldoa-gift-entries">
-            {{#each gifts as |gift id|}}
-              {{> "systems/lastdays/templates/partials/cs-gift-entry.hbs" gift}}
+            <div class="ldoa-boon-entries">
+            {{#each boons as |boon id|}}
+              {{> "systems/lastdays/templates/partials/cs-boon-entry.hbs" boon}}
             {{/each}}
             </div>
         </div>

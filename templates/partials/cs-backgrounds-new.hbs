@@ -1,0 +1,74 @@
+<div class="garysv1-background-choices">
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="barbarian" {{#if actor.system.background}}{{#eq actor.system.background "barbarian"}}checked{{/eq}}{{else}}checked{{/if}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Barbarian (Martial)</span>
+            <span class="garysv1-background-desc">Those that live outside of civilizations' restraints.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="knight" {{#eq actor.system.background "knight"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Knight (Martial)</span>
+            <span class="garysv1-background-desc">Those that uphold chivalry and civilization itself.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="mage" {{#eq actor.system.background "mage"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Mage (Arte)</span>
+            <span class="garysv1-background-desc">Those that study occult tomes and formulas to unleash magick into the world.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="priest" {{#eq actor.system.background "priest"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Priest (Arte)</span>
+            <span class="garysv1-background-desc">Those that bend knee to powerful gods, demigods and godlings for power.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="phenom" {{#eq actor.system.background "phenom"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Phenom (Martial)</span>
+            <span class="garysv1-background-desc">Those that stand separate and outside of the other backgrounds.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="promethean" {{#eq actor.system.background "promethean"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Promethean (Arte)</span>
+            <span class="garysv1-background-desc">Practitioners of Science, the newest magickal paradigm to come about on Evermore.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="psion" {{#eq actor.system.background "psion"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Psion (Arte)</span>
+            <span class="garysv1-background-desc">Those that either have blood of the True Atlanteans flowing in their veins or have come into contact with their artifacts to give them the power of psionics.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="rogue" {{#eq actor.system.background "rogue"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Rogue (Martial)</span>
+            <span class="garysv1-background-desc">Those that take on underhanded practices to get what they want, including assassination and stealing.</span>
+        </div>
+    </label>
+    <label class="garysv1-background-option">
+        <input type="radio" name="system.background" value="sandman" {{#eq actor.system.background "sandman"}}checked{{/eq}} class="garysv1-background-radio"/>
+        <div class="garysv1-background-content">
+            <span class="garysv1-background-label">Sandman (Arte)</span>
+            <span class="garysv1-background-desc">Those who have broken the barrier between the Waken World and the Dreamlands.</span>
+        </div>
+    </label>
+</div>
+
+<!-- Background Information Display -->
+<div class="garysv1-background-info">
+    <div class="garysv1-background-combined">
+        <div class="garysv1-background-content-all">
+            <!-- Combined background description and traits will be populated by JavaScript -->
+        </div>
+    </div>
+</div>

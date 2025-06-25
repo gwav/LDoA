@@ -1,0 +1,22 @@
+<div class="garysv1-saga-content">
+    <div class="garysv1-section-header">
+        <h3>{{localize "ldoa.fields.labels.stories"}}</h3>
+        <p class="garysv1-help-text">{{localize "ldoa.blurbs.stories"}}</p>
+    </div>
+
+    <!-- Stories List -->
+    <div class="garysv1-stories-section">
+        <div class="garysv1-stories-list">
+            {{#each actor.system.stories}}
+                {{> "systems/lastdays/templates/partials/cs-story-entry.hbs"}}
+            {{/each}}
+        </div>
+    </div>
+
+    {{#unless actor.system.stories.length}}
+    <div class="garysv1-empty-state">
+        <p>{{localize "ldoa.messages.stories.noStories"}}</p>
+        <p class="garysv1-help-text">{{localize "ldoa.messages.stories.dragStoriesFromCompendium"}}</p>
+    </div>
+    {{/unless}}
+</div>

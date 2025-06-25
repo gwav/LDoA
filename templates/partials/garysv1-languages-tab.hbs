@@ -1,0 +1,154 @@
+<div class="garysv1-languages-container">
+    <div class="garysv1-languages-header">
+        <div class="garysv1-languages-title-row">
+            <h3>Known Languages</h3>
+            <div class="garysv1-languages-counter-detail {{#if languageSlots.isOverLimit}}garysv1-languages-overlimit{{/if}}">
+                <span class="garysv1-languages-count-detail">{{languageSlots.used}}/{{languageSlots.total}} Slots Used</span>
+                {{#if languageSlots.isOverLimit}}
+                <span class="garysv1-languages-warning" title="Too many languages selected!">⚠️ Over Limit!</span>
+                {{else if (eq languageSlots.available 0)}}
+                <span class="garysv1-languages-status-full">All Slots Used</span>
+                {{else}}
+                <span class="garysv1-languages-status-available">{{languageSlots.available}} Available</span>
+                {{/if}}
+            </div>
+        </div>
+        <p class="garysv1-languages-note">All characters automatically know <strong>Thyrenian</strong> (the trade language).</p>
+        
+        <!-- Language Slot Sources -->
+        <div class="garysv1-language-sources">
+            <h4>Language Sources:</h4>
+            <ul class="garysv1-language-sources-list">
+                {{#each languageSlots.sources}}
+                <li class="garysv1-language-source-item">{{this}}</li>
+                {{/each}}
+            </ul>
+            
+            {{#if languageSlots.restrictions.length}}
+            <div class="garysv1-language-restrictions">
+                <h5>Language Selection Restrictions:</h5>
+                <p class="garysv1-language-restriction-note">
+                    Your background limits your language choices. Only languages from the allowed groups are shown in the selection dropdowns.
+                </p>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+    
+    <!-- Universal Language (Always Known) -->
+    <div class="garysv1-language-group">
+        <h4 class="garysv1-language-group-title">{{localize "ldoa.languages.groups.universal.name"}}</h4>
+        <div class="garysv1-language-item garysv1-language-known">
+            <span class="garysv1-language-name">{{localize "ldoa.languages.thyrenian.name"}}</span>
+            <span class="garysv1-language-description">{{localize "ldoa.languages.thyrenian.description"}}</span>
+            <span class="garysv1-language-status">Always Known</span>
+        </div>
+    </div>
+
+    <!-- Automatic Languages from Background -->
+    {{#if languageSlots.automaticLanguages.length}}
+    <div class="garysv1-language-group">
+        <h4 class="garysv1-language-group-title">Background Languages (Automatic)</h4>
+        {{#each languageSlots.automaticLanguages}}
+        <div class="garysv1-language-item garysv1-language-automatic">
+            <span class="garysv1-language-name">{{localize (languageLocalizePath "ldoa.languages" this "name")}}</span>
+            <span class="garysv1-language-description">{{localize (languageLocalizePath "ldoa.languages" this "description")}}</span>
+            <span class="garysv1-language-status">Background</span>
+        </div>
+        {{/each}}
+    </div>
+    {{/if}}
+
+    <!-- Known Languages Section -->
+    <div class="garysv1-known-languages">
+        <h4>Additional Known Languages</h4>
+        <div class="garysv1-languages-list">
+            {{#each actor.system.languages}}
+            {{#if this}}
+            <div class="garysv1-language-slot garysv1-language-filled">
+                <select name="system.languages.{{@index}}" class="garysv1-language-select">
+                    <option value="">-- Select Language --</option>
+                    {{#each ../availableLanguages}}
+                    <option value="{{@key}}" {{#eq this ../../this}}selected{{/eq}}>{{localize this}}</option>
+                    {{/each}}
+                </select>
+                <div class="garysv1-language-details">
+                    {{#if (lookup ../configuration.languagesList this)}}
+                    <span class="garysv1-language-description">{{localize (languageLocalizePath "ldoa.languages" this "description")}}</span>
+                    {{/if}}
+                </div>
+                <button type="button" class="garysv1-language-remove" data-index="{{@index}}" title="Remove Language">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            {{else}}
+            <div class="garysv1-language-slot garysv1-language-empty">
+                <select name="system.languages.{{@index}}" class="garysv1-language-select">
+                    <option value="">-- Select Language --</option>
+                    {{#each ../availableLanguages}}
+                    <option value="{{@key}}">{{localize this}}</option>
+                    {{/each}}
+                </select>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    <!-- Language Reference -->
+    <div class="garysv1-language-reference">
+        <h4>Language Reference</h4>
+        
+        <!-- Barbarian Tongues -->
+        <div class="garysv1-language-group">
+            <h5 class="garysv1-language-group-subtitle">{{localize "ldoa.languages.groups.barbarian.name"}}</h5>
+            <div class="garysv1-language-reference-list">
+                {{#each configuration.languageGroups.barbarian.languages}}
+                <div class="garysv1-language-reference-item">
+                    <strong>{{localize (languageLocalizePath "ldoa.languages" this "name")}}</strong>
+                    <span class="garysv1-language-reference-desc">{{localize (languageLocalizePath "ldoa.languages" this "description")}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <!-- Civilized Tongues -->
+        <div class="garysv1-language-group">
+            <h5 class="garysv1-language-group-subtitle">{{localize "ldoa.languages.groups.civilized.name"}}</h5>
+            <div class="garysv1-language-reference-list">
+                {{#each configuration.languageGroups.civilized.languages}}
+                <div class="garysv1-language-reference-item">
+                    <strong>{{localize (languageLocalizePath "ldoa.languages" this "name")}}</strong>
+                    <span class="garysv1-language-reference-desc">{{localize (languageLocalizePath "ldoa.languages" this "description")}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <!-- Decadent Tongues -->
+        <div class="garysv1-language-group">
+            <h5 class="garysv1-language-group-subtitle">{{localize "ldoa.languages.groups.decadent.name"}}</h5>
+            <div class="garysv1-language-reference-list">
+                {{#each configuration.languageGroups.decadent.languages}}
+                <div class="garysv1-language-reference-item">
+                    <strong>{{localize (languageLocalizePath "ldoa.languages" this "name")}}</strong>
+                    <span class="garysv1-language-reference-desc">{{localize (languageLocalizePath "ldoa.languages" this "description")}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+        <!-- Non-Human Tongues -->
+        <div class="garysv1-language-group">
+            <h5 class="garysv1-language-group-subtitle">{{localize "ldoa.languages.groups.nonhuman.name"}}</h5>
+            <div class="garysv1-language-reference-list">
+                {{#each configuration.languageGroups.nonhuman.languages}}
+                <div class="garysv1-language-reference-item">
+                    <strong>{{localize (languageLocalizePath "ldoa.languages" this "name")}}</strong>
+                    <span class="garysv1-language-reference-desc">{{localize (languageLocalizePath "ldoa.languages" this "description")}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>

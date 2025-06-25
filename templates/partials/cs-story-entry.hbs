@@ -24,12 +24,12 @@
 		</div>
 	{{/if}}
 
-	{{#if improvements.gift.granted}}
+	{{#if improvements.boon.granted}}
 	    <div class="ldoa-field">
-	    	<label class="ldoa-label">{{localize "ldoa.fields.labels.gift"}}</label>
-	    	<select name="system.stories.{{@key}}.improvements.gift.choice">
-    	{{#each configuration.giftList}}
-            {{{selectGiftOption ../improvements.gift.choice}}}
+	    	<label class="ldoa-label">{{localize "ldoa.fields.labels.boon"}}</label>
+	    	<select name="system.stories.{{@key}}.improvements.boon.choice">
+    	{{#each configuration.boonList}}
+            {{{selectBoonOption ../improvements.boon.choice}}}
     	{{/each}}
 	    	</select>
 	    </div>
@@ -59,10 +59,10 @@
 	    {{/if}}
 	{{/if}}
 
-	{{#if improvements.doomDie}}
+	{{#if improvements.stressDie}}
 	    <div>
-	    	<label class="ldoa-label">{{localize "ldoa.fields.labels.doomDieUpgrade"}}</label>
-	    	<div>1{{improvements.doomDie}}</div>
+	    	<label class="ldoa-label">{{localize "ldoa.fields.labels.stressDieUpgrade"}}</label>
+	    	<div>1{{improvements.stressDie}}</div>
 	    </div>
 	{{/if}}
 	</div>
