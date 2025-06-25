@@ -1,40 +1,53 @@
 {
-  "id": "lastdays",
-  "title": "Last Days of Atlantis",
-  "description": "System support for the Last Days of Atlantis RPG.",
-  "authors": [
+    "id": "lastdays",
+    "title": "Last Days of Atlantis",
+    "description": "System support for the Last Days of Atlantis RPG.",
+    "authors": [
         {
-            "name": "Peter Wood",
-            "url": "https://ko-fi.com/peterwood",
-            "ko-fi": "peterwood"
+            "name": "Gary Allgeier and Brian Scott"
         }
     ],
-  "version": "1.2.11",
-  "compatibility": {
-    "minimum": 12,
-    "verified": "12.325"
-  },
-  "esmodules": ["lastdays.js"],
-  "styles": ["lastdays.css"],
-  "languages": [
-  	{"lang": "en",
-     "name": "English",
-     "path": "languages/en.json"},
-    {"lang": "es",
-     "name": "Spanish",
-     "path": "languages/es.json"},
-    {"lang": "fr",
-     "name": "Français",
-     "path": "languages/fr.json"},
-    {"lang": "ru",
-     "name": "Russian",
-     "path": "languages/ru.json"}
-  ],
-  "url": "https://github.com/free-beer/lastdays",
-  "relationships": {
-    "systems": [],
-    "requires": []
-  },
-  "manifest": "https://raw.githubusercontent.com/free-beer/lastdays/master/system.json",
-  "download": "https://github.com/free-beer/lastdays/archive/refs/tags/v1.2.11.zip"
+    "version": "1.0.0",
+    "compatibility": {
+        "minimum": 13,
+        "verified": "13"
+    },
+    "esmodules": [ "lastdays.js" ],
+    "styles": [ "lastdays.css" ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "languages/en.json"
+        },
+        {
+            "lang": "es",
+            "name": "Spanish",
+            "path": "languages/es.json"
+        },
+        {
+            "lang": "fr",
+            "name": "Français",
+            "path": "languages/fr.json"
+        },
+        {
+            "lang": "ru",
+            "name": "Russian",
+            "path": "languages/ru.json"
+        }
+    ],
+    "packs": [
+        {
+            "name": "boons",
+            "label": "Boons",
+            "path": "packs/boons.db",
+            "type": "Item"
+        }
+    ],
+    "relationships": {
+        "systems": [],
+        "requires": []
+    },
+    "manifest": "https://raw.githubusercontent.com/gwav/LDoA/refs/heads/main/system.json",
+    "download": "https://github.com/gwav/LDoA/blob/main/archive/v1.ZIP"
 }

@@ -28,6 +28,553 @@
 	cursor: pointer;
 }
 
+/* Make d20 dice roll buttons more visible */
+.ldoa-attribute-roll-icon.fa-dice-d20 {
+	color: #4a90e2;
+	font-size: 16px;
+	margin-left: 8px;
+	padding: 2px;
+	border-radius: 3px;
+	transition: all 0.2s ease;
+}
+
+.ldoa-attribute-roll-icon.fa-dice-d20:hover {
+	color: #2171b5;
+	background-color: #f0f8ff;
+	transform: scale(1.1);
+}
+
+/* Garysv1 Attributes and Kin Container (Creation Mode Only) */
+.garysv1-attributes-kin-container {
+	display: flex;
+	gap: 20px;
+	margin: 15px 0;
+	grid-area: attributes;
+}
+
+.garysv1-attributes {
+	flex: none;
+	width: 300px;
+}
+
+.garysv1-backgrounds {
+	grid-area: backgrounds;
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+}
+
+.garysv1-backgrounds-title {
+	margin: 0 0 15px 0;
+	font-size: 18px;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 5px;
+}
+
+.garysv1-backgrounds-content {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.garysv1-backgrounds-content .ldoa-field {
+	margin-bottom: 10px;
+}
+
+.garysv1-backgrounds-content .ldoa-label {
+	font-weight: bold;
+	color: #333;
+	display: block;
+	margin-bottom: 4px;
+}
+
+.garysv1-backgrounds-content select,
+.garysv1-backgrounds-content .ldoa-select {
+	width: 100%;
+	padding: 4px 6px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	background-color: white;
+}
+
+/* Background radio button list styling */
+.garysv1-background-choices {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 15px;
+}
+
+.garysv1-background-option {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 8px 12px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	transition: all 0.2s;
+	background-color: #fafafa;
+}
+
+.garysv1-background-option:hover {
+	background-color: #f0f0f0;
+	border-color: #007acc;
+}
+
+.garysv1-background-radio {
+	margin-right: 12px;
+	cursor: pointer;
+	flex-shrink: 0;
+	display: inline-block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+	width: 15px !important;
+	height: 15px !important;
+	position: relative !important;
+	z-index: 9999 !important;
+	appearance: auto !important;
+	-webkit-appearance: radio !important;
+	-moz-appearance: radio !important;
+}
+
+.garysv1-background-content {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 8px;
+	flex: 1;
+}
+
+.garysv1-background-label {
+	cursor: pointer;
+	font-size: 14px;
+	font-weight: bold;
+	color: #007acc;
+	user-select: none;
+	flex-shrink: 0;
+	min-width: 140px;
+}
+
+.garysv1-background-desc {
+	cursor: pointer;
+	font-size: 12px;
+	color: #555;
+	line-height: 1.4;
+	user-select: none;
+}
+
+.garysv1-kin {
+	flex: 1;
+	min-width: 250px;
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+}
+
+.garysv1-kin-title {
+	margin: 0 0 15px 0;
+	font-size: 18px;
+	font-weight: bold;
+	color: #000;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.garysv1-kin-top-section {
+	display: flex;
+	gap: 5px;
+	margin-bottom: 15px;
+}
+
+.garysv1-kin-choices {
+	flex: 0 0 120px;
+	min-width: 120px;
+	max-width: 120px;
+}
+
+.garysv1-kin-traits {
+	flex: 1;
+	min-width: 300px;
+	border: 1px solid #ddd;
+	padding: 12px;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.garysv1-kin-traits-title {
+	margin: 0 0 10px 0;
+	font-size: 16px;
+	font-weight: bold;
+	color: #007acc;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 5px;
+}
+
+.garysv1-kin-traits-content {
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+.garysv1-kin-traits-content ul {
+	margin: 5px 0;
+	padding-left: 16px;
+}
+
+.garysv1-kin-traits-content li {
+	margin: 3px 0;
+	color: #555;
+}
+
+.garysv1-kin-traits-content li strong {
+	color: #007acc;
+	font-weight: bold;
+}
+
+.garysv1-kin-option {
+	display: block;
+	margin-bottom: 8px;
+	cursor: pointer;
+	user-select: none;
+	background: #f0f8ff;
+	padding: 8px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.garysv1-kin-radio {
+	margin-right: 8px;
+	cursor: pointer;
+	transition: opacity 0.1s ease;
+	display: inline-block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+	width: 15px !important;
+	height: 15px !important;
+	position: relative !important;
+	z-index: 9999 !important;
+	appearance: auto !important;
+	-webkit-appearance: radio !important;
+	-moz-appearance: radio !important;
+}
+
+/* Prevent visual flicker during form updates */  
+.garysv1-kin-option {
+	transition: all 0.1s ease;
+}
+
+.garysv1-kin-option:has(input:checked) {
+	opacity: 1;
+}
+
+.garysv1-kin-label {
+	font-weight: 500;
+	color: #444;
+}
+
+.garysv1-kin-option:hover .garysv1-kin-label {
+	color: #4a90e2;
+}
+
+.garysv1-kin-description {
+	border: 1px solid #ddd;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #fff;
+	min-height: 200px;
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.garysv1-kin-desc-content {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.garysv1-kin-desc-content strong {
+	color: #4a90e2;
+	font-size: 16px;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.garysv1-kin-desc-content p {
+	margin: 0 0 8px 0;
+	color: #555;
+}
+
+.garysv1-kin-desc-content p:last-child {
+	margin-bottom: 0;
+}
+
+.garysv1-kin-desc-content ul {
+	margin: 8px 0;
+	padding-left: 20px;
+}
+
+.garysv1-kin-desc-content li {
+	margin: 4px 0;
+	color: #555;
+	line-height: 1.4;
+}
+
+.garysv1-kin-desc-content li strong {
+	color: #007acc;
+	font-size: inherit;
+	display: inline;
+	margin: 0;
+}
+
+.garysv1-kin-desc-content em {
+	color: #999;
+	font-style: italic;
+}
+
+/* Background Information Display */
+.garysv1-background-info {
+	margin-top: 15px;
+}
+
+.garysv1-background-combined {
+	border: 1px solid #ddd;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #fff;
+	min-height: 100px;
+}
+
+.garysv1-background-content-all {
+	font-size: 14px;
+	line-height: 1.5;
+}
+
+.garysv1-background-content-all strong {
+	color: #4a90e2;
+	font-size: 16px;
+	display: block;
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+
+.garysv1-background-content-all p {
+	margin: 0 0 8px 0;
+	color: #555;
+}
+
+.garysv1-background-content-all p:last-child {
+	margin-bottom: 15px;
+}
+
+.garysv1-background-content-all h4 {
+	margin: 15px 0 10px 0;
+	font-size: 16px;
+	font-weight: bold;
+	color: #007acc;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 5px;
+}
+
+.garysv1-background-content-all ul {
+	margin: 5px 0;
+	padding-left: 16px;
+	font-size: 13px;
+	line-height: 1.4;
+}
+
+.garysv1-background-content-all li {
+	margin: 8px 0;
+	color: #555;
+	line-height: 1.5;
+}
+
+.garysv1-background-content-all li strong {
+	color: #007acc;
+	font-weight: bold;
+	display: inline;
+}
+
+/* Game Play Mode - Selected Only Displays */
+.garysv1-kin-selected {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	margin-bottom: 20px;
+}
+
+.garysv1-kin-display {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.garysv1-kin-selected-name {
+	text-align: center;
+	padding: 10px;
+	background-color: #e8f4f8;
+	border: 1px solid #007acc;
+	border-radius: 5px;
+}
+
+.garysv1-kin-selected-name strong {
+	color: #007acc;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.garysv1-kin-selected-content {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.garysv1-background-selected {
+	width: 100%;
+	border: 1px solid #ccc;
+	padding: 15px;
+	border-radius: 8px;
+	background-color: #f9f9f9;
+	margin-bottom: 20px;
+}
+
+.garysv1-background-display {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+.garysv1-background-selected-name {
+	text-align: center;
+	padding: 10px;
+	background-color: #e8f4f8;
+	border: 1px solid #007acc;
+	border-radius: 5px;
+}
+
+.garysv1-background-selected-name strong {
+	color: #007acc;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.garysv1-background-selected-content {
+	border: 1px solid #ddd;
+	padding: 15px;
+	border-radius: 5px;
+	background-color: #fff;
+	min-height: 100px;
+}
+
+/* Game Play Mode - Full Width Attributes Section */
+.garysv1-attributes-full {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+/* Game Play Mode - Horizontal Attributes Layout */
+.garysv1-gameplay-mode .garysv1-abilities-list {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 15px;
+	margin-bottom: 15px;
+}
+
+.garysv1-gameplay-mode .garysv1-ability-row {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 8px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background-color: #f9f9f9;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.garysv1-gameplay-mode .garysv1-ability-row:hover {
+	background-color: #e6f3ff;
+	border-color: #007acc;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 122, 204, 0.2);
+}
+
+.garysv1-gameplay-mode .garysv1-ability-value {
+	font-size: 24px;
+	font-weight: bold;
+	color: #007acc;
+	border: 2px solid #007acc;
+	border-radius: 5px;
+	padding: 8px 12px;
+	background-color: white;
+	min-width: 50px;
+	text-align: center;
+}
+
+.garysv1-gameplay-mode .garysv1-ability-name {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	text-align: center;
+}
+
+.garysv1-gameplay-mode .garysv1-ability-icon {
+	color: #007acc;
+	font-size: 16px;
+	margin-top: 4px;
+}
+
+/* Hide Roll All Attributes button in Game Play mode */
+.garysv1-gameplay-mode .garysv1-roll-all-container {
+	display: none;
+}
+
+/* Resolution Roll Dialog Styling */
+.resolution-roll-dialog {
+	padding: 10px;
+}
+
+.resolution-roll-dialog h3 {
+	margin: 0 0 10px 0;
+	color: #007acc;
+	font-size: 18px;
+}
+
+.resolution-roll-dialog p {
+	margin: 5px 0;
+	line-height: 1.4;
+}
+
+.roll-options {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.roll-type, .roll-modifier {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.roll-type label, .roll-modifier label {
+	font-weight: bold;
+	min-width: 80px;
+}
+
+.roll-type select, .roll-modifier input {
+	flex: 1;
+	padding: 4px 6px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+}
+
 .ldoa-background-form {
 	margin: 0 5px;
 	position: relative;
@@ -299,7 +846,7 @@
 	color: #aaa;
 }
 
-.ldoa-doomed-notice {
+.ldoa-stressed-notice {
 }
 
 .ldoa-enlarged-input {
@@ -358,18 +905,497 @@
 	font-size: 1.4em;
 }
 
-.ldoa-gift-body {
+.ldoa-boon-body {
 	display: grid;
 	grid-template-columns: 128px auto;
 	grid-gap: 5px 10px;
 }
 
-.ldoa-gift-entries {
+.ldoa-boon-entries {
 	display: grid;
 	font-size: 1.1em;
 	gap: 5px 3px;
 	grid-template-columns: auto 100px 50px;
 	margin-bottom: 20px;	
+}
+
+/* ===== GARYSV1 CHARACTER SHEET STYLES ===== */
+
+.garysv1-character-sheet {
+    min-height: 600px;
+}
+
+/* Fixed Header Section */
+.garysv1-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 2px solid #ccc;
+    background-color: #f9f9f9;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.garysv1-character-name {
+    flex: 1;
+}
+
+.garysv1-name-input {
+    font-size: 1.5em;
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    color: #333;
+    min-width: 200px;
+}
+
+.garysv1-name-input:focus {
+    outline: 1px solid #007acc;
+    background-color: white;
+    border-radius: 3px;
+    padding: 2px 5px;
+}
+
+.garysv1-player-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.garysv1-player-label {
+    font-weight: bold;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.garysv1-player-input {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    border-radius: 3px;
+    min-width: 120px;
+}
+
+.garysv1-player-input:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 3px rgba(0, 122, 204, 0.3);
+}
+
+/* Main Content Area */
+.garysv1-main-content {
+    padding: 15px;
+}
+
+/* Mode Selector */
+.garysv1-mode-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Centered Character Image */
+.garysv1-character-image-center {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.garysv1-character-image-center .garysv1-portrait {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    border: 2px solid #007acc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.garysv1-character-image-center .garysv1-portrait:hover {
+    border-color: #2171b5;
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 122, 204, 0.3);
+}
+
+.garysv1-mode-button {
+    padding: 8px 20px;
+    border: 2px solid #007acc;
+    background-color: white;
+    color: #007acc;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.garysv1-mode-button:hover {
+    background-color: #f0f8ff;
+}
+
+.garysv1-mode-button.garysv1-mode-active {
+    background-color: #007acc;
+    color: white;
+}
+
+.garysv1-hidden {
+    display: none;
+}
+
+/* Creation Mode Layout */
+.garysv1-creation-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "attributes"
+        "backgrounds";
+    gap: 15px;
+}
+
+/* Game Play Mode Layout */
+.garysv1-gameplay-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+        "stats"
+        "attributes"
+        "persona";
+    gap: 15px;
+}
+
+.garysv1-rest-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.garysv1-game-stats {
+    grid-area: stats;
+    display: grid;
+    grid-template-columns: auto auto 1fr auto;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+/* HP Field Styling - Centered */
+.garysv1-hp-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+}
+
+.garysv1-hp-centered {
+    justify-self: center;
+    margin-left: -100px;
+}
+
+.garysv1-hp-display {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.garysv1-hp-display input {
+    width: 50px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px;
+}
+
+.garysv1-hp-separator {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.garysv1-hp-max {
+    font-weight: bold;
+    color: #333;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Armor Field Styling */
+.garysv1-armor-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 180px;
+}
+
+.garysv1-armor-display {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.garysv1-armor-select {
+    min-width: 140px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px;
+    font-size: 12px;
+}
+
+.garysv1-armor-value {
+    font-weight: bold;
+    color: #333;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 8px;
+    min-width: 25px;
+    text-align: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+/* Right Stats Container */
+.garysv1-right-stats {
+    display: flex;
+    gap: 20px;
+    justify-self: end;
+}
+
+.garysv1-level-field,
+.garysv1-stress-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+/* Abilities Section Styling */
+.garysv1-abilities-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.garysv1-abilities-header h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+}
+
+.garysv1-abilities-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+/* Creation Mode - Vertical Attributes Layout */
+.garysv1-creation-mode .garysv1-ability-row {
+    display: grid;
+    grid-template-columns: 1fr 80px 50px;
+    gap: 5px;
+    align-items: center;
+    padding: 3px 0;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.garysv1-creation-mode .garysv1-ability-row:hover {
+    background-color: #f0f8ff;
+}
+
+.garysv1-creation-mode .garysv1-ability-icon {
+    color: #007acc;
+    font-size: 18px;
+    justify-self: center;
+}
+
+.garysv1-creation-mode .garysv1-ability-name {
+    font-weight: bold;
+    color: #333;
+    justify-self: start;
+}
+
+.garysv1-creation-mode .garysv1-ability-name::after {
+    content: ":";
+}
+
+.garysv1-ability-value {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px 8px;
+    background-color: white;
+    font-weight: bold;
+}
+
+/* In Creation Mode - prevent input clicks */
+.garysv1-creation-mode .garysv1-ability-value {
+    pointer-events: none;
+}
+
+/* In Game Play Mode - allow editing but style differently */
+.garysv1-gameplay-mode .garysv1-ability-value {
+    background-color: #f8f9fa;
+    border-color: #007acc;
+    cursor: text;
+    pointer-events: auto;
+}
+
+/* Visual indicator for modified values */
+.garysv1-gameplay-mode .garysv1-ability-value:focus {
+    background-color: #e6f3ff;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.25);
+}
+
+.garysv1-ability-value:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 3px rgba(0, 122, 204, 0.3);
+}
+
+.garysv1-roll-button {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    padding: 6px 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.garysv1-roll-button:hover {
+    background-color: #005999;
+}
+
+.garysv1-roll-button:active {
+    background-color: #004477;
+}
+
+.garysv1-roll-all-container {
+    text-align: center;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.garysv1-roll-all-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.garysv1-roll-all-button:hover {
+    background-color: #218838;
+}
+
+.garysv1-roll-all-button:active {
+    background-color: #1e7e34;
+}
+
+/* Roll All Results Styling */
+.garysv1-roll-all-results h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+    text-align: center;
+}
+
+.garysv1-results-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.garysv1-result-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 3px 5px;
+    border-bottom: 1px solid #eee;
+}
+
+.garysv1-result-row:last-child {
+    border-bottom: none;
+}
+
+.garysv1-result-attribute {
+    font-weight: bold;
+}
+
+.garysv1-result-roll {
+    font-family: monospace;
+    color: #666;
+}
+
+.garysv1-result-total {
+    font-weight: bold;
+    color: #007acc;
+}
+
+.garysv1-tab-container {
+    grid-area: tabs;
+}
+
+/* Form Elements */
+.garysv1-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #333;
+}
+
+.garysv1-input {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+.garysv1-input:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 3px rgba(0, 122, 204, 0.3);
+}
+
+.garysv1-centered-input {
+    text-align: center;
+    width: 60px;
+}
+
+.garysv1-select {
+    border: 1px solid #ddd;
+    padding: 4px 8px;
+    border-radius: 3px;
+    background-color: white;
+}
+
+.garysv1-select:focus {
+    outline: none;
+    border-color: #007acc;
+    box-shadow: 0 0 3px rgba(0, 122, 204, 0.3);
 }
 
 .ldoa-greyed-out {
@@ -705,4 +1731,1288 @@
 
 input, select {
 	background-color: #fff !important;
+}
+
+/* Persona Box for Game Play Mode */
+.garysv1-persona-box {
+    grid-area: persona;
+    border: 1px solid #dee2e6;
+    padding: 12px;
+    border-radius: 6px;
+    background-color: #f8f9fa;
+    flex: 1;
+    min-width: 200px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.garysv1-persona-title {
+    margin: 0 0 8px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 4px;
+}
+
+.garysv1-persona-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.garysv1-persona-line {
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.garysv1-persona-label {
+    font-weight: bold;
+    color: #333;
+    min-width: 80px;
+}
+
+.garysv1-persona-value {
+    color: #007acc;
+    font-weight: bold;
+}
+
+/* Origins Section for Character Creation */
+.garysv1-origins {
+    width: 100%;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px;
+}
+
+.garysv1-origins-title {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.garysv1-origins-intro {
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #007acc;
+    text-align: center;
+}
+
+.garysv1-origins-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Origin Type Selection */
+.garysv1-origins-types {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.garysv1-origin-type-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.2s;
+    background-color: #fafafa;
+    font-weight: bold;
+}
+
+.garysv1-origin-type-option:hover {
+    background-color: #e6f3ff;
+    border-color: #007acc;
+}
+
+.garysv1-origin-type-option:has(input:checked) {
+    background-color: #007acc;
+    border-color: #005a8b;
+    color: white;
+}
+
+.garysv1-origin-type-radio {
+    margin-right: 8px;
+    cursor: pointer;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 15px !important;
+    height: 15px !important;
+    position: relative !important;
+    z-index: 9999 !important;
+    appearance: auto !important;
+    -webkit-appearance: radio !important;
+    -moz-appearance: radio !important;
+}
+
+.garysv1-origin-type-label {
+    cursor: pointer;
+    font-size: 14px;
+    user-select: none;
+}
+
+/* Origins List */
+.garysv1-origins-list {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 15px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.garysv1-origin-group {
+    display: block;
+}
+
+.garysv1-origin-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.garysv1-origin-option {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.2s;
+    background-color: #fafafa;
+    gap: 8px;
+}
+
+.garysv1-origin-option:hover {
+    background-color: #f0f0f0;
+    border-color: #007acc;
+}
+
+.garysv1-origin-option:has(input:checked) {
+    background-color: #e8f4f8;
+    border-color: #007acc;
+}
+
+.garysv1-origin-radio {
+    margin-top: 2px;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 15px !important;
+    height: 15px !important;
+    position: relative !important;
+    z-index: 9999 !important;
+    appearance: auto !important;
+    -webkit-appearance: radio !important;
+    -moz-appearance: radio !important;
+}
+
+.garysv1-origin-number {
+    font-weight: bold;
+    color: #666;
+    min-width: 25px;
+    flex-shrink: 0;
+}
+
+.garysv1-origin-text {
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.4;
+    user-select: none;
+    flex: 1;
+}
+
+/* Hidden class for switching between origin types */
+.garysv1-hidden {
+    display: none !important;
+}
+
+/* Attribute Bonus Boxes for Game Play Mode */
+.garysv1-ability-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.garysv1-ability-bonuses {
+    display: flex;
+    gap: 4px;
+    justify-content: center;
+    margin-top: 4px;
+    padding: 0 5px;
+}
+
+.garysv1-bonus-box {
+    flex: 1;
+    min-width: 30px;
+}
+
+.garysv1-boon-box {
+    background-color: #e8f4fd;
+    border: 1px solid #4a90e2;
+    border-radius: 3px;
+}
+
+.garysv1-boon-display {
+    display: block;
+    width: 100%;
+    height: 20px;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    color: #2171b5;
+    background-color: transparent;
+}
+
+.garysv1-bonus-input {
+    width: 100%;
+    height: 20px;
+    font-size: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background-color: #f9f9f9;
+    padding: 1px;
+    font-weight: bold;
+    color: #666;
+}
+
+.garysv1-bonus-input:focus {
+    outline: none;
+    border-color: #007acc;
+    background-color: #fff;
+}
+
+.garysv1-bonus-input[readonly] {
+    background-color: #e9e9e9;
+    color: #555;
+    cursor: default;
+}
+
+.garysv1-bonus-input:not([readonly]):not(:focus):not([value="0"]) {
+    background-color: #e8f4f8;
+    border-color: #007acc;
+}
+
+/* ==========================================================================
+   BOONS TAB STYLES
+   ========================================================================== */
+
+.ldoa-boons-container {
+    padding: 10px;
+}
+
+.ldoa-boons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.ldoa-boon-card {
+    border: 2px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ldoa-boon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ldoa-boon-name {
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.ldoa-boon-power {
+    margin: 0 10px;
+}
+
+.ldoa-boon-power-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.ldoa-boon-power-badge.ldoa-power-anyone {
+    background-color: #7e57c2; /* Purple */
+}
+
+.ldoa-boon-power-badge.ldoa-power-arte {
+    background-color: #4a90e2; /* Blue */
+}
+
+.ldoa-boon-power-badge.ldoa-power-martial {
+    background-color: #e74c3c; /* Red */
+}
+
+.ldoa-boon-power-badge.ldoa-power-blooded {
+    background-color: #8b0000; /* Dark Red */
+}
+
+.ldoa-boon-power-badge.ldoa-power-human {
+    background-color: #f39c12; /* Orange */
+}
+
+.ldoa-boon-power-badge.ldoa-power-manikin {
+    background-color: #27ae60; /* Green */
+}
+
+.ldoa-boon-power-badge.ldoa-power-trickster {
+    background-color: #9b59b6; /* Purple */
+}
+
+.ldoa-boon-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.ldoa-boon-description {
+    margin: 10px 0;
+    padding: 8px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.ldoa-boon-effects {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f0f8ff;
+    border-radius: 4px;
+    border-left: 4px solid #4a90e2;
+}
+
+.ldoa-boon-effects h4 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.ldoa-boon-effect,
+.ldoa-boon-attribute-effects {
+    margin: 4px 0;
+    font-size: 0.9em;
+}
+
+.ldoa-attribute-effect {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 2px 6px;
+    background-color: #e8f4f8;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.ldoa-empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.ldoa-empty-state p {
+    margin: 8px 0;
+}
+
+.ldoa-help-text {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   GARYSV1 TAB SYSTEM FOR GAMEPLAY MODE
+   ========================================================================== */
+
+.garysv1-tab-navigation {
+    display: flex;
+    background-color: #f5f5f5;
+    border-bottom: 2px solid #ddd;
+    margin: 10px 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.garysv1-tab-label {
+    flex: 1;
+    padding: 12px 16px;
+    background-color: #e9e9e9;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+    transition: all 0.3s ease;
+    border-right: 1px solid #ddd;
+    position: relative;
+}
+
+.garysv1-tab-label:first-child {
+    border-radius: 8px 0 0 0;
+}
+
+.garysv1-tab-label:last-child {
+    border-right: none;
+    border-radius: 0 8px 0 0;
+}
+
+.garysv1-tab-label:hover {
+    background-color: #d5d5d5;
+    color: #333;
+}
+
+.garysv1-tab-label.garysv1-tab-active {
+    background-color: #4a90e2;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.garysv1-tab-label.garysv1-tab-active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: #4a90e2;
+}
+
+.garysv1-tab-content {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+    min-height: 400px;
+}
+
+.garysv1-tab-panel {
+    padding: 20px;
+    display: none;
+}
+
+.garysv1-tab-panel.garysv1-tab-active {
+    display: block;
+}
+
+/* Section Headers */
+.garysv1-section-header {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9e9e9;
+}
+
+.garysv1-section-header h3 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+    font-size: 1.3em;
+}
+
+.garysv1-help-text {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Boons Tab Specific Styles */
+.garysv1-boons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.garysv1-boon-card {
+    border: 2px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.garysv1-boon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.garysv1-boon-name {
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.garysv1-boon-power {
+    margin: 0 10px;
+}
+
+.garysv1-boon-power-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.garysv1-boon-power-badge.garysv1-power-anyone {
+    background-color: #7e57c2; /* Purple */
+}
+
+.garysv1-boon-power-badge.garysv1-power-arte {
+    background-color: #4a90e2; /* Blue */
+}
+
+.garysv1-boon-power-badge.garysv1-power-martial {
+    background-color: #e74c3c; /* Red */
+}
+
+.garysv1-boon-power-badge.garysv1-power-blooded {
+    background-color: #8b0000; /* Dark Red */
+}
+
+.garysv1-boon-power-badge.garysv1-power-human {
+    background-color: #f39c12; /* Orange */
+}
+
+.garysv1-boon-power-badge.garysv1-power-manikin {
+    background-color: #27ae60; /* Green */
+}
+
+.garysv1-boon-power-badge.garysv1-power-trickster {
+    background-color: #9b59b6; /* Purple */
+}
+
+.garysv1-boon-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Summary Row Layout */
+.garysv1-summary-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+/* Languages Summary Box (Overview Tab) */
+.garysv1-languages-summary-box {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 200px;
+}
+
+.garysv1-languages-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 4px;
+}
+
+.garysv1-languages-summary-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.garysv1-languages-title-clickable {
+    cursor: pointer;
+    color: #3498db !important;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.garysv1-languages-title-clickable:hover {
+    color: #2980b9 !important;
+    text-decoration: underline;
+}
+
+.garysv1-languages-title-clickable i {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.garysv1-languages-counter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.garysv1-languages-count {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 0.9em;
+}
+
+.garysv1-languages-overlimit .garysv1-languages-count {
+    color: #e74c3c;
+}
+
+.garysv1-languages-warning {
+    color: #e74c3c;
+    font-size: 0.8em;
+}
+
+.garysv1-languages-summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.garysv1-language-summary-line {
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.garysv1-language-summary-universal {
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.garysv1-language-summary-universal:before {
+    content: "✓ ";
+    color: #27ae60;
+    font-weight: bold;
+}
+
+.garysv1-language-summary-automatic {
+    color: #3498db;
+    font-weight: bold;
+}
+
+.garysv1-language-summary-automatic:before {
+    content: "★ ";
+    color: #3498db;
+    font-weight: bold;
+}
+
+.garysv1-language-summary-name {
+    color: #2c3e50;
+}
+
+.garysv1-language-summary-name:before {
+    content: "• ";
+    color: #3498db;
+    font-weight: bold;
+}
+
+.garysv1-language-summary-empty {
+    font-style: italic;
+    color: #7f8c8d;
+    font-size: 0.85em;
+}
+
+.garysv1-language-summary-note {
+    color: #95a5a6;
+}
+
+/* Languages Tab Styles */
+.garysv1-languages-container {
+    padding: 15px;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.garysv1-languages-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.garysv1-languages-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 5px;
+}
+
+.garysv1-languages-counter-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.garysv1-languages-count-detail {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 0.9em;
+}
+
+.garysv1-languages-overlimit .garysv1-languages-count-detail {
+    color: #e74c3c;
+}
+
+.garysv1-languages-status-available {
+    color: #27ae60;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.garysv1-languages-status-full {
+    color: #f39c12;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.garysv1-language-sources {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #ecf0f1;
+    border-radius: 4px;
+    border-left: 4px solid #3498db;
+}
+
+.garysv1-language-sources h4 {
+    margin: 0 0 8px 0;
+    font-size: 0.9em;
+    color: #2c3e50;
+}
+
+.garysv1-language-sources-list {
+    margin: 0;
+    padding-left: 20px;
+    list-style-type: disc;
+}
+
+.garysv1-language-source-item {
+    font-size: 0.85em;
+    color: #34495e;
+    margin-bottom: 2px;
+}
+
+.garysv1-language-restrictions {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #bdc3c7;
+}
+
+.garysv1-language-restrictions h5 {
+    margin: 0 0 5px 0;
+    font-size: 0.9em;
+    color: #e74c3c;
+}
+
+.garysv1-language-restriction-note {
+    font-size: 0.8em;
+    color: #e74c3c;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Language Selection Dialog Styles */
+.language-selection-dialog .language-selection-content {
+    padding: 10px;
+}
+
+.language-selection-dialog .language-selection-slots {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.language-selection-dialog .language-selection-slot {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.language-selection-dialog .language-selection-slot label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.language-selection-dialog .language-select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.language-selection-dialog .language-description {
+    font-size: 0.9em;
+    color: #666;
+    font-style: italic;
+    min-height: 20px;
+    padding: 5px;
+    background-color: #f8f9fa;
+    border-radius: 3px;
+    border-left: 3px solid #3498db;
+}
+
+.language-selection-dialog .automatic-languages-info {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #dee2e6;
+}
+
+.language-selection-dialog .automatic-languages-info h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 0.9em;
+}
+
+.language-selection-dialog .automatic-languages-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.language-selection-dialog .automatic-language-tag {
+    background-color: #3498db;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.garysv1-languages-note {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+    background-color: #ecf0f1;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border-left: 4px solid #3498db;
+}
+
+.garysv1-language-group {
+    margin-bottom: 20px;
+}
+
+.garysv1-language-group-title {
+    font-size: 1.1em;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.garysv1-language-group-subtitle {
+    font-size: 1em;
+    color: #34495e;
+    margin: 15px 0 8px 0;
+    font-weight: bold;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 3px;
+}
+
+.garysv1-language-item {
+    padding: 8px 12px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.garysv1-language-known {
+    background-color: #d5f4e6;
+    border: 1px solid #27ae60;
+}
+
+.garysv1-language-automatic {
+    background-color: #e3f2fd;
+    border: 1px solid #3498db;
+}
+
+.garysv1-language-name {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.garysv1-language-description {
+    font-size: 0.9em;
+    color: #7f8c8d;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.garysv1-language-status {
+    font-size: 0.8em;
+    color: #27ae60;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.garysv1-known-languages h4 {
+    color: #2c3e50;
+    margin: 20px 0 10px 0;
+    border-bottom: 1px solid #bdc3c7;
+    padding-bottom: 5px;
+}
+
+.garysv1-languages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.garysv1-language-slot {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+.garysv1-language-filled {
+    border-color: #3498db;
+    background-color: #f8f9ff;
+}
+
+.garysv1-language-empty {
+    border-color: #ecf0f1;
+    background-color: #fafafa;
+}
+
+.garysv1-language-select {
+    flex: 0 0 200px;
+    padding: 4px 8px;
+    border: 1px solid #bdc3c7;
+    border-radius: 3px;
+    font-size: 0.9em;
+}
+
+.garysv1-language-details {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.garysv1-language-remove {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.garysv1-language-remove:hover {
+    background: #c0392b;
+}
+
+.garysv1-language-reference {
+    margin-top: 30px;
+    border-top: 2px solid #ecf0f1;
+    padding-top: 20px;
+}
+
+.garysv1-language-reference h4 {
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+}
+
+.garysv1-language-reference-list {
+    display: grid;
+    gap: 8px;
+}
+
+.garysv1-language-reference-item {
+    padding: 6px 10px;
+    background-color: #f8f9fa;
+    border-radius: 3px;
+    border-left: 3px solid #3498db;
+}
+
+.garysv1-language-reference-item strong {
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.garysv1-language-reference-desc {
+    font-size: 0.85em;
+    color: #6c757d;
+    line-height: 1.3;
+}
+
+.garysv1-boon-description {
+    margin: 10px 0;
+    padding: 8px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    font-style: italic;
+    line-height: 1.4;
+}
+
+.garysv1-boon-effects {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f0f8ff;
+    border-radius: 4px;
+    border-left: 4px solid #4a90e2;
+}
+
+.garysv1-boon-effects h4 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.garysv1-boon-effect,
+.garysv1-boon-attribute-effects {
+    margin: 4px 0;
+    font-size: 0.9em;
+}
+
+.garysv1-attribute-effect {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 2px 6px;
+    background-color: #e8f4f8;
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
+.garysv1-empty-state {
+    text-align: center;
+    padding: 40px;
+    color: #666;
+}
+
+.garysv1-empty-state p {
+    margin: 8px 0;
+}
+
+/* Equipment Tab Styles */
+.garysv1-equipment-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.garysv1-wealth-section,
+.garysv1-weapons-section,
+.garysv1-equipment-section,
+.garysv1-consumables-section {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #fafafa;
+}
+
+.garysv1-wealth-section h4,
+.garysv1-weapons-section h4,
+.garysv1-equipment-section h4,
+.garysv1-consumables-section h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+.garysv1-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.garysv1-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: white;
+    border-radius: 4px;
+    border: 1px solid #e9e9e9;
+}
+
+.garysv1-coins-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.garysv1-coin-input {
+    flex: 1;
+    min-width: 60px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* Magic Tab Styles */
+.garysv1-magic-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.garysv1-spell-card,
+.garysv1-spirit-card,
+.garysv1-demon-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 12px;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+}
+
+.garysv1-spell-header,
+.garysv1-spirit-header,
+.garysv1-demon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.garysv1-spell-actions,
+.garysv1-spirit-actions,
+.garysv1-demon-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.garysv1-spell-description,
+.garysv1-spirit-description,
+.garysv1-demon-description {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* Saga Tab Styles */
+.garysv1-saga-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.garysv1-story-card {
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 12px;
+    background-color: #fafafa;
+    margin-bottom: 10px;
+}
+
+.garysv1-story-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.garysv1-story-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.garysv1-story-description {
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   BOON EFFECTS EDITING INTERFACE
+   ========================================================================== */
+
+.ldoa-effects-section {
+    margin: 15px 0;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.ldoa-effects-section h4 {
+    margin: 0 0 10px 0;
+    color: #2c3e50;
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 4px;
+}
+
+.ldoa-attribute-effects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ldoa-other-effects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.ldoa-effect-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.ldoa-effect-field .ldoa-label {
+    font-size: 11px;
+    color: #666;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.ldoa-effect-field .ldoa-input {
+    padding: 4px 6px;
+    font-size: 12px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.ldoa-centered-input {
+    text-align: center;
 }
